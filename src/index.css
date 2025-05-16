@@ -40,6 +40,7 @@ address {
 button {
 	cursor: pointer;
 	padding: 0;
+	line-height: 0;
 }
 
 img {

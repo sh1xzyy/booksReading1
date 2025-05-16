@@ -1,12 +1,14 @@
-import { Suspense } from 'react'
+import { lazy, Suspense } from 'react'
 import './App.css'
 import Loader from '../Loader/Loader'
 import { Route, Routes } from 'react-router-dom'
-import HomePage from '../../pages/HomePage/HomePage'
-import LibraryPage from '../../pages/LibraryPage/LibraryPage'
-import StatisticsPage from '../../pages/StatisticsPage/StatisticsPage'
-import LoginPage from '../../pages/LoginPage/LoginPage'
-import RegisterPage from '../../pages/RegisterPage/RegisterPage'
+const HomePage = lazy(() => import('../../pages/HomePage/HomePage'))
+const LibraryPage = lazy(() => import('../../pages/LibraryPage/LibraryPage'))
+const StatisticsPage = lazy(() =>
+	import('../../pages/StatisticsPage/StatisticsPage')
+)
+const LoginPage = lazy(() => import('../../pages/LoginPage/LoginPage'))
+const RegisterPage = lazy(() => import('../../pages/RegisterPage/RegisterPage'))
 
 function App() {
 	return (
