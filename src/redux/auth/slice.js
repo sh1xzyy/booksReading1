@@ -1,5 +1,5 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit'
-import { registerThunk } from './operations'
+import { loginThunk, refreshThunk, registerThunk } from './operations'
 
 const initialState = {
 	userData: {
@@ -13,6 +13,8 @@ const initialState = {
 	refreshToken: null,
 	sid: null,
 	isLoading: false,
+	isLoggedIn: false,
+	isRefreshing: false,
 }
 
 const authSlice = createSlice({
@@ -25,12 +27,41 @@ const authSlice = createSlice({
 				state.userData.email = action.payload.email
 				state.isLoading = false
 			})
-			.addMatcher(isAnyOf(registerThunk.pending), state => {
-				state.isLoading = true
+			.addCase(loginThunk.fulfilled, (state, action) => {
+				state.userData = action.payload.userData
+				state.accessToken = action.payload.accessToken
+				state.refreshToken = action.payload.refreshToken
+				state.sid = action.payload.sid
+				state.isLoading = false
+				state.isLoggedIn = true
 			})
-			.addMatcher(isAnyOf(registerThunk.rejected), state => {
+			.addCase(refreshThunk.fulfilled, (state, action) => {
+				state.accessToken = action.payload.newAccessToken
+				state.refreshToken = action.payload.newRefreshToken
+				state.sid = action.payload.newSid
+				state.isRefreshing = false
 				state.isLoading = false
 			})
+			.addMatcher(
+				isAnyOf(
+					registerThunk.pending,
+					loginThunk.pending,
+					refreshThunk.pending
+				),
+				state => {
+					state.isLoading = true
+				}
+			)
+			.addMatcher(
+				isAnyOf(
+					registerThunk.rejected,
+					loginThunk.rejected,
+					refreshThunk.rejected
+				),
+				state => {
+					state.isLoading = false
+				}
+			)
 	},
 })
 

@@ -1,7 +1,11 @@
-import { lazy, Suspense } from 'react'
-import './App.css'
-import Loader from '../Loader/Loader'
 import { Route, Routes } from 'react-router-dom'
+import { lazy, Suspense, useEffect } from 'react'
+import RestrictedRoutes from '../RestrictedRoutes'
+import PrivateRoutes from '../PrivateRoutes'
+import Loader from '../Loader/Loader'
+import { useDispatch, useSelector } from 'react-redux'
+import { refreshThunk } from '../../redux/auth/operations'
+import { selectIsRefreshing } from '../../redux/auth/selectors'
 const HomePage = lazy(() => import('../../pages/HomePage/HomePage'))
 const LibraryPage = lazy(() => import('../../pages/LibraryPage/LibraryPage'))
 const StatisticsPage = lazy(() =>
@@ -11,17 +15,54 @@ const LoginPage = lazy(() => import('../../pages/LoginPage/LoginPage'))
 const RegisterPage = lazy(() => import('../../pages/RegisterPage/RegisterPage'))
 
 function App() {
+	const dispatch = useDispatch()
+	const isRefreshing = useSelector(selectIsRefreshing)
+
+	useEffect(() => {
+		dispatch(refreshThunk())
+	}, [dispatch])
+
 	return (
 		<>
-			<Suspense fallback={<Loader />}>
-				<Routes>
-					<Route path='/' element={<HomePage />} />
-					<Route path='/library' element={<LibraryPage />} />
-					<Route path='/statistics' element={<StatisticsPage />} />
-					<Route path='/login' element={<LoginPage />} />
-					<Route path='/register' element={<RegisterPage />} />
-				</Routes>
-			</Suspense>
+			{isRefreshing ? null : (
+				<Suspense fallback={<Loader />}>
+					<Routes>
+						<Route path='/' element={<HomePage />} />
+						<Route
+							path='/library'
+							element={
+								<PrivateRoutes redirectTo='/login'>
+									<LibraryPage />
+								</PrivateRoutes>
+							}
+						/>
+						<Route
+							path='/statistics'
+							element={
+								<PrivateRoutes redirectTo='/login'>
+									<StatisticsPage />
+								</PrivateRoutes>
+							}
+						/>
+						<Route
+							path='/login'
+							element={
+								<RestrictedRoutes redirectTo='/library'>
+									<LoginPage />
+								</RestrictedRoutes>
+							}
+						/>
+						<Route
+							path='/register'
+							element={
+								<RestrictedRoutes redirectTo='/library'>
+									<RegisterPage />
+								</RestrictedRoutes>
+							}
+						/>
+					</Routes>
+				</Suspense>
+			)}
 		</>
 	)
 }
