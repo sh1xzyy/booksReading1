@@ -32,6 +32,27 @@ export const loginThunk = createAsyncThunk(
 	}
 )
 
+export const logoutThunk = createAsyncThunk(
+	'/auth/logout',
+	async (_, thunkAPI) => {
+		try {
+			const { accessToken } = thunkAPI.getState().auth
+			if (!accessToken) {
+				return thunkAPI.rejectWithValue('No accessToken')
+			}
+
+			const response = await authInstance.post('/auth/logout', null, {
+				headers: {
+					Authorization: `Bearer ${accessToken}`,
+				},
+			})
+			return response.data
+		} catch (error) {
+			return thunkAPI.rejectWithValue(error.message)
+		}
+	}
+)
+
 export const refreshThunk = createAsyncThunk(
 	'/auth/refresh',
 	async (_, thunkAPI) => {

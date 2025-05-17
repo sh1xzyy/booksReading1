@@ -1,5 +1,10 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit'
-import { loginThunk, refreshThunk, registerThunk } from './operations'
+import {
+	loginThunk,
+	logoutThunk,
+	refreshThunk,
+	registerThunk,
+} from './operations'
 
 const initialState = {
 	userData: {
@@ -35,6 +40,9 @@ const authSlice = createSlice({
 				state.isLoading = false
 				state.isLoggedIn = true
 			})
+			.addCase(logoutThunk.fulfilled, () => {
+				return initialState
+			})
 			.addCase(refreshThunk.fulfilled, (state, action) => {
 				state.accessToken = action.payload.newAccessToken
 				state.refreshToken = action.payload.newRefreshToken
@@ -46,7 +54,8 @@ const authSlice = createSlice({
 				isAnyOf(
 					registerThunk.pending,
 					loginThunk.pending,
-					refreshThunk.pending
+					refreshThunk.pending,
+					logoutThunk.pending
 				),
 				state => {
 					state.isLoading = true
@@ -56,7 +65,8 @@ const authSlice = createSlice({
 				isAnyOf(
 					registerThunk.rejected,
 					loginThunk.rejected,
-					refreshThunk.rejected
+					refreshThunk.rejected,
+					logoutThunk.rejected
 				),
 				state => {
 					state.isLoading = false

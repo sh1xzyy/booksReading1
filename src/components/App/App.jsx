@@ -6,6 +6,8 @@ import Loader from '../Loader/Loader'
 import { useDispatch, useSelector } from 'react-redux'
 import { refreshThunk } from '../../redux/auth/operations'
 import { selectIsRefreshing } from '../../redux/auth/selectors'
+import Layout from '../Layout/Layout'
+import { userDataThunk } from '../../redux/user/operations'
 const HomePage = lazy(() => import('../../pages/HomePage/HomePage'))
 const LibraryPage = lazy(() => import('../../pages/LibraryPage/LibraryPage'))
 const StatisticsPage = lazy(() =>
@@ -25,43 +27,46 @@ function App() {
 	return (
 		<>
 			{isRefreshing ? null : (
-				<Suspense fallback={<Loader />}>
-					<Routes>
-						<Route path='/' element={<HomePage />} />
-						<Route
-							path='/library'
-							element={
-								<PrivateRoutes redirectTo='/login'>
-									<LibraryPage />
-								</PrivateRoutes>
-							}
-						/>
-						<Route
-							path='/statistics'
-							element={
-								<PrivateRoutes redirectTo='/login'>
-									<StatisticsPage />
-								</PrivateRoutes>
-							}
-						/>
-						<Route
-							path='/login'
-							element={
-								<RestrictedRoutes redirectTo='/library'>
-									<LoginPage />
-								</RestrictedRoutes>
-							}
-						/>
-						<Route
-							path='/register'
-							element={
-								<RestrictedRoutes redirectTo='/library'>
-									<RegisterPage />
-								</RestrictedRoutes>
-							}
-						/>
-					</Routes>
-				</Suspense>
+				<>
+					<Layout />
+					<Suspense fallback={<Loader />}>
+						<Routes>
+							<Route path='/' element={<HomePage />} />
+							<Route
+								path='/library'
+								element={
+									<PrivateRoutes redirectTo='/login'>
+										<LibraryPage />
+									</PrivateRoutes>
+								}
+							/>
+							<Route
+								path='/statistics'
+								element={
+									<PrivateRoutes redirectTo='/login'>
+										<StatisticsPage />
+									</PrivateRoutes>
+								}
+							/>
+							<Route
+								path='/login'
+								element={
+									<RestrictedRoutes redirectTo='/library'>
+										<LoginPage />
+									</RestrictedRoutes>
+								}
+							/>
+							<Route
+								path='/register'
+								element={
+									<RestrictedRoutes redirectTo='/library'>
+										<RegisterPage />
+									</RestrictedRoutes>
+								}
+							/>
+						</Routes>
+					</Suspense>
+				</>
 			)}
 		</>
 	)
