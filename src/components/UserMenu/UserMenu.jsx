@@ -4,22 +4,13 @@ import { PiHouseLineBold } from 'react-icons/pi'
 import { MdMenuBook } from 'react-icons/md'
 import toast from 'react-hot-toast'
 import clsx from 'clsx'
-import { selectIsLoading } from '../../redux/auth/selectors'
-import { logoutThunk } from '../../redux/auth/operations'
-import Loader from '../Loader/Loader'
-import s from './UserMenu.module.css'
 import { selectUserData } from '../../redux/user/selectors'
-import { useEffect } from 'react'
-import { userDataThunk } from '../../redux/user/operations'
+import { logoutThunk } from '../../redux/auth/operations'
+import s from './UserMenu.module.css'
 
 const UserMenu = () => {
 	const dispatch = useDispatch()
-	const isLoading = useSelector(selectIsLoading)
 	const { name } = useSelector(selectUserData)
-
-	useEffect(() => {
-		dispatch(userDataThunk())
-	}, [dispatch])
 
 	const setActive = ({ isActive }) => clsx(s.navLink, isActive && s.active)
 
@@ -35,7 +26,6 @@ const UserMenu = () => {
 
 	return (
 		<>
-			{isLoading && <Loader />}
 			<Link className={s.logo} to='/'>
 				BR
 			</Link>

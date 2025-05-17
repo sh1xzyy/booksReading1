@@ -1,0 +1,55 @@
+.form {
+	display: flex;
+	flex-direction: column;
+	row-gap: 40px;
+}
+
+.goBackBtn {
+	position: absolute;
+	top: 24px;
+	border: none;
+	background-color: transparent;
+}
+
+.fields {
+	display: grid;
+	gap: 20px;
+}
+
+.submitBtn {
+	display: block;
+	margin: 0 auto;
+	min-width: 171px;
+	height: 42px;
+	font-weight: 500;
+	font-size: 14px;
+	border: 1px solid #242a37;
+	color: #000;
+	background-color: #f6f7fb;
+}
+
+@media screen and (min-width: 768px) {
+	.goBackBtn {
+		display: none;
+	}
+	.fields {
+		grid-template-columns: 1fr 0.5fr 0.5fr;
+		gap: 24px 32px;
+	}
+}
+
+@media screen and (min-width: 1280px) {
+	.form {
+		flex-direction: row;
+		align-items: flex-end;
+		column-gap: 48px;
+	}
+	.fields {
+		grid-template-columns: 346px 250px 134px 134px;
+		gap: 16px;
+	}
+	.submitBtn {
+		min-width: 181px;
+		margin: 0;
+	}
+}

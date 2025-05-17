@@ -7,7 +7,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { refreshThunk } from '../../redux/auth/operations'
 import { selectIsRefreshing } from '../../redux/auth/selectors'
 import Layout from '../Layout/Layout'
-import { userDataThunk } from '../../redux/user/operations'
 const HomePage = lazy(() => import('../../pages/HomePage/HomePage'))
 const LibraryPage = lazy(() => import('../../pages/LibraryPage/LibraryPage'))
 const StatisticsPage = lazy(() =>
@@ -21,7 +20,10 @@ function App() {
 	const isRefreshing = useSelector(selectIsRefreshing)
 
 	useEffect(() => {
-		dispatch(refreshThunk())
+		const fetchData = async () => {
+			await dispatch(refreshThunk()).unwrap()
+		}
+		fetchData()
 	}, [dispatch])
 
 	return (
