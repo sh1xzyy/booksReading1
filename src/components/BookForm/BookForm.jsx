@@ -18,7 +18,7 @@ const BookForm = () => {
 
 	const handleSubmit = async (values, actions) => {
 		try {
-			await dispatch(addBookThunk(values ad)).unwrap()
+			await dispatch(addBookThunk(values)).unwrap()
 			toast.success('You have successfully added a book')
 		} catch (error) {
 			toast.error('Something went wrong')
