@@ -7,14 +7,24 @@
 	padding: 68px 0;
 }
 
-@media screen and (min-width: 768px) {
-	.formSection {
-		padding: 32px 0 40px 0;
-	}
+.bookSection {
+	padding: 10px 0;
 }
 
 @media screen and (min-width: 768px) {
 	.formSection {
-		padding: 40px 0;
+		padding: 32px 0 20px 0;
+	}
+	.bookSection {
+		padding: 20px 0;
+	}
+}
+
+@media screen and (min-width: 1280px) {
+	.formSection {
+		padding: 40px 0 64px 0;
+	}
+	.bookSection {
+		padding: 16px 0;
 	}
 }

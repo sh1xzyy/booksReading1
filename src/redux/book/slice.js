@@ -12,7 +12,9 @@ const bookSlice = createSlice({
 	extraReducers: builder => {
 		builder
 			.addCase(addBookThunk.fulfilled, (state, action) => {
+				state.books.push(action.payload)
 				console.log(action.payload)
+				console.log(state.books)
 			})
 			.addMatcher(isAnyOf(addBookThunk.pending), state => {
 				state.isLoading = true
