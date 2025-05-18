@@ -4,7 +4,7 @@ import { PiHouseLineBold } from 'react-icons/pi'
 import { MdMenuBook } from 'react-icons/md'
 import toast from 'react-hot-toast'
 import clsx from 'clsx'
-import { selectUserData } from '../../redux/user/selectors'
+import { selectUserData } from '../../redux/auth/selectors'
 import { logoutThunk } from '../../redux/auth/operations'
 import s from './UserMenu.module.css'
 

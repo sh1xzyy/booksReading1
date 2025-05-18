@@ -1,19 +1,29 @@
+import { selectIsLoading } from '../../redux/auth/selectors'
+import { selectUserData } from '../../redux/auth/selectors'
 import { useSelector } from 'react-redux'
+import WelcomeGuide from '../../components/WelcomeGuide/WelcomeGuide'
 import Container from '../../components/Container/Container'
-import { selectIsLoading, selectUserData } from '../../redux/user/selectors'
 import BookForm from '../../components/BookForm/BookForm'
+import BookList from '../../components/BookList/BookList'
 import Section from '../../components/Section/Section'
 import Loader from '../../components/Loader/Loader'
-import BookList from '../../components/BookList/BookList'
 
 const LibraryPage = () => {
-	const { goingToRead, currentlyReading, finishedReading } =
-		useSelector(selectUserData)
+	const userData = useSelector(selectUserData)
 	const isLoading = useSelector(selectIsLoading)
+	const { goingToRead, currentlyReading, finishedReading } = userData
+
+	if (isLoading || !userData) {
+		return <Loader />
+	}
 
 	return (
 		<>
-			{isLoading && <Loader />}
+			{goingToRead.length === 0 &&
+			currentlyReading.length === 0 &&
+			finishedReading.length === 0 ? (
+				<WelcomeGuide />
+			) : null}
 			<Section className='formSection'>
 				<Container>
 					<BookForm />

@@ -4,10 +4,9 @@ import RestrictedRoutes from '../RestrictedRoutes'
 import PrivateRoutes from '../PrivateRoutes'
 import Loader from '../Loader/Loader'
 import { useDispatch, useSelector } from 'react-redux'
-import { refreshThunk } from '../../redux/auth/operations'
+import { refreshThunk, userDataThunk } from '../../redux/auth/operations'
 import { selectIsRefreshing } from '../../redux/auth/selectors'
 import Layout from '../Layout/Layout'
-import { userDataThunk } from '../../redux/user/operations'
 const HomePage = lazy(() => import('../../pages/HomePage/HomePage'))
 const LibraryPage = lazy(() => import('../../pages/LibraryPage/LibraryPage'))
 const StatisticsPage = lazy(() =>
@@ -22,8 +21,12 @@ function App() {
 
 	useEffect(() => {
 		const fetchData = async () => {
-			await dispatch(refreshThunk()).unwrap()
-			await dispatch(userDataThunk()).unwrap()
+			try {
+				await dispatch(refreshThunk()).unwrap()
+				await dispatch(userDataThunk()).unwrap()
+			} catch (error) {
+				console.error(error)
+			}
 		}
 		fetchData()
 	}, [dispatch])
