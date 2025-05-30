@@ -51,23 +51,6 @@
 	font-size: 14px;
 	color: #898f9f;
 }
-.confirmBtn {
-	display: block;
-	margin: 0 auto;
-	min-width: 127px;
-	height: 40px;
-	font-weight: 500;
-	font-size: 14px;
-	text-align: center;
-	color: #fff;
-	border: none;
-	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
-	background-color: #ff6b08;
-	transition: background-color 250ms linear;
-	&:hover {
-		background-color: #e95f03;
-	}
-}
 
 @media screen and (min-width: 768px) {
 	.overlay {
@@ -89,9 +72,6 @@
 	}
 	.stepDescription {
 		max-width: 100%;
-	}
-	.confirmBtn {
-		display: none;
 	}
 }
 

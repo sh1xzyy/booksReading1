@@ -76,34 +76,6 @@ label {
 	column-gap: 16px;
 }
 
-.goBackButton,
-.saveButton {
-	height: 40px;
-	min-width: 98px;
-	font-weight: 500;
-	font-size: 14px;
-	color: #242a37;
-	border: none;
-	transition: background-color 250ms linear;
-}
-
-.goBackButton {
-	border: 1px solid #242a37;
-	color: #242a37;
-	background-color: transparent;
-	&:hover {
-		background-color: #d8dce9;
-	}
-}
-
-.saveButton {
-	color: #fff;
-	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
-	background-color: #ff6b08;
-	&:hover {
-		background-color: #d45704;
-	}
-}
 
 @media screen and (min-width: 768px) {
 	.modal {
@@ -120,9 +92,5 @@ label {
 	}
 	.buttonsWrapper {
 		column-gap: 28px;
-	}
-	.goBackButton,
-	.saveButton {
-		min-width: 130px;
 	}
 }

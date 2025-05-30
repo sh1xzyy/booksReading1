@@ -4,64 +4,51 @@
 	align-items: center;
 	padding: 0 25px;
 	margin: 32px 0 40px 0;
-	.title {
-		font-family: 'Abril Fatface', sans-serif;
-		font-weight: 400;
-		font-size: 34px;
-		line-height: 1.12;
-		color: #242a37;
-		margin-bottom: 32px;
-	}
-	.authButtons {
-		display: flex;
-		column-gap: 20px;
-		margin-top: 60px;
-		.loginButton,
-		.registerButton {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			min-width: 130px;
-			height: 40px;
-			font-weight: 500;
-			font-size: 14px;
-			color: #242a37;
-			border: 1px solid #000;
-		}
-		.registerButton {
-			border: none;
-			box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
-			color: #fff;
-			background-color: #ff6b08;
-		}
-	}
+}
+.title {
+	font-family: 'Abril Fatface', sans-serif;
+	font-weight: 400;		
+	font-size: 34px;
+	line-height: 1.12;
+	color: #242a37;
+	margin-bottom: 32px;
+}
+
+.authButtons {
+	display: flex;
+	column-gap: 20px;
+	margin-top: 60px;
 }
 
 .sectionList {
 	display: flex;
 	flex-direction: column;
 	row-gap: 24px;
-	.sectionTitle {
-		font-weight: 500;
-		font-size: 20px;
-		line-height: 1.9;
-		color: #242a37;
-		margin-bottom: 14px;
-		text-align: left;
-	}
+}
+
+.sectionTitle {
+	font-weight: 500;
+	font-size: 20px;
+	line-height: 1.9;
+	color: #242a37;
+	margin-bottom: 14px;
+	text-align: left;
 }
 
 .benefitList {
 	display: flex;
 	flex-direction: column;
-	row-gap: 12px;
-	.benefitText {
+	row-gap: 12px;	
+}
+
+.benefitText {
 		max-width: 254px;
 		font-weight: 500;
 		font-size: 14px;
 		color: #898f9f;
-	}
-	.benefitItem {
+}
+
+.benefitItem {
 		position: relative;
 		padding-left: 16px;
 		&::before {
@@ -71,25 +58,24 @@
 			color: #ff6b08;
 		}
 	}
-}
 
 @media screen and (min-width: 768px) {
 	.readingInfo {
 		padding: 0;
 		margin: 64px 0 88px 0;
-		.title {
+	}
+	.title {
 			margin-bottom: 48px;
 		}
 		.authButtons {
 			display: none;
 		}
-	}
 	.sectionList {
 		row-gap: 32px;
-		.benefitText {
+	}
+	.benefitText {
 			max-width: 500px;
 		}
-	}
 }
 
 @media screen and (min-width: 1280px) {

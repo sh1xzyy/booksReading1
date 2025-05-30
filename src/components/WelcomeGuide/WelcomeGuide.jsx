@@ -2,6 +2,7 @@ import { HiMiniArrowTurnDownRight } from 'react-icons/hi2'
 import { MdMenuBook } from 'react-icons/md'
 import { RiFlagLine } from 'react-icons/ri'
 import s from './WelcomeGuide.module.css'
+import ActionButton from '../ActionButton/ActionButton'
 
 const WelcomeGuide = ({ setCloseGuide }) => {
 	return (
@@ -41,13 +42,12 @@ const WelcomeGuide = ({ setCloseGuide }) => {
 						</div>
 					</div>
 				</ul>
-				<button
-					className={s.confirmBtn}
+				<ActionButton
+					className="confirmBtn"
 					type='submit'
+					title="Ok"
 					onClick={() => setCloseGuide(false)}
-				>
-					Ok
-				</button>
+				/>
 			</div>
 		</div>
 	)

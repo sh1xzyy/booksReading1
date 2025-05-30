@@ -6,6 +6,7 @@ import { validationSchema } from '../../utils/bookForm/validationSchema'
 import { addBookThunk } from '../../redux/book/operations'
 import FormField from '../FormField/FormField'
 import s from './BookForm.module.css'
+import ActionButton from '../ActionButton/ActionButton'
 
 const BookForm = () => {
 	const dispatch = useDispatch()
@@ -34,9 +35,9 @@ const BookForm = () => {
 			validationSchema={validationSchema}
 		>
 			<Form className={s.form}>
-				<button className={s.goBackBtn} type='button'>
+				<ActionButton className="goBackButton" type='button'>
 					<HiArrowLongLeft color=' #ff6b08' size={24} />
-				</button>
+				</ActionButton>
 				<div className={s.fields}>
 					<FormField
 						classField='libraryField'
@@ -71,10 +72,8 @@ const BookForm = () => {
 						placeholder='...'
 					/>
 				</div>
-				<button className={s.submitBtn} type='submit'>
-					Додати
-				</button>
-			</Form>
+				<ActionButton className="addBookButton" type='submit' title="Додати"/>
+				</Form>
 		</Formik>
 	)
 }

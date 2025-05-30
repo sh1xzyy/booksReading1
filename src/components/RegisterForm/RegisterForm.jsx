@@ -8,6 +8,8 @@ import { registerThunk } from '../../redux/auth/operations'
 import { validationSchema } from '../../utils/register/validationSchema'
 import { selectIsLoading } from '../../redux/auth/selectors'
 import Loader from '../Loader/Loader'
+import ActionButton from '../ActionButton/ActionButton'
+import NavigationButton from '../NavigationButton/NavigationButton'
 
 const RegisterForm = () => {
 	const dispatch = useDispatch()
@@ -25,7 +27,7 @@ const RegisterForm = () => {
 			await dispatch(registerThunk({ name, email, password })).unwrap()
 			toast.success('You have successfully registered.')
 		} catch (error) {
-			toast.error('This email already exists')
+			toast.error(error)
 		} finally {
 			actions.resetForm()
 		}
@@ -41,9 +43,7 @@ const RegisterForm = () => {
 					validationSchema={validationSchema}
 				>
 					<Form className={s.form}>
-						<button className={s.googleButton} type='button'>
-							Google
-						</button>
+						<ActionButton className="googleButton" type='button' title="Google"/>
 						<div className={s.fields}>
 							<FormField
 								classField='authfield'
@@ -82,14 +82,10 @@ const RegisterForm = () => {
 								isSup={true}
 							/>
 						</div>
-						<button className={s.submitButton} type='submit'>
-							Зареєструватися
-						</button>
+						<ActionButton className="registerSubmitButton" type='submit' title='Зареєструватися'/>
 						<p className={s.loginText}>
 							Вже з нами?{' '}
-							<Link className={s.loginLink} to='/login'>
-								Увійти
-							</Link>
+							<NavigationButton className="loginLink" to='/login' title="Увійти"/>	
 						</p>
 					</Form>
 				</Formik>

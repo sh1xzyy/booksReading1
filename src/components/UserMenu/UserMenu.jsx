@@ -7,6 +7,8 @@ import clsx from 'clsx'
 import { selectUserData } from '../../redux/auth/selectors'
 import { logoutThunk } from '../../redux/auth/operations'
 import s from './UserMenu.module.css'
+import ActionButton from '../ActionButton/ActionButton'
+import NavigationButton from '../NavigationButton/NavigationButton'
 
 const UserMenu = () => {
 	const dispatch = useDispatch()
@@ -25,9 +27,7 @@ const UserMenu = () => {
 
 	return (
 		<>
-			<Link className={s.logo} to='/'>
-				BR
-			</Link>
+			<NavigationButton className="logo" to='/' title="BR"/>
 			<div className={s.userDesktopInfo}>
 				<span className={s.shortName}>{name?.[0].toUpperCase() || ''}</span>
 				<span className={s.userName}>
@@ -50,11 +50,9 @@ const UserMenu = () => {
 				<div className={s.userInfo}>
 					<span className={s.shortName}>{name?.[0].toUpperCase() || ''}</span>
 				</div>
-				<button type='button' className={s.logout} onClick={handleLogout}>
-					Выход
-				</button>
+				<ActionButton className="logout" type='button' title="Выход" onClick={handleLogout}/>
 			</nav>
-		</>
+			</>
 	)
 }
 

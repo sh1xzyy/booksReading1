@@ -8,6 +8,8 @@ import { loginThunk } from '../../redux/auth/operations'
 import FormField from '../FormField/FormField'
 import s from './LoginForm.module.css'
 import Loader from '../Loader/Loader'
+import ActionButton from '../ActionButton/ActionButton'
+import NavigationButton from '../NavigationButton/NavigationButton'
 
 const LoginForm = () => {
 	const dispatch = useDispatch()
@@ -24,7 +26,7 @@ const LoginForm = () => {
 			await dispatch(loginThunk(value)).unwrap()
 			toast.success('You have successfully logged in')
 		} catch (error) {
-			toast.error("You don't have an account, register")
+			toast.error(error)
 		} finally {
 			actions.resetForm()
 		}
@@ -43,9 +45,7 @@ const LoginForm = () => {
 					validationSchema={validationSchema}
 				>
 					<Form className={s.form}>
-						<button className={s.googleButton} type='button'>
-							Google
-						</button>
+						<ActionButton className="googleButton" type='button' title="Google"/>
 						<div className={s.fields}>
 							<FormField
 								classField='authfield'
@@ -66,12 +66,8 @@ const LoginForm = () => {
 								isSup={true}
 							/>
 						</div>
-						<button className={s.submitButton} type='submit'>
-							Увійти
-						</button>
-						<Link className={s.registerLink} to='/register'>
-							Реєстрація
-						</Link>
+						<ActionButton className="loginSubmitButton" type='submit' title='Увійти'/>
+						<NavigationButton className="registerLink" to='/register' title="Реєстрація"/>
 					</Form>
 				</Formik>
 			</div>

@@ -3,7 +3,7 @@
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-image: linear-gradient(rgba(9, 30, 63, 0.8), rgba(9, 30, 63, 0.8)),
-		url('/pic.jpg');
+		image-set(url('/auth/auth-background-mobile@1x.jpg') 1x, url('/auth/auth-background-mobile@2x.jpg') 2x,)
 }
 
 .form {
@@ -16,53 +16,15 @@
 		flex-direction: column;
 		row-gap: 20px;
 	}
-
-	.googleButton {
-		position: relative;
-		font-family: 'Roboto', sans-serif;
-		display: block;
-		margin: 0 auto;
-		min-width: 150px;
-		height: 40px;
-		font-weight: 700;
-		font-size: 16px;
-		line-height: 2.38;
-		color: #707375;
-		border: none;
-		margin-bottom: 28px;
-		box-shadow: 0 2px 2px 0 rgba(9, 30, 63, 0.15);
-		background-color: #f5f7fa;
-		&::before {
-			position: absolute;
-			content: url('/google-icon.svg');
-			top: 50%;
-			left: 14px;
-			line-height: 0;
-			transform: translateY(-50%);
-		}
-	}
-	.submitButton {
-		height: 60px;
-		font-weight: 600;
-		font-size: 16px;
-		color: #fff;
-		margin: 20px 0 16px 0;
-		border: none;
-		background-color: #ff6b08;
-	}
-	.registerLink {
-		text-align: center;
-		font-weight: 500;
-		font-size: 13px;
-		text-decoration: underline;
-		color: #ff6b08;
-	}
 }
 
 @media screen and (min-width: 768px) {
 	.formWrapper {
 		padding: 64px 20px;
-		.form {
+	background-image: linear-gradient(rgba(9, 30, 63, 0.8), rgba(9, 30, 63, 0.8)),
+		image-set(url('/auth/auth-background-tablet@1x.jpg') 1x, url('/auth/auth-background-tablet@2x.jpg') 2x,)
+	}
+	.form {
 			max-width: 400px;
 			padding: 40px;
 			background-color: #fff;
@@ -70,11 +32,7 @@
 				font-weight: 500;
 				color: #898f9f;
 			}
-			.submitButton {
-				margin: 32px 0 20px 0;
-			}
 		}
-	}
 }
 
 @media screen and (min-width: 1280px) {
@@ -84,5 +42,7 @@
 	}
 	.formWrapper {
 		padding: 180px 0;
+		background-image: linear-gradient(rgba(9, 30, 63, 0.8), rgba(9, 30, 63, 0.8)),
+		image-set(url('/auth/auth-background-desktop@1x.jpg') 1x, url('/auth/auth-background-desktop@2x.jpg') 2x,)
 	}
 }

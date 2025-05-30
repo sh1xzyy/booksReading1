@@ -15,7 +15,7 @@ export const registerThunk = createAsyncThunk(
 			)
 			return response.data
 		} catch (error) {
-			return thunkAPI.rejectWithValue(error.message)
+			return thunkAPI.rejectWithValue(error.response.data.message)
 		}
 	}
 )
@@ -27,7 +27,7 @@ export const loginThunk = createAsyncThunk(
 			const response = await authInstance.post('/auth/login', body)
 			return response.data
 		} catch (error) {
-			return thunkAPI.rejectWithValue(error.message)
+			return thunkAPI.rejectWithValue(error.response.data.message)
 		}
 	}
 )
@@ -48,7 +48,7 @@ export const logoutThunk = createAsyncThunk(
 			})
 			return response.data
 		} catch (error) {
-			return thunkAPI.rejectWithValue(error.message)
+			return thunkAPI.rejectWithValue(error.response.data.message)
 		}
 	}
 )
@@ -73,7 +73,7 @@ export const refreshThunk = createAsyncThunk(
 			)
 			return response.data
 		} catch (error) {
-			return thunkAPI.rejectWithValue(error.message)
+			return thunkAPI.rejectWithValue(error.response.data.message)
 		}
 	}
 )
@@ -94,7 +94,7 @@ export const userDataThunk = createAsyncThunk(
 			})
 			return response.data
 		} catch (error) {
-			return thunkAPI.rejectWithValue(error.message)
+			return thunkAPI.rejectWithValue(error.response.data.message)
 		}
 	}
 )

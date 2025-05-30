@@ -1,15 +1,14 @@
 import { Link, NavLink } from 'react-router-dom'
 import s from './AuthNav.module.css'
 import clsx from 'clsx'
+import NavigationButton from '../NavigationButton/NavigationButton'
 
 const AuthNav = () => {
 	const setActive = ({ isActive }) => clsx(s.navLink, isActive && s.active)
 
 	return (
 		<>
-			<Link className={s.logo} to='/'>
-				BR
-			</Link>
+			<NavigationButton className="logo" to='/' title="BR"/>
 			<nav className={s.nav}>
 				<ul className={s.navList}>
 					<li className={s.navLinkItem}>

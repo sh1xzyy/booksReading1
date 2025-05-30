@@ -8,6 +8,7 @@ import { getBookIconClass } from '../../utils/bookList/getBookIconClass'
 import { getAuthorClass } from '../../utils/bookList/getAuthorClass'
 import { getTitleClass } from '../../utils/bookList/getTitleClass'
 import s from './BookItem.module.css'
+import ActionButton from '../ActionButton/ActionButton'
 
 const BookItem = ({
 	book: { _id, title, author, publishYear, pagesTotal, rating, feedback },
@@ -55,13 +56,12 @@ const BookItem = ({
 										fillIcon={<MdOutlineStar className={s.fillIcon} />}
 									/>
 								</div>
-								<button
-									className={s.summaryButton}
+								<ActionButton
+									className="summaryButton"
 									type='button'
+									title="Резюме"
 									onClick={() => handleResumeClick({ _id, rating, feedback })}
-								>
-									Резюме
-								</button>
+								/>									
 							</div>
 						</li>
 					)}

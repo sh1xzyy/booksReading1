@@ -3,13 +3,6 @@
 	text-align: center;
 }
 
-.logo {
-	font-family: 'Abril Fatface', sans-serif;
-	font-weight: 400;
-	font-size: 20px;
-	color: #242a37;
-}
-
 .navList {
 	display: flex;
 	column-gap: 10px;

@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux'
 import { useState } from 'react'
 import s from './BookReviewModal.module.css'
 import { addBookReviewThunk } from '../../redux/book/operations'
+import ActionButton from '../ActionButton/ActionButton'
 
 const BookReviewModal = ({
 	setIsModalOpen,
@@ -59,16 +60,13 @@ const BookReviewModal = ({
 								/>
 							</div>
 							<div className={s.buttonsWrapper}>
-								<button
-									className={s.goBackButton}
+								<ActionButton
+									className="reviewGoBackButton"
 									type='button'
+									title="Назад"
 									onClick={() => setIsModalOpen(false)}
-								>
-									Назад
-								</button>
-								<button className={s.saveButton} type='submit'>
-									Зберегти
-								</button>
+								/>
+								<ActionButton className="reviewSaveButton" type='submit' title="Зберегти"/>									Зберегти
 							</div>
 						</Form>
 					</Formik>

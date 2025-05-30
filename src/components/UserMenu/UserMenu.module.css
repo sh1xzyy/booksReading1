@@ -1,10 +1,3 @@
-.logo {
-	font-family: 'Abril Fatface', sans-serif;
-	font-weight: 400;
-	font-size: 20px;
-	color: #242a37;
-}
-
 .nav {
 	display: flex;
 	align-items: center;
@@ -16,7 +9,8 @@
 	align-items: center;
 	column-gap: 6px;
 	margin-right: 8px;
-	.navLink {
+}
+.navLink {
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -37,12 +31,12 @@
 		width: 1px;
 		background-color: #e0e5eb;
 	}
-}
 
 .userInfo,
 .userDesktopInfo {
 	display: flex;
-	.shortName {
+}
+.shortName {
 		font-weight: 600;
 		font-size: 14px;
 		color: #242a37;
@@ -55,20 +49,9 @@
 		margin-left: 14px;
 		background-color: #f5f7fa;
 	}
-}
 
 .userDesktopInfo {
 	display: none;
-}
-
-.logout {
-	font-weight: 300;
-	font-size: 14px;
-	color: #242a37;
-	text-decoration: underline;
-	margin-left: 14px;
-	border: none;
-	background-color: transparent;
 }
 
 @media screen and (min-width: 768px) {
@@ -77,7 +60,8 @@
 		align-items: center;
 		margin-left: 92px;
 		column-gap: 12px;
-		.shortName {
+	}
+	.shortName {
 			margin: 0;
 		}
 		.userName {
@@ -85,20 +69,12 @@
 			font-size: 14px;
 			color: #242a37;
 		}
-	}
 	.userInfo {
 		display: none;
 	}
-	.logout {
-		margin-left: 8px;
-	}
 }
 
-@media screen and (min-width: 768px) {
-	.logout {
-		margin-left: 14px;
-		line-height: 2.71;
-	}
+@media screen and (min-width: 1280px) {
 	.navList {
 		margin-right: 6px;
 		&::after {

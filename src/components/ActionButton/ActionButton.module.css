@@ -1,0 +1,210 @@
+/* goBack Button */
+.goBackButton{
+	position: absolute;
+	top: 24px;
+	border: none;
+	background-color: transparent;
+}
+
+@media screen and (min-width: 768px){
+    .goBackButton{
+		display: none;
+	}
+}
+
+/* Add Book Button*/
+.addBookButton {
+	display: block;
+	margin: 0 auto;
+	min-width: 171px;
+	height: 42px;
+	font-weight: 500;
+	font-size: 14px;
+	border: 1px solid #242a37;
+	color: #000;
+	background-color: #f6f7fb;
+}
+
+@media screen and (min-width: 1280px) {
+	.addBookButton {
+		min-width: 181px;
+		margin: 0;
+	}
+}
+
+/* Summary Button */
+.summaryButton {
+	min-width: 127px;
+	height: 40px;
+	margin: 20px 0 0 18px;
+	font-weight: 500;
+	font-size: 14px;
+	color: #fff;
+	border: none;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+	background-color: #6d7a8d;
+	transition: background-color 250ms linear;
+	&:hover {
+		background-color: #4d5663;
+	}
+}
+
+@media screen and (min-width: 768px){
+    .summaryButton {
+		min-width: 80px;
+		margin: 0;
+	}
+}
+
+@media screen and (min-width: 1280px){
+    .summaryButton {
+		min-width: 130px;
+	}
+}
+
+/* Review Modal */
+.reviewGoBackButton,
+.reviewSaveButton {
+	height: 40px;
+	min-width: 98px;
+	font-weight: 500;
+	font-size: 14px;
+	color: #242a37;
+	border: none;
+	transition: background-color 250ms linear;
+}
+
+.reviewGoBackButton {
+	border: 1px solid #242a37;
+	color: #242a37;
+	background-color: transparent;
+	&:hover {
+		background-color: #d8dce9;
+	}
+}
+
+.reviewSaveButton {
+	color: #fff;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+	background-color: #ff6b08;
+	&:hover {
+		background-color: #d45704;
+	}
+}
+
+@media screen and (min-width: 768px){
+    .reviewGoBackButton,
+	.reviewSaveButton {
+		min-width: 130px;
+	}
+}
+/* Google Button */
+.googleButton {
+    position: relative;
+	font-family: 'Roboto', sans-serif;
+	display: block;
+	margin: 0 auto;
+	min-width: 150px;
+	height: 40px;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 2.38;
+	color: #707375;
+	border: none;
+	margin-bottom: 28px;
+	box-shadow: 0 2px 2px 0 rgba(9, 30, 63, 0.15);
+	background-color: #f5f7fa;
+	&::before {
+		position: absolute;
+		content: url('/icons/google-icon.svg');
+		top: 50%;
+		left: 14px;
+		line-height: 0;
+		transform: translateY(-50%);
+	}
+}
+
+/* Auth Buttons */
+.loginSubmitButton,
+.registerSubmitButton {
+	height: 60px;
+	font-weight: 600;
+	font-size: 16px;
+	color: #fff;
+	margin: 20px 0 16px 0;
+	border: none;
+	background-color: #ff6b08;
+}
+
+@media screen and (min-width: 768px){
+    .loginSubmitButton {
+		margin: 32px 0 20px 0;
+	}
+    .registerSubmitButton{
+				margin: 35px 0 20px 0;
+
+    }
+}
+
+/* Modal Form Button */
+.openFormButton {
+	position: fixed;
+	left: 50%;
+	bottom: 12px;
+	transform: translateX(-50%);
+	width: 52px;
+	height: 52px;
+	border: none;
+	border-radius: 50%;
+	background-color: #ff6b08;
+}
+
+/* Logout Button */
+.logout {
+	font-weight: 300;
+	font-size: 14px;
+	color: #242a37;
+	text-decoration: underline;
+	margin-left: 14px;
+	border: none;
+	background-color: transparent;
+}
+
+
+@media screen and (min-width: 768px) {
+	.logout {
+		margin-left: 8px;
+	}
+}
+
+@media screen and (min-width: 1280px) {
+	.logout {
+		margin-left: 14px;
+		line-height: 2.71;
+	}
+}
+
+/* Confirm Button */
+.confirmBtn {
+	display: block;
+	margin: 0 auto;
+	min-width: 127px;
+	height: 40px;
+	font-weight: 500;
+	font-size: 14px;
+	text-align: center;
+	color: #fff;
+	border: none;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+	background-color: #ff6b08;
+	transition: background-color 250ms linear;
+	&:hover {
+		background-color: #e95f03;
+	}
+}
+
+@media screen and (min-width: 768px){
+    .confirmBtn {
+		display: none;
+	}
+}

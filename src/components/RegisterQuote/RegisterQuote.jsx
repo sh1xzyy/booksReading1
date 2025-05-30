@@ -1,3 +1,4 @@
+import NavigationButton from '../NavigationButton/NavigationButton'
 import s from './RegisterQuote.module.css'
 import { Link } from 'react-router-dom'
 
@@ -44,12 +45,8 @@ const RegisterQuote = () => {
 				</li>
 			</ul>
 			<div className={s.authButtons}>
-				<Link to='/login' className={s.loginButton}>
-					Увійти
-				</Link>
-				<Link to='/register' className={s.registerButton}>
-					Реєстрація
-				</Link>
+				<NavigationButton to='/login' className="loginButton" title="Увійти"/>
+				<NavigationButton to='/register' className="registerButton" title="Реєстрація"/>
 			</div>
 		</div>
 	)
