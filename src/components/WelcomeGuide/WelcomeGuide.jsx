@@ -3,7 +3,7 @@ import { MdMenuBook } from 'react-icons/md'
 import { RiFlagLine } from 'react-icons/ri'
 import s from './WelcomeGuide.module.css'
 
-const WelcomeGuide = () => {
+const WelcomeGuide = ({ setCloseGuide }) => {
 	return (
 		<div className={s.overlay}>
 			<div className={s.modal}>
@@ -41,7 +41,11 @@ const WelcomeGuide = () => {
 						</div>
 					</div>
 				</ul>
-				<button className={s.confirmBtn} type='submit'>
+				<button
+					className={s.confirmBtn}
+					type='submit'
+					onClick={() => setCloseGuide(false)}
+				>
 					Ok
 				</button>
 			</div>

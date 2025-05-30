@@ -1,8 +1,11 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit'
-import { addBookThunk } from './operations'
+import { addBookReviewThunk, addBookThunk } from './operations'
+import { userDataThunk } from '../auth/operations'
 
 const initialState = {
-	books: [],
+	goingToRead: [],
+	currentlyReading: [],
+	finishedReading: [],
 	isLoading: false,
 }
 
@@ -12,16 +15,30 @@ const bookSlice = createSlice({
 	extraReducers: builder => {
 		builder
 			.addCase(addBookThunk.fulfilled, (state, action) => {
-				state.books.push(action.payload)
-				console.log(action.payload)
-				console.log(state.books)
+				state.goingToRead.push(action.payload)
 			})
-			.addMatcher(isAnyOf(addBookThunk.pending), state => {
-				state.isLoading = true
+			.addCase(addBookReviewThunk.fulfilled, (state, action) => {
+				state.userBooks.finishedReading = state.finishedReading.filter(
+					book => book._id !== action.payload._id
+				)
 			})
-			.addMatcher(isAnyOf(addBookThunk.rejected), state => {
-				state.isLoading = false
+			.addCase(userDataThunk.fulfilled, (state, action) => {
+				state.goingToRead = action.payload.goingToRead
+				state.currentlyReading = action.payload.currentlyReading
+				state.finishedReading = action.payload.finishedReading
 			})
+			.addMatcher(
+				isAnyOf(addBookThunk.pending, addBookReviewThunk.pending),
+				state => {
+					state.isLoading = true
+				}
+			)
+			.addMatcher(
+				isAnyOf(addBookThunk.rejected, addBookReviewThunk.rejected),
+				state => {
+					state.isLoading = false
+				}
+			)
 	},
 })
 

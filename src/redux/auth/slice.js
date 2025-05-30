@@ -11,9 +11,6 @@ const initialState = {
 	userData: {
 		name: null,
 		email: null,
-		goingToRead: [],
-		currentlyReading: [],
-		finishedReading: [],
 	},
 	accessToken: null,
 	refreshToken: null,
@@ -34,7 +31,10 @@ const authSlice = createSlice({
 				state.isLoading = false
 			})
 			.addCase(loginThunk.fulfilled, (state, action) => {
-				state.userData = action.payload.userData
+				state.userData = {
+					name: action.payload.userData.name,
+					email: action.payload.userData.email,
+				}
 				state.accessToken = action.payload.accessToken
 				state.refreshToken = action.payload.refreshToken
 				state.sid = action.payload.sid
@@ -60,7 +60,10 @@ const authSlice = createSlice({
 				state.isLoading = false
 			})
 			.addCase(userDataThunk.fulfilled, (state, action) => {
-				state.userData = action.payload
+				state.userData = {
+					name: action.payload.name,
+					email: action.payload.email,
+				}
 				state.isLoading = false
 			})
 			.addMatcher(

@@ -1,5 +1,5 @@
-import { IoMdStarOutline } from 'react-icons/io'
-import { MdMenuBook } from 'react-icons/md'
+import { MdMenuBook, MdOutlineStar } from 'react-icons/md'
+import { Rating } from 'react-simple-star-rating'
 import { getDetailsWrapperClass } from '../../utils/bookList/getDetailsWrapperClass'
 import { croppedAuthorByWidth } from '../../utils/bookList/croppedAuthorByWidth'
 import { croppedTitleByWidth } from '../../utils/bookList/croppedTitleByWidth'
@@ -10,9 +10,10 @@ import { getTitleClass } from '../../utils/bookList/getTitleClass'
 import s from './BookItem.module.css'
 
 const BookItem = ({
-	data: { title, author, publishYear, pagesTotal },
+	book: { _id, title, author, publishYear, pagesTotal, rating, feedback },
 	status,
 	windowWidth,
+	handleResumeClick,
 }) => {
 	return (
 		<li className={s.item}>
@@ -47,15 +48,18 @@ const BookItem = ({
 							<div className={s.ratingWrapper}>
 								<div className={s.infoRow}>
 									<span className={s.label}>Рейтинг:</span>
-									<span className={s.stars}>
-										<IoMdStarOutline className={s.starIcon} />
-										<IoMdStarOutline className={s.starIcon} />
-										<IoMdStarOutline className={s.starIcon} />
-										<IoMdStarOutline className={s.starIcon} />
-										<IoMdStarOutline className={s.starIcon} />
-									</span>
+									<Rating
+										initialValue={rating}
+										readonly={true}
+										emptyIcon={<MdOutlineStar className={s.emptyIcon} />}
+										fillIcon={<MdOutlineStar className={s.fillIcon} />}
+									/>
 								</div>
-								<button className={s.summaryButton} type='button'>
+								<button
+									className={s.summaryButton}
+									type='button'
+									onClick={() => handleResumeClick({ _id, rating, feedback })}
+								>
 									Резюме
 								</button>
 							</div>

@@ -2,13 +2,12 @@ import { useWindowWidth } from '../../hooks/userWindowWidth/useWindowWidth'
 import BookItem from '../BookItem/BookItem'
 import s from './BookList.module.css'
 
-const BookList = ({ sectionTitle, items, status }) => {
+const BookList = ({ sectionTitle, items, status, handleResumeClick }) => {
 	const windowWidth = useWindowWidth()
 
 	return (
 		<>
 			<h2 className={s.sectionTitle}>{sectionTitle}</h2>
-
 			<ul className={s.bookList}>
 				{status === 'finished' ? (
 					<li className={s.listHeaderFinished}>
@@ -29,9 +28,10 @@ const BookList = ({ sectionTitle, items, status }) => {
 				{items?.map(book => (
 					<BookItem
 						key={book._id}
-						data={book}
+						book={book}
 						status={status}
 						windowWidth={windowWidth}
+						handleResumeClick={handleResumeClick}
 					/>
 				))}
 			</ul>

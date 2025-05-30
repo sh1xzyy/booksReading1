@@ -11,7 +11,6 @@ import s from './UserMenu.module.css'
 const UserMenu = () => {
 	const dispatch = useDispatch()
 	const { name } = useSelector(selectUserData)
-
 	const setActive = ({ isActive }) => clsx(s.navLink, isActive && s.active)
 
 	const handleLogout = async () => {
@@ -30,9 +29,9 @@ const UserMenu = () => {
 				BR
 			</Link>
 			<div className={s.userDesktopInfo}>
-				<span className={s.shortName}>{name[0]?.toUpperCase() || ''}</span>
+				<span className={s.shortName}>{name?.[0].toUpperCase() || ''}</span>
 				<span className={s.userName}>
-					{name[0]?.toUpperCase() + name.slice(1) || ''}
+					{name?.[0].toUpperCase() + name?.slice(1) || ''}
 				</span>
 			</div>
 			<nav className={s.nav}>
@@ -49,7 +48,7 @@ const UserMenu = () => {
 					</li>
 				</ul>
 				<div className={s.userInfo}>
-					<span className={s.shortName}>{name[0]?.toUpperCase() || ''}</span>
+					<span className={s.shortName}>{name?.[0].toUpperCase() || ''}</span>
 				</div>
 				<button type='button' className={s.logout} onClick={handleLogout}>
 					Выход

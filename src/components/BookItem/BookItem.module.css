@@ -25,6 +25,16 @@
 	color: #ff6b08;
 }
 
+.emptyIcon,
+.fillIcon {
+	width: 17px;
+	height: 17px;
+}
+
+.fillIcon {
+	color: #ff6b08;
+}
+
 .title {
 	display: block;
 	font-weight: 500;
@@ -55,12 +65,6 @@
 	font-weight: 500;
 	font-size: 12px;
 	color: #898f9f;
-}
-
-.starIcon {
-	color: #ff6b08;
-	width: 17px;
-	height: 17px;
 }
 
 .summaryButton {

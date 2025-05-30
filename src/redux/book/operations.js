@@ -21,3 +21,24 @@ export const addBookThunk = createAsyncThunk(
 		}
 	}
 )
+
+export const addBookReviewThunk = createAsyncThunk(
+	'/book/review/',
+	async ({ _id, ...body }, thunkAPI) => {
+		try {
+			const { accessToken } = thunkAPI.getState().auth
+			if (!accessToken) {
+				return thunkAPI.rejectWithValue('No accessToken')
+			}
+
+			const response = await authInstance.patch(`/book/review/${_id}`, body, {
+				headers: {
+					Authorization: `Bearer ${accessToken}`,
+				},
+			})
+			return response.data
+		} catch (error) {
+			return thunkAPI.rejectWithValue(error.message)
+		}
+	}
+)
