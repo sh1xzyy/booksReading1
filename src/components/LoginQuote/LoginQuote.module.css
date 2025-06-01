@@ -5,53 +5,54 @@
 	flex-direction: column;
 	margin: 18px 0;
 	text-align: center;
-	.quoteMark {
-		font-family: 'Abril Fatface', sans-serif;
-		font-weight: 400;
-		font-size: 59px;
-		color: #ff6b08;
+}
+.quoteMark {
+	font-family: 'Abril Fatface', sans-serif;
+	font-weight: 400;
+	font-size: 59px;
+	color: #ff6b08;
+}
+.quoteText {
+	position: relative;
+	display: block;
+	margin: -30px auto 28px auto;
+	max-width: 229px;
+	font-weight: 500;
+	font-size: 13px;
+	color: #242a37;
+	margin-bottom: 28px;
+	&::after {
+		position: absolute;
+		content: '';
+		left: 50%;
+		bottom: -16px;
+		transform: translateX(-50%);
+		width: 100px;
+		height: 1px;
+		background-color: rgba(36, 42, 55, 0.5);
 	}
-	.quoteText {
-		position: relative;
-		display: block;
-		margin: -30px auto 28px auto;
-		max-width: 229px;
-		font-weight: 500;
-		font-size: 13px;
-		color: #242a37;
-		margin-bottom: 28px;
-		.quoteAuthor {
-			color: #898f9f;
-			font-size: 14px;
-		}
-		&::after {
-			position: absolute;
-			content: '';
-			left: 50%;
-			bottom: -16px;
-			transform: translateX(-50%);
-			width: 100px;
-			height: 1px;
-			background-color: rgba(36, 42, 55, 0.5);
-		}
-	}
+}
+.quoteAuthor {
+	font-weight: 500;
+	font-size: 14px;
+	color: #898f9f;
 }
 
 @media screen and (min-width: 768px) {
 	.loginQuote {
 		margin: 64px 0;
-		.quoteMark {
-			font-size: 69px;
-		}
-		.quoteText {
-			max-width: 526px;
-			font-size: 24px;
-			line-height: 1.58;
-			margin-bottom: 32px;
-			&::after {
-				width: 150px;
-				font-size: 20px;
-			}
+	}
+	.quoteMark {
+		font-size: 69px;
+	}
+	.quoteText {
+		max-width: 526px;
+		font-size: 24px;
+		line-height: 1.58;
+		margin-bottom: 32px;
+		&::after {
+			width: 150px;
+			font-size: 20px;
 		}
 	}
 }
@@ -59,9 +60,9 @@
 @media screen and (min-width: 1280px) {
 	.loginQuote {
 		margin: 0;
-		.quoteText {
-			max-width: 397px;
-			line-height: 1.67;
-		}
+	}
+	.quoteText {
+		max-width: 397px;
+		line-height: 1.67;
 	}
 }

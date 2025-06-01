@@ -65,17 +65,17 @@
 		margin: 64px 0 88px 0;
 	}
 	.title {
-			margin-bottom: 48px;
-		}
-		.authButtons {
-			display: none;
-		}
+		margin-bottom: 48px;
+	}
+	.authButtons {
+		display: none;
+	}
 	.sectionList {
 		row-gap: 32px;
 	}
 	.benefitText {
-			max-width: 500px;
-		}
+		max-width: 500px;
+	}
 }
 
 @media screen and (min-width: 1280px) {

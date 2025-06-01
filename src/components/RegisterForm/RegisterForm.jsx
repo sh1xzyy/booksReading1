@@ -1,6 +1,5 @@
 import { Form, Formik } from 'formik'
 import s from './RegisterForm.module.css'
-import { Link, Navigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import FormField from '../FormField/FormField'
 import toast from 'react-hot-toast'

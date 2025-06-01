@@ -11,28 +11,28 @@
 	flex-direction: column;
 	margin: 0 auto;
 	max-width: 280px;
-	.fields {
-		display: flex;
-		flex-direction: column;
-		row-gap: 20px;
-	}
+}
+.fields {
+	display: flex;
+	flex-direction: column;
+	row-gap: 20px;
 }
 
 @media screen and (min-width: 768px) {
 	.formWrapper {
 		padding: 64px 20px;
-	background-image: linear-gradient(rgba(9, 30, 63, 0.8), rgba(9, 30, 63, 0.8)),
+		background-image: linear-gradient(rgba(9, 30, 63, 0.8), rgba(9, 30, 63, 0.8)),
 		image-set(url('/auth/auth-background-tablet@1x.jpg') 1x, url('/auth/auth-background-tablet@2x.jpg') 2x,)
 	}
 	.form {
-			max-width: 400px;
-			padding: 40px;
-			background-color: #fff;
-			label {
-				font-weight: 500;
-				color: #898f9f;
-			}
+		max-width: 400px;
+		padding: 40px;
+		background-color: #fff;
+		label {
+			font-weight: 500;
+			color: #898f9f;
 		}
+	}
 }
 
 @media screen and (min-width: 1280px) {

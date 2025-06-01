@@ -12,7 +12,7 @@ const WelcomeGuide = ({ setCloseGuide }) => {
 					<li className={s.step}>
 						<h3 className={s.stepTitle}>Крок 1.</h3>
 						<div className={s.stepContent}>
-							<MdMenuBook color='#A6ABB9' size={22} />
+							<MdMenuBook color='#a6abb9' size={22} />
 							<div>
 								<p className={s.stepMainText}>Створіть особисту бібліотеку</p>
 								<div className={s.stepHint}>
@@ -27,7 +27,7 @@ const WelcomeGuide = ({ setCloseGuide }) => {
 					<div className={s.step}>
 						<h3 className={s.stepTitle}>Крок 2.</h3>
 						<div className={s.stepContent}>
-							<RiFlagLine color='#A6ABB9' size={22} />
+							<RiFlagLine color='#a6abb9' size={22} />
 							<div>
 								<p className={s.stepMainText}>
 									Сформуйте своє перше тренування

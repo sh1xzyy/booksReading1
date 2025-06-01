@@ -2,13 +2,15 @@ import { HiArrowLongLeft } from 'react-icons/hi2'
 import { useDispatch } from 'react-redux'
 import { Form, Formik } from 'formik'
 import toast from 'react-hot-toast'
+import { useBookFormVisibility } from '../../contexts/BookFormVisibilityContext'
 import { validationSchema } from '../../utils/bookForm/validationSchema'
 import { addBookThunk } from '../../redux/book/operations'
+import ActionButton from '../ActionButton/ActionButton'
 import FormField from '../FormField/FormField'
 import s from './BookForm.module.css'
-import ActionButton from '../ActionButton/ActionButton'
 
 const BookForm = () => {
+	const {setIsBookFormOpen} = useBookFormVisibility()
 	const dispatch = useDispatch()
 	const initialValues = {
 		title: '',
@@ -17,14 +19,15 @@ const BookForm = () => {
 		pagesTotal: '',
 	}
 
-	const handleSubmit = async (values, actions) => {
+	const handleSubmit = async (values, {resetForm}) => {
 		try {
 			await dispatch(addBookThunk(values)).unwrap()
 			toast.success('You have successfully added a book')
+			setIsBookFormOpen(false)
 		} catch (error) {
-			toast.error('Something went wrong')
+			toast.error(error);
 		} finally {
-			actions.resetForm()
+			resetForm()
 		}
 	}
 
@@ -35,8 +38,11 @@ const BookForm = () => {
 			validationSchema={validationSchema}
 		>
 			<Form className={s.form}>
-				<ActionButton className="goBackButton" type='button'>
-					<HiArrowLongLeft color=' #ff6b08' size={24} />
+				<ActionButton className="goBackButton" type='button' onClick={() => {
+					setIsBookFormOpen(false);
+				}}
+				>
+					<HiArrowLongLeft color="#ff6b08" size={24} />
 				</ActionButton>
 				<div className={s.fields}>
 					<FormField

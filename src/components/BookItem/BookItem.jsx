@@ -7,8 +7,8 @@ import { getInfoListClass } from '../../utils/bookList/getInfoListClass'
 import { getBookIconClass } from '../../utils/bookList/getBookIconClass'
 import { getAuthorClass } from '../../utils/bookList/getAuthorClass'
 import { getTitleClass } from '../../utils/bookList/getTitleClass'
-import s from './BookItem.module.css'
 import ActionButton from '../ActionButton/ActionButton'
+import s from './BookItem.module.css'
 
 const BookItem = ({
 	book: { _id, title, author, publishYear, pagesTotal, rating, feedback },

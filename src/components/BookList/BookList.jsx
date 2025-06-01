@@ -1,9 +1,9 @@
-import { useWindowWidth } from '../../hooks/userWindowWidth/useWindowWidth'
+import { useWindowWidth } from '../../contexts/WindowWidthContext'
 import BookItem from '../BookItem/BookItem'
 import s from './BookList.module.css'
 
 const BookList = ({ sectionTitle, items, status, handleResumeClick }) => {
-	const windowWidth = useWindowWidth()
+	const {windowWidth} = useWindowWidth()
 
 	return (
 		<>

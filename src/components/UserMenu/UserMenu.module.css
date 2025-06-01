@@ -10,17 +10,17 @@
 	column-gap: 6px;
 	margin-right: 8px;
 }
-.navLink {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		width: 33px;
-		height: 33px;
-		border-radius: 50%;
-		transition: background-color 250ms linear;
-		&.active {
-			background-color: #f5f7fa;
-		}
+.navLink {	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 33px;
+	height: 33px;
+	border-radius: 50%;
+	transition: background-color 250ms linear;
+	&.active {
+		background-color: #f5f7fa;
+	}
 	}
 	&::after {
 		position: absolute;

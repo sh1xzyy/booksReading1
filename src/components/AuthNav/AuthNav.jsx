@@ -1,7 +1,7 @@
-import { Link, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
+import NavigationButton from '../NavigationButton/NavigationButton'
 import s from './AuthNav.module.css'
 import clsx from 'clsx'
-import NavigationButton from '../NavigationButton/NavigationButton'
 
 const AuthNav = () => {
 	const setActive = ({ isActive }) => clsx(s.navLink, isActive && s.active)

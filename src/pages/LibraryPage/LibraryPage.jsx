@@ -1,8 +1,13 @@
 import { selectIsLoading } from '../../redux/auth/selectors'
 import { selectUserData } from '../../redux/auth/selectors'
 import { useSelector } from 'react-redux'
+import { GoPlus } from 'react-icons/go'
+import ModalAddBookForm from '../../components/ModalAddBookForm/ModalAddBookForm'
+import { useBookFormVisibility } from '../../contexts/BookFormVisibilityContext'
 import BookReviewModal from '../../components/BookReviewModal/BookReviewModal'
+import ActionButton from '../../components/ActionButton/ActionButton'
 import WelcomeGuide from '../../components/WelcomeGuide/WelcomeGuide'
+import { useWindowWidth } from '../../contexts/WindowWidthContext'
 import Container from '../../components/Container/Container'
 import BookForm from '../../components/BookForm/BookForm'
 import BookList from '../../components/BookList/BookList'
@@ -14,17 +19,20 @@ import {
 	selectFinishedReadingBooksSorted,
 	selectGoingToReadBooksSorted,
 } from '../../redux/book/selectors'
-import OpenFormButton from '../../components/OpenFormButton/OpenFormButton'
+
 
 const LibraryPage = () => {
-	const userData = useSelector(selectUserData)
-	const isLoading = useSelector(selectIsLoading)
-	const [closeGuide, setCloseGuide] = useState(true)
-	const [isModalOpen, setIsModalOpen] = useState(false)
-	const [modalData, setModalData] = useState({})
-	const goingToRead = useSelector(selectGoingToReadBooksSorted)
+	const {isBookFormOpen, setIsBookFormOpen} = useBookFormVisibility()
 	const currentlyReading = useSelector(selectCurrentlyReadingBooksSorted)
 	const finishedReading = useSelector(selectFinishedReadingBooksSorted)
+	const goingToRead = useSelector(selectGoingToReadBooksSorted)
+	const [isModalOpen, setIsModalOpen] = useState(false)
+	const [closeGuide, setCloseGuide] = useState(true)
+	const isLoading = useSelector(selectIsLoading)
+	const [modalData, setModalData] = useState({})
+	const userData = useSelector(selectUserData)
+	const {windowWidth} = useWindowWidth()
+	const isListEmpty = goingToRead.length === 0 && currentlyReading.length === 0 && finishedReading.length === 0
 
 	if (isLoading || !userData) {
 		return <Loader />
@@ -33,6 +41,10 @@ const LibraryPage = () => {
 	const handleResumeClick = book => {
 		setIsModalOpen(true)
 		setModalData(book)
+	}
+
+	const handleMyTraining = () => {
+		console.log("My Training button clicked")
 	}
 
 	return (
@@ -44,21 +56,18 @@ const LibraryPage = () => {
 				/>
 			)}
 
-			{goingToRead.length === 0 &&
-			currentlyReading.length === 0 &&
-			finishedReading.length === 0 &&
-			closeGuide ? (
-				<WelcomeGuide setCloseGuide={setCloseGuide} />
-			) : null}
+			{isListEmpty && closeGuide && <WelcomeGuide setCloseGuide={setCloseGuide} />}
 
-			<Section className='formSection'>
+			{windowWidth < 768 ? (isListEmpty || isBookFormOpen ? <ModalAddBookForm/> : null) : 
+			(<Section className='formSection'>
 				<Container>
 					<BookForm />
 				</Container>
-			</Section>
+			</Section> )}
 
+			<Section className='bookListSection'>
 			{finishedReading.length > 0 && (
-				<Section className='bookSection'>
+				<Section>
 					<Container>
 						<BookList
 							sectionTitle='Прочитано'
@@ -71,7 +80,7 @@ const LibraryPage = () => {
 			)}
 
 			{currentlyReading.length > 0 && (
-				<Section className='bookSection'>
+				<Section>
 					<Container>
 						<BookList
 							sectionTitle='Читаю'
@@ -83,7 +92,7 @@ const LibraryPage = () => {
 			)}
 
 			{goingToRead.length > 0 && (
-				<Section className='bookSection'>
+				<Section>
 					<Container>
 						<BookList
 							sectionTitle='Маю намір прочитати'
@@ -93,8 +102,13 @@ const LibraryPage = () => {
 					</Container>
 				</Section>
 			)}
+			{!isListEmpty && <ActionButton className="myTrainingButton" type="button" title="Моє тренування" onClick={handleMyTraining}/>			}
+			</Section>
 
-			<OpenFormButton />
+			{windowWidth < 768 && !isBookFormOpen && 
+			<ActionButton className="openFormButton" type='button' onClick={() => setIsBookFormOpen(true)}>
+				<GoPlus color='#fff' size={24} />
+			</ActionButton>}
 		</>
 	)
 }

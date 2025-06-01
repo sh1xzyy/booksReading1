@@ -8,6 +8,8 @@ body {
 
 html,
 body {
+	height: 100%;
+	overflow-x: hidden;
 	width: 100%;
 }
 
@@ -47,4 +49,12 @@ img {
 	display: block;
 	max-width: 100%;
 	object-fit: contain;
+}
+
+body[data-scroll="scroll"]{
+	overflow-y: auto;
+}
+
+body[data-scroll="no-scroll"]{
+	overflow: hidden;
 }

@@ -11,19 +11,19 @@
 	flex-direction: column;
 	margin: 0 auto;
 	max-width: 280px;
-	.fields {
-		display: flex;
-		flex-direction: column;
-		row-gap: 20px;
-	}
-	.loginText {
-		text-align: center;
-		font-weight: 500;
-		font-size: 13px;
-		color: #898f9f;
-	}
 }
 
+.fields {
+	display: flex;
+	flex-direction: column;
+	row-gap: 20px;
+}
+.loginText {
+	text-align: center;
+	font-weight: 500;
+	font-size: 13px;
+	color: #898f9f;
+}
 @media screen and (min-width: 768px) {
 	.formWrapper {
 		padding: 64px 20px;

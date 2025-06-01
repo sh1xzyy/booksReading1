@@ -3,9 +3,9 @@ import { MdOutlineStar } from 'react-icons/md'
 import { Field, Form, Formik } from 'formik'
 import { useDispatch } from 'react-redux'
 import { useState } from 'react'
-import s from './BookReviewModal.module.css'
-import { addBookReviewThunk } from '../../redux/book/operations'
 import ActionButton from '../ActionButton/ActionButton'
+import { addBookReviewThunk } from '../../redux/book/operations'
+import s from './BookReviewModal.module.css'
 
 const BookReviewModal = ({
 	setIsModalOpen,

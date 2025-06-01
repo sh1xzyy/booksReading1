@@ -2,6 +2,12 @@
 	padding: 0;
 }
 
+.registerWrapper{
+	display: grid;
+	margin-top: 60px;
+	grid-template-columns: 1fr;
+}
+
 @media screen and (min-width: 1280px) {
 	.registerContainer {
 		max-width: 1300px;
@@ -9,7 +15,6 @@
 		margin: 0 auto;
 	}
 	.registerWrapper {
-		display: grid;
 		grid-template-columns: 549px 1fr;
 	}
 }
