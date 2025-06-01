@@ -7,10 +7,10 @@ import { validationSchema } from '../../utils/bookForm/validationSchema'
 import { addBookThunk } from '../../redux/book/operations'
 import ActionButton from '../ActionButton/ActionButton'
 import FormField from '../FormField/FormField'
-import s from './BookForm.module.css'
+import s from './AddBookForm.module.css'
 
-const BookForm = () => {
-	const {setIsBookFormOpen} = useBookFormVisibility()
+const AddBookForm = () => {
+	const { setIsBookFormOpen } = useBookFormVisibility()
 	const dispatch = useDispatch()
 	const initialValues = {
 		title: '',
@@ -19,13 +19,13 @@ const BookForm = () => {
 		pagesTotal: '',
 	}
 
-	const handleSubmit = async (values, {resetForm}) => {
+	const handleSubmit = async (values, { resetForm }) => {
 		try {
 			await dispatch(addBookThunk(values)).unwrap()
 			toast.success('You have successfully added a book')
 			setIsBookFormOpen(false)
 		} catch (error) {
-			toast.error(error);
+			toast.error(error)
 		} finally {
 			resetForm()
 		}
@@ -38,11 +38,14 @@ const BookForm = () => {
 			validationSchema={validationSchema}
 		>
 			<Form className={s.form}>
-				<ActionButton className="goBackButton" type='button' onClick={() => {
-					setIsBookFormOpen(false);
-				}}
+				<ActionButton
+					className='goBackButton'
+					type='button'
+					onClick={() => {
+						setIsBookFormOpen(false)
+					}}
 				>
-					<HiArrowLongLeft color="#ff6b08" size={24} />
+					<HiArrowLongLeft color='#ff6b08' size={24} />
 				</ActionButton>
 				<div className={s.fields}>
 					<FormField
@@ -78,10 +81,10 @@ const BookForm = () => {
 						placeholder='...'
 					/>
 				</div>
-				<ActionButton className="addBookButton" type='submit' title="Додати"/>
-				</Form>
+				<ActionButton className='addBookButton' type='submit' title='Додати' />
+			</Form>
 		</Formik>
 	)
 }
 
-export default BookForm
+export default AddBookForm

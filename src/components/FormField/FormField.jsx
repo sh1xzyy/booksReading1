@@ -1,6 +1,7 @@
-import { ErrorMessage, Field } from 'formik'
+import { Field } from 'formik'
 import s from './FormField.module.css'
 import { nanoid } from '@reduxjs/toolkit'
+import ErrorMsg from '../ErrorMsg/ErrorMsg'
 
 const FormField = ({
 	labelTitle,
@@ -9,8 +10,8 @@ const FormField = ({
 	placeholder,
 	classLabel,
 	classField,
-	classError = 'error',
 	isSup = false,
+	isErrorMessage = true,
 }) => {
 	const fieldId = nanoid()
 	return (
@@ -27,11 +28,7 @@ const FormField = ({
 					id={fieldId}
 					placeholder={placeholder}
 				/>
-				<ErrorMessage
-					className={s[classError]}
-					name={name}
-					component={'span'}
-				/>
+				{isErrorMessage && <ErrorMsg name={name} />}
 			</div>
 		</>
 	)

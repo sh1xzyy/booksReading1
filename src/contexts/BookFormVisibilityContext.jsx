@@ -1,17 +1,17 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState } from 'react'
 
-const BookFormVisibilityContext = createContext();
+const BookFormVisibilityContext = createContext()
 
 export const BookFormVisibilityProvider = ({ children }) => {
-  const [isBookFormOpen, setIsBookFormOpen] = useState(false);
+	const [isBookFormOpen, setIsBookFormOpen] = useState(false)
 
-  return (
-    <BookFormVisibilityContext.Provider
-      value={{ isBookFormOpen, setIsBookFormOpen }}
-    >
-      {children}
-    </BookFormVisibilityContext.Provider>
-  );
-};
+	return (
+		<BookFormVisibilityContext.Provider
+			value={{ isBookFormOpen, setIsBookFormOpen }}
+		>
+			{children}
+		</BookFormVisibilityContext.Provider>
+	)
+}
 
-export const useBookFormVisibility = () => useContext(BookFormVisibilityContext);
+export const useBookFormVisibility = () => useContext(BookFormVisibilityContext)

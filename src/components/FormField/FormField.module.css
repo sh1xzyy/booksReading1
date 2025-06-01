@@ -3,22 +3,6 @@
 	position: relative;
 }
 
-.error {
-	position: absolute;
-	font-weight: 400;
-	font-size: 12px;
-	bottom: -16px;
-	left: 0;
-	color: #ca1b00;
-	transform: all 250ms linear;
-}
-
-@media screen and (min-width: 768px) {
-	.error {
-		bottom: -18px;
-	}
-}
-
 /* Register and Login Field */
 
 .authLabel {
