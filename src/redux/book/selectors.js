@@ -16,3 +16,4 @@ export const selectCurrentlyReadingBooksSorted = sortedSelector(
 export const selectFinishedReadingBooksSorted = sortedSelector(
 	selectFinishedReadingBooks
 )
+export const selectIsLoading = state => state.book.isLoading

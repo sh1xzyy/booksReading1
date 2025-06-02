@@ -1,7 +1,7 @@
-import { Field } from 'formik'
-import s from './FormField.module.css'
 import { nanoid } from '@reduxjs/toolkit'
+import { Field } from 'formik'
 import ErrorMsg from '../ErrorMsg/ErrorMsg'
+import s from './FormField.module.css'
 
 const FormField = ({
 	labelTitle,

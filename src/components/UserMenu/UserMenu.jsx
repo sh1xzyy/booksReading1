@@ -1,29 +1,17 @@
-import { useDispatch, useSelector } from 'react-redux'
-import { Link, NavLink } from 'react-router-dom'
 import { PiHouseLineBold } from 'react-icons/pi'
 import { MdMenuBook } from 'react-icons/md'
-import toast from 'react-hot-toast'
-import clsx from 'clsx'
-import { selectUserData } from '../../redux/auth/selectors'
-import { logoutThunk } from '../../redux/auth/operations'
-import s from './UserMenu.module.css'
-import ActionButton from '../ActionButton/ActionButton'
+import { NavLink } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 import NavigationButton from '../NavigationButton/NavigationButton'
+import { useLogout } from '../../features/auth/Logout/useLogout'
+import { selectUserData } from '../../redux/auth/selectors'
+import { setActive } from '../../utils/userMenu/setActive'
+import ActionButton from '../ActionButton/ActionButton'
+import s from './UserMenu.module.css'
 
 const UserMenu = () => {
-	const dispatch = useDispatch()
 	const { name } = useSelector(selectUserData)
-	const setActive = ({ isActive }) => clsx(s.navLink, isActive && s.active)
-
-	const handleLogout = async () => {
-		try {
-			await dispatch(logoutThunk()).unwrap()
-			toast.success('You have successfully logout!')
-		} catch (error) {
-			toast.error('Something went wrong!')
-			console.dir(error)
-		}
-	}
+	const {handleLogout} = useLogout()
 
 	return (
 		<>
@@ -37,12 +25,12 @@ const UserMenu = () => {
 			<nav className={s.nav}>
 				<ul className={s.navList}>
 					<li className={s.navLinkItem}>
-						<NavLink to='/statistics' className={setActive}>
+						<NavLink to='/statistics' className={({isActive}) => setActive(isActive, s)}>
 							<MdMenuBook color='#A6ABB9' size={22} />
 						</NavLink>
 					</li>
 					<li className={s.navLinkItem}>
-						<NavLink to='/library' className={setActive}>
+						<NavLink to='/library' className={({isActive}) => setActive(isActive, s)}>
 							<PiHouseLineBold color='#A6ABB9' size={20} />
 						</NavLink>
 					</li>

@@ -1,37 +1,22 @@
 import { HiArrowLongLeft } from 'react-icons/hi2'
-import { useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { Form, Formik } from 'formik'
-import toast from 'react-hot-toast'
 import { useBookFormVisibility } from '../../contexts/BookFormVisibilityContext'
-import { validationSchema } from '../../utils/bookForm/validationSchema'
-import { addBookThunk } from '../../redux/book/operations'
+import { useAddBookForm } from '../../features/books/addBookForm/useAddBookForm'
+import { selectIsLoading } from '../../redux/book/selectors'
 import ActionButton from '../ActionButton/ActionButton'
 import FormField from '../FormField/FormField'
 import s from './AddBookForm.module.css'
+import Loader from '../Loader/Loader'
 
 const AddBookForm = () => {
+	const {initialValues, validationSchema, handleSubmit} = useAddBookForm()
 	const { setIsBookFormOpen } = useBookFormVisibility()
-	const dispatch = useDispatch()
-	const initialValues = {
-		title: '',
-		author: '',
-		publishYear: '',
-		pagesTotal: '',
-	}
-
-	const handleSubmit = async (values, { resetForm }) => {
-		try {
-			await dispatch(addBookThunk(values)).unwrap()
-			toast.success('You have successfully added a book')
-			setIsBookFormOpen(false)
-		} catch (error) {
-			toast.error(error)
-		} finally {
-			resetForm()
-		}
-	}
+	const isLoading = useSelector(selectIsLoading)
 
 	return (
+		<>
+		{isLoading && <Loader/>}
 		<Formik
 			initialValues={initialValues}
 			onSubmit={handleSubmit}
@@ -84,6 +69,7 @@ const AddBookForm = () => {
 				<ActionButton className='addBookButton' type='submit' title='Додати' />
 			</Form>
 		</Formik>
+		</>
 	)
 }
 

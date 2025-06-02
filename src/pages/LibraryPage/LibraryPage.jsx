@@ -110,7 +110,7 @@ const LibraryPage = () => {
 						className='myTrainingButton'
 						type='button'
 						title='Моє тренування'
-						onClick={console.log('My Training Clicked')}
+						onClick={() => console.log('My Training Clicked')}
 					/>
 				)}
 			</Section>

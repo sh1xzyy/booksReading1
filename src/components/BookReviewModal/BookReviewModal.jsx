@@ -6,6 +6,7 @@ import { useState } from 'react'
 import ActionButton from '../ActionButton/ActionButton'
 import { addBookReviewThunk } from '../../redux/book/operations'
 import s from './BookReviewModal.module.css'
+import { handleOverlayClick } from '../../utils/bookReviewModal/handleOverlayClick'
 
 const BookReviewModal = ({
 	setIsModalOpen,
@@ -29,15 +30,9 @@ const BookReviewModal = ({
 		}
 	}
 
-	const handleOverlayClick = e => {
-		if (e.target === e.currentTarget) {
-			setIsModalOpen(false)
-		}
-	}
-
 	return (
 		<>
-			<div className={s.overlay} onClick={handleOverlayClick}>
+			<div className={s.overlay} onClick={(e) => handleOverlayClick(e, setIsModalOpen)}>
 				<div className={s.modal}>
 					<h3 className={s.chooseRating}>Обрати рейтинг книги</h3>
 					<Formik onSubmit={handleSubmit} initialValues={{ feedback }}>

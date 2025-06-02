@@ -1,36 +1,16 @@
+import { useSelector } from 'react-redux'
 import { Form, Formik } from 'formik'
-import s from './RegisterForm.module.css'
-import { useDispatch, useSelector } from 'react-redux'
-import FormField from '../FormField/FormField'
-import toast from 'react-hot-toast'
-import { registerThunk } from '../../redux/auth/operations'
-import { validationSchema } from '../../utils/register/validationSchema'
-import { selectIsLoading } from '../../redux/auth/selectors'
-import Loader from '../Loader/Loader'
-import ActionButton from '../ActionButton/ActionButton'
+import { useRegisterForm } from '../../features/auth/RegisterForm/useRegisterForm'
 import NavigationButton from '../NavigationButton/NavigationButton'
+import { selectIsLoading } from '../../redux/auth/selectors'
+import ActionButton from '../ActionButton/ActionButton'
+import FormField from '../FormField/FormField'
+import s from './RegisterForm.module.css'
+import Loader from '../Loader/Loader'
 
 const RegisterForm = () => {
-	const dispatch = useDispatch()
+	const {initialValues, validationSchema, handleSubmit} = useRegisterForm()
 	const isLoading = useSelector(selectIsLoading)
-
-	const initialValues = {
-		name: '',
-		email: '',
-		password: '',
-		confirmPassword: '',
-	}
-
-	const onFormSubmit = async ({ name, email, password }, actions) => {
-		try {
-			await dispatch(registerThunk({ name, email, password })).unwrap()
-			toast.success('You have successfully registered.')
-		} catch (error) {
-			toast.error(error)
-		} finally {
-			actions.resetForm()
-		}
-	}
 
 	return (
 		<>
@@ -38,7 +18,7 @@ const RegisterForm = () => {
 			<div className={s.formWrapper}>
 				<Formik
 					initialValues={initialValues}
-					onSubmit={onFormSubmit}
+					onSubmit={handleSubmit}
 					validationSchema={validationSchema}
 				>
 					<Form className={s.form}>
