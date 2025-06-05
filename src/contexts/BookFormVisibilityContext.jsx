@@ -6,9 +6,7 @@ export const BookFormVisibilityProvider = ({ children }) => {
 	const [isBookFormOpen, setIsBookFormOpen] = useState(false)
 
 	return (
-		<BookFormVisibilityContext.Provider
-			value={{ isBookFormOpen, setIsBookFormOpen }}
-		>
+		<BookFormVisibilityContext.Provider value={{ isBookFormOpen, setIsBookFormOpen }}>
 			{children}
 		</BookFormVisibilityContext.Provider>
 	)

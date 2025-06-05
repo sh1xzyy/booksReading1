@@ -58,6 +58,7 @@ const authSlice = createSlice({
 			.addCase(refreshThunk.rejected, state => {
 				state.isRefreshing = false
 				state.isLoading = false
+				state.isLoggedIn = false
 			})
 			.addCase(userDataThunk.fulfilled, (state, action) => {
 				state.userData = {

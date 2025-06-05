@@ -43,7 +43,7 @@ const WelcomeGuide = ({ setCloseGuide }) => {
 					</div>
 				</ul>
 				<ActionButton
-					className="confirmBtn"
+					className="acceptKnowledge"
 					type='submit'
 					title="Ok"
 					onClick={() => setCloseGuide(false)}

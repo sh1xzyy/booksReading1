@@ -9,7 +9,6 @@ body {
 html,
 body {
 	height: 100%;
-	overflow-x: hidden;
 	width: 100%;
 }
 
@@ -53,8 +52,9 @@ img {
 
 body[data-scroll="scroll"]{
 	overflow-y: auto;
+	overflow-x: hidden;
 }
-
+ 
 body[data-scroll="no-scroll"]{
 	overflow: hidden;
 }

@@ -9,6 +9,15 @@
 	align-items: center;
 	column-gap: 6px;
 	margin-right: 8px;
+	&::after {
+		position: absolute;
+		content: '';
+		top: 0;
+		right: -8px;
+		height: 100%;
+		width: 1px;
+		background-color: #e0e5eb;
+	}
 }
 .navLink {	
 	display: flex;
@@ -21,16 +30,7 @@
 	&.active {
 		background-color: #f5f7fa;
 	}
-	}
-	&::after {
-		position: absolute;
-		content: '';
-		top: 0;
-		right: -8px;
-		height: 100%;
-		width: 1px;
-		background-color: #e0e5eb;
-	}
+}
 
 .userInfo,
 .userDesktopInfo {

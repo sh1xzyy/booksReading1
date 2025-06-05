@@ -18,18 +18,21 @@
 	flex-direction: column;
 	row-gap: 20px;
 }
+
 .loginText {
 	text-align: center;
 	font-weight: 500;
 	font-size: 13px;
 	color: #898f9f;
 }
+
 @media screen and (min-width: 768px) {
 	.formWrapper {
 		padding: 64px 20px;
 		background-image: linear-gradient(rgba(9, 30, 63, 0.8), rgba(9, 30, 63, 0.8)),
 	image-set(url('/auth/auth-background-tablet@1x.jpg') 1x, url('/auth/auth-background-tablet@2x.jpg') 2x,)
 	}
+
 	.form {
 		max-width: 400px;
 		padding: 40px;
@@ -42,6 +45,7 @@
 		display: grid;
 		grid-template-columns: 549px 1fr;
 	}
+	
 	.formWrapper {
 		padding: 90px 0;
 		background-image: linear-gradient(rgba(9, 30, 63, 0.8), rgba(9, 30, 63, 0.8)),
