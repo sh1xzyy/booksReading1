@@ -16,7 +16,7 @@ const bookSlice = createSlice({
 		builder
 			.addCase(addBookThunk.fulfilled, (state, action) => {
 				state.goingToRead.push(action.payload)
-					state.isLoading = false
+				state.isLoading = false
 			})
 			.addCase(addBookReviewThunk.fulfilled, (state, action) => {
 				state.userBooks.finishedReading = state.finishedReading.filter(
@@ -27,10 +27,10 @@ const bookSlice = createSlice({
 			.addMatcher(
 				isAnyOf(loginThunk.fulfilled, userDataThunk.fulfilled),
 				(state, action) => {
-				const data = action.payload.userData || action.payload
-				state.goingToRead = data.goingToRead
-				state.currentlyReading = data.currentlyReading
-				state.finishedReading = data.finishedReading
+					const data = action.payload.userData || action.payload
+					state.goingToRead = data.goingToRead
+					state.currentlyReading = data.currentlyReading
+					state.finishedReading = data.finishedReading
 				}
 			)
 			.addMatcher(

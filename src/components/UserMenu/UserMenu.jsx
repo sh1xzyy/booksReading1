@@ -8,23 +8,24 @@ import { selectUserData } from '../../redux/auth/selectors'
 import { setActive } from '../../utils/userMenu/setActive'
 import ActionButton from '../ActionButton/ActionButton'
 import s from './UserMenu.module.css'
-import ConfirmModal from '../ConfirmModal/ConfirmModal'
+import ConfirmLogoutModal from '../ConfirmLogoutModal/ConfirmLogoutModal'
 import { useState } from 'react'
 
 const UserMenu = () => {
-	const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false)
+	const [isConfirmModalOpen, setIsConfirmLogoutModalOpen] = useState(false)
 	const { name } = useSelector(selectUserData)
-	const {handleLogout} = useLogout()
+	const { handleLogout } = useLogout()
 
-	
 	return (
 		<>
-		{isConfirmModalOpen && 
-		<ConfirmModal title="Якщо Ви вийдете з програми незбережені дані будуть втрачені" 
-		onClick={handleLogout}
-		setIsConfirmModalOpen={setIsConfirmModalOpen}/>
-		}
-			<NavigationButton className="logo" to='/' title="BR"/>
+			{isConfirmModalOpen && (
+				<ConfirmLogoutModal
+					title='Якщо Ви вийдете з програми незбережені дані будуть втрачені'
+					onClick={handleLogout}
+					isModalOpen={setIsConfirmLogoutModalOpen}
+				/>
+			)}
+			<NavigationButton className='logo' to='/' title='BR' />
 			<div className={s.userDesktopInfo}>
 				<span className={s.shortName}>{name?.[0].toUpperCase() || ''}</span>
 				<span className={s.userName}>
@@ -34,12 +35,18 @@ const UserMenu = () => {
 			<nav className={s.nav}>
 				<ul className={s.navList}>
 					<li className={s.navLinkItem}>
-						<NavLink to='/statistics' className={({isActive}) => setActive(isActive, s)}>
+						<NavLink
+							to='/statistics'
+							className={({ isActive }) => setActive(isActive, s)}
+						>
 							<MdMenuBook color='#A6ABB9' size={22} />
 						</NavLink>
 					</li>
 					<li className={s.navLinkItem}>
-						<NavLink to='/library' className={({isActive}) => setActive(isActive, s)}>
+						<NavLink
+							to='/library'
+							className={({ isActive }) => setActive(isActive, s)}
+						>
 							<PiHouseLineBold color='#A6ABB9' size={20} />
 						</NavLink>
 					</li>
@@ -47,9 +54,14 @@ const UserMenu = () => {
 				<div className={s.userInfo}>
 					<span className={s.shortName}>{name?.[0].toUpperCase() || ''}</span>
 				</div>
-				<ActionButton className="logout" type='button' title="Выход" onClick={() => setIsConfirmModalOpen(true)}/>
+				<ActionButton
+					className='logout'
+					type='button'
+					title='Выход'
+					onClick={() => setIsConfirmLogoutModalOpen(true)}
+				/>
 			</nav>
-			</>
+		</>
 	)
 }
 

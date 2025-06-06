@@ -1,13 +1,13 @@
 /* goBack Button */
-.goBackButton{
+.goBackButton {
 	position: absolute;
 	top: 24px;
 	border: none;
 	background-color: transparent;
 	transition: background-color 250ms linear;
-	&::after{
+	&::after {
 		position: absolute;
-		content: "";
+		content: '';
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
@@ -18,13 +18,13 @@
 		background-color: #e0e5eb;
 		transition: opacity 250ms linear;
 	}
-	&:hover::after{
+	&:hover::after {
 		opacity: 1;
 	}
 }
 
-@media screen and (min-width: 768px){
-    .goBackButton{
+@media screen and (min-width: 768px) {
+	.goBackButton {
 		display: none;
 	}
 }
@@ -70,15 +70,15 @@
 	}
 }
 
-@media screen and (min-width: 768px){
-    .summaryButton {
+@media screen and (min-width: 768px) {
+	.summaryButton {
 		min-width: 80px;
 		margin: 0;
 	}
 }
 
-@media screen and (min-width: 1280px){
-    .summaryButton {
+@media screen and (min-width: 1280px) {
+	.summaryButton {
 		min-width: 130px;
 	}
 }
@@ -113,8 +113,8 @@
 	}
 }
 
-@media screen and (min-width: 768px){
-    .reviewGoBackButton,
+@media screen and (min-width: 768px) {
+	.reviewGoBackButton,
 	.reviewSaveButton {
 		min-width: 130px;
 	}
@@ -122,7 +122,7 @@
 
 /* Google Button */
 .googleButton {
-    position: relative;
+	position: relative;
 	font-family: 'Roboto', sans-serif;
 	display: block;
 	margin: 0 auto;
@@ -145,7 +145,7 @@
 		line-height: 0;
 		transform: translateY(-50%);
 	}
-	&:hover{
+	&:hover {
 		background-color: #f6f7fb;
 	}
 }
@@ -166,13 +166,13 @@
 	}
 }
 
-@media screen and (min-width: 768px){
-    .loginSubmitButton {
+@media screen and (min-width: 768px) {
+	.loginSubmitButton {
 		margin: 32px 0 20px 0;
 	}
-    .registerSubmitButton{
+	.registerSubmitButton {
 		margin: 35px 0 20px 0;
-    }
+	}
 }
 
 /* Modal Form Button */
@@ -201,11 +201,11 @@
 	margin-left: 14px;
 	border: none;
 	background-color: transparent;
-	&:hover{
-		background-color: #000000;
+	transition: color 250ms linear;
+	&:hover {
+		color: #000000;
 	}
 }
-
 
 @media screen and (min-width: 768px) {
 	.logout {
@@ -239,14 +239,14 @@
 	}
 }
 
-@media screen and (min-width: 768px){
-    .acceptKnowledge {
+@media screen and (min-width: 768px) {
+	.acceptKnowledge {
 		display: none;
 	}
 }
 
 /* My Training Button */
-.myTrainingButton{
+.myTrainingButton {
 	display: block;
 	margin: 0 auto;
 	margin-top: 8px;
@@ -256,33 +256,32 @@
 	font-weight: 600;
 	font-size: 16px;
 	color: #ffffff;
-	background-color:#ff6b08;
+	background-color: #ff6b08;
 	transition: background-color 250ms linear;
 	&:hover {
 		background-color: #e95f03;
 	}
 }
 
-@media screen and (min-width: 768px){
-    .myTrainingButton {
+@media screen and (min-width: 768px) {
+	.myTrainingButton {
 		min-width: 200px;
 		height: 40px;
-	    margin-top: 0;
+		margin-top: 0;
 	}
 }
 
-@media screen and (min-width: 768px){
-    .myTrainingButton {
+@media screen and (min-width: 768px) {
+	.myTrainingButton {
 		min-width: 200px;
 		height: 40px;
-	    margin-top: 8px;
+		margin-top: 8px;
 	}
 }
-
 
 /* Confirm Modal */
 .cancelButton,
-.confirmButton{
+.confirmButton {
 	min-width: 98px;
 	height: 40px;
 	font-weight: 500;
@@ -290,7 +289,7 @@
 	transition: background-color 250ms linear;
 }
 
-.cancelButton{
+.cancelButton {
 	border: 1px solid #242a37;
 	color: #242a37;
 	background-color: transparent;
@@ -299,7 +298,7 @@
 	}
 }
 
-.confirmButton{
+.confirmButton {
 	border: none;
 	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
 	color: #fff;
@@ -309,9 +308,9 @@
 	}
 }
 
-@media screen and (min-width: 768px){
+@media screen and (min-width: 768px) {
 	.cancelButton,
-	.confirmButton{
+	.confirmButton {
 		min-width: 130px;
 	}
 }

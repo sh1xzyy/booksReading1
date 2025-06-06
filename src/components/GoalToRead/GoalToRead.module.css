@@ -1,0 +1,87 @@
+.goalWrapper {
+	margin-top: 80px;
+	box-shadow: 0 2px 3px 0 rgba(9, 30, 63, 0.1);
+	background: #fff;
+}
+
+.goalHeader {
+	padding: 18px 30px;
+	box-shadow: 0 2px 3px 0 rgba(9, 30, 63, 0.1);
+	background-color: #b1b5c2;
+}
+
+.title {
+	font-weight: 600;
+	font-size: 20px;
+	color: #fff;
+	text-align: center;
+}
+
+.countWrapper {
+	padding: 44px 30px;
+}
+
+.countList {
+	display: flex;
+	justify-content: center;
+	column-gap: 20px;
+}
+
+.countItem {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100px;
+	height: 100px;
+	margin-bottom: 14px;
+	box-shadow: 4px 4px 8px 0 rgba(36, 42, 55, 0.15);
+	background: #f5f7fa;
+}
+
+.counter {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 700;
+	font-size: 45px;
+	line-height: 0.84;
+	color: #091e3f;
+}
+
+.counterDescription {
+	display: block;
+	font-weight: 500;
+	font-size: 14px;
+	color: #898f9f;
+	text-align: center;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+	.goalWrapper {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		padding: 20px 52px 8px 28px;
+	}
+	.goalHeader {
+		margin-top: 3px;
+		padding: 18px 28px;
+		box-shadow: 0 2px 3px 0 rgba(9, 30, 63, 0.1);
+		background-color: #b1b5c2;
+	}
+	.countWrapper {
+		padding: 0;
+	}
+	.countList {
+		column-gap: 40px;
+	}
+	.countItem {
+		height: 60px;
+		margin-bottom: 4px;
+	}
+	.counter {
+		font-size: 40px;
+		line-height: 0.95;
+	}
+	.counterDescription {
+		font-size: 11px;
+	}
+}

@@ -3,7 +3,6 @@ import { selectUserData } from '../../redux/auth/selectors'
 import { useSelector } from 'react-redux'
 import { GoPlus } from 'react-icons/go'
 import { useBookFormVisibility } from '../../contexts/BookFormVisibilityContext'
-import BookReviewModal from '../../components/BookReviewModal/BookReviewModal'
 import ActionButton from '../../components/ActionButton/ActionButton'
 import WelcomeGuide from '../../components/WelcomeGuide/WelcomeGuide'
 import { useWindowWidth } from '../../contexts/WindowWidthContext'
@@ -19,6 +18,7 @@ import {
 	selectGoingToReadBooksSorted,
 } from '../../redux/book/selectors'
 import ActionFormModal from '../../components/ActionFormModal/ActionFormModal'
+import BookFeedbackModal from '../../components/BookFeedbackModal/BookFeedbackModal'
 
 const LibraryPage = () => {
 	const { isBookFormOpen, setIsBookFormOpen } = useBookFormVisibility()
@@ -43,10 +43,7 @@ const LibraryPage = () => {
 	return (
 		<>
 			{isModalOpen && (
-				<BookReviewModal
-					setIsModalOpen={setIsModalOpen}
-					modalData={modalData}
-				/>
+				<BookFeedbackModal isModalOpen={setIsModalOpen} modalData={modalData} />
 			)}
 
 			{isListEmpty && closeGuide && (

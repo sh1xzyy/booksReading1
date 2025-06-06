@@ -1,0 +1,12 @@
+.trainingHeader {
+	padding: 18px 0;
+	box-shadow: 0 2px 3px 0 rgba(9, 30, 63, 0.1);
+	background: #b1b5c2;
+}
+
+.title {
+	font-weight: 600;
+	font-size: 20px;
+	text-align: center;
+	color: #fff;
+}

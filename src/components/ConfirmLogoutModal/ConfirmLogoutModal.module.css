@@ -1,0 +1,23 @@
+.title {
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 1.375;
+	text-align: center;
+	color: #242a37;
+	margin-bottom: 20px;
+}
+
+.buttonsWrapper {
+	display: flex;
+	justify-content: center;
+	column-gap: 16px;
+}
+
+@media screen and (min-width: 768px) {
+	.text {
+		margin-bottom: 24px;
+	}
+	.buttonsWrapper {
+		column-gap: 30px;
+	}
+}
