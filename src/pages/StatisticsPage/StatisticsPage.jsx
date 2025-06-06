@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import ActionButton from '../../components/ActionButton/ActionButton'
 import Container from '../../components/Container/Container'
-import GoalToRead from '../../components/GoaLToRead/GoaLToRead'
+import GoalToRead from '../../components/GoalToRead/GoalToRead'
 import { useWindowWidth } from '../../contexts/WindowWidthContext'
 import { GoPlus } from 'react-icons/go'
 import ActionFormModal from '../../components/ActionFormModal/ActionFormModal'
