@@ -17,6 +17,7 @@
 		opacity: 0;
 		background-color: #e0e5eb;
 		transition: opacity 250ms linear;
+		z-index: -1;
 	}
 	&:hover::after {
 		opacity: 1;
