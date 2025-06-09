@@ -1,18 +1,9 @@
-.loginContainer {
-	padding: 0;
-}
-
 .loginWrapper{
 	display: grid;
 	grid-template-columns: 1fr;
 
 }
 @media screen and (min-width: 1280px) {
-	.loginContainer {
-		max-width: 1300px;
-		padding: 0 16px;
-		margin: 0 auto;
-	}
 	.loginWrapper {
 		grid-template-columns: 549px 1fr;
 	}

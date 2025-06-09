@@ -1,0 +1,16 @@
+
+@media screen and (min-width: 1280px){
+    .statisticsWrapper{
+        padding: 100px 0;
+        display: grid;
+        grid-template-areas: "main goal";
+        grid-template-columns: 928px auto;
+        column-gap: 32px;
+    }
+    .rightColumn{
+        grid-area: goal;
+    }
+    .leftColumn{
+        grid-area: main;
+    }
+}

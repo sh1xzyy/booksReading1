@@ -8,5 +8,8 @@
 <path fill="#a6abb9" style="fill: var(--color1, #a6abb9)" d="M22.25 14.375h-2.5v2.5h2.5v-2.5z"></path>
 <path fill="#a6abb9" style="fill: var(--color1, #a6abb9)" d="M27.25 14.375h-2.5v2.5h2.5v-2.5z"></path>
 </symbol>
+<symbol id="icon-arrow-down" viewBox="0 0 69 32">
+<path d="M34.667 32l-30.022-28h60.045l-30.022 28z"></path>
+</symbol>
 </defs>
 </svg>

@@ -6,6 +6,10 @@
 	padding-top: 60px;
 }
 
+.readingGoalSection{
+	padding: 80px 0 16px 0;
+}
+
 .bookListSection{
 	display: flex;
 	flex-direction: column;
@@ -21,6 +25,12 @@
 		row-gap: 40px;
 		padding-top: 20px;
 	}
+	.readingGoalSection{
+		padding: 92px 0 20px 0;
+    }
+	.trainingFormSection{
+		padding: 20px 0;
+	}
 }
 
 @media screen and (min-width: 1280px) {
@@ -29,5 +39,11 @@
 	}
 	.bookListSection{
 		row-gap: 32px;
+	}
+	.readingGoalSection{
+		padding: 0;
+	}
+	.trainingFormSection{
+		padding: 0 0 12px 0;
 	}
 }

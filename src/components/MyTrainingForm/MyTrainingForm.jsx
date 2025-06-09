@@ -7,6 +7,7 @@ import CustomDatePicker from '../CustomDatePicker/CustomDatePicker'
 import { useState } from 'react'
 import CustomSelector from '../CustomSelector/CustomSelector'
 import { useAddBookTrainingPlanForm } from '../../features/trainingForm/useAddBookTrainingPlanForm'
+import ErrorMsg from '../ErrorMsg/ErrorMsg'
 
 const MyTrainingForm = () => {
 	const [hasUserStartDataChange, setHasUserStartDataChange] = useState(false)
@@ -39,9 +40,7 @@ const MyTrainingForm = () => {
 								name="startDate"
 								placeholder="Початок"
 								/>
-							<svg className={s.calendar} width={17} height={17}>
-								<use href='/icons/icons.svg#icon-calendar'></use>
-							</svg>
+							<ErrorMsg name="startDate"/>
 						</div>
 						<div className={s.fieldWrapper}>
 							<CustomDatePicker
@@ -50,12 +49,11 @@ const MyTrainingForm = () => {
 								name="endDate"
 								placeholder="Завершення"
 							/>
-							<svg className={s.calendar} width={17} height={17}>
-								<use href='/icons/icons.svg#icon-calendar'></use>
-							</svg>
+							<ErrorMsg name="endDate"/>
 						</div>
 						<div className={s.fieldWrapper}>
 							<CustomSelector name="books" placeholder={"Обрати книги з бібліотеки"}/>
+							<ErrorMsg name="books"/>
 						</div>
 					</div>
 					<ActionButton

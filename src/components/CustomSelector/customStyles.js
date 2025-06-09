@@ -12,12 +12,6 @@ export const customStyles = {
 		"&:hover":{
 			borderColor: "#797b81"
 		},
-		"@media screen and (min-width: 768px)":{
-			width: "483px"
-		},
-		"@media screen and (min-width: 1280px)":{
-			width: "715px"
-		}
 	}),
 	singleValue: provided => ({
 		...provided,
@@ -68,6 +62,6 @@ export const customStyles = {
 		transform: `translateY(-50%) ${
 			state.selectProps.menuIsOpen ? 'rotate(180deg)' : 'rotate(0deg)'
 		}`,
-		transition: 'transform 0.2s ease',
+		transition: 'transform 250ms linear',
 	}),
 }

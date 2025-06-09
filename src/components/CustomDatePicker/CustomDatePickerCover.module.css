@@ -24,9 +24,21 @@
 	}
 }
 
-@media screen and (min-width: 768px) {
-	.datePicker {
-		max-width: 183px;
-		padding: 0 45px 0 30px;
-	}
+.calendar{
+	position: absolute;
+	top: 50%;
+	left: 12px;
+	transform: translateY(-50%);
+}
+	
+.arrowDown{
+	position: absolute;
+	top: 50%;
+	right: 12px;
+	transform: translateY(-50%);
+	transition: transform 250ms linear;
+}
+
+.rotate{
+	transform: translateY(-50%) rotate(180deg);
 }

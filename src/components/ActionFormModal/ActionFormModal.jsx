@@ -12,7 +12,7 @@ const ActionFormModal = ({ type }) => {
 
 	return (
 		<div className={s.modalOverlay}>
-			<Container>
+			<Container className="container">
 				{type === 'addBookForm' ? <AddBookForm /> : <MyTrainingForm />}
 			</Container>
 		</div>

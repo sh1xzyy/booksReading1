@@ -7,7 +7,7 @@ import s from './RegisterPage.module.css'
 const RegisterPage = () => {
 	return (
 		<Section className='authSection'>
-			<Container className={s.registerContainer}>
+			<Container className="registerContainer">
 				<div className={s.registerWrapper}>
 					<RegisterForm />
 					<RegisterQuote />

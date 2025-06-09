@@ -1,28 +1,50 @@
 .container,
-.customContainer {
+.loginContainer,
+.registerContainer,
+.headerContainer,
+.innerContainer {
 	max-width: 320px;
 	padding: 0 20px;
 	margin: 0 auto;
 }
 
-.customContainer {
+.customContainer,
+.loginContainer,						
+.registerContainer {
 	padding: 0;
 }
 
+.headerContainer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+
 @media screen and (min-width: 768px) {
 	.container,
-	.customContainer {
+	.loginContainer,
+	.registerContainer,
+	.headerContainer,
+	.innerContainer {
 		max-width: 768px;
 		padding: 0 32px;
 	}
 }
 
-@media screen and (min-width: 1280px) {
-	.container {
+@media screen and (min-width: 1280px){
+	.container,
+	.headerContainer,
+	.statisticsPageContainer {
 		max-width: 1280px;
 		padding: 0 16px;
 	}
-	.customContainer {
+	.innerContainer{
+		max-width: 100%;
+		padding: 0;
+	}
+	.loginContainer,
+	.registerContainer {
 		max-width: 1300px;
 		padding: 0 16px;
 	}

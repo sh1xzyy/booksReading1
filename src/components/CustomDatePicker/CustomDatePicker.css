@@ -3,7 +3,7 @@
 }
 
 .react-datepicker {
-	padding: 14px;
+	padding: 8px;
 	border-radius: 8px;
 	border: none;
 	background-color: #ffffff;
@@ -27,7 +27,6 @@
 	display: flex;
 	justify-content: center;
 	column-gap: 8px;
-	margin: 28px 0 -3px 0;
 }
 
 .react-datepicker__day-names .react-datepicker__day-name {
@@ -43,22 +42,16 @@
 	margin: 0;
 }
 
+h2.react-datepicker__current-month{
+	margin-bottom: 10px;
+}
+
 .react-datepicker__current-month {
 	position: relative;
 	font-weight: 400;
 	font-size: 16px;
 	letter-spacing: -0.02em;
 	color:#242a37;
-	&::after {
-		position: absolute;
-		content: '';
-		width: 194px;
-		height: 1px;
-		left: 50%;
-		bottom: -14px;
-		transform: translateX(-50%);
-		background-color: rgba(12, 13, 13, 0.5);
-	}
 }
 
 .react-datepicker__day {

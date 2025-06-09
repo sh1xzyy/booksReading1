@@ -7,7 +7,7 @@ import s from './LoginPage.module.css'
 const LoginPage = () => {
 	return (
 		<Section className='authSection'>
-			<Container className={s.loginContainer}>
+			<Container className="loginContainer">
 				<div className={s.loginWrapper}>
 					<LoginForm />
 					<LoginQuote />
