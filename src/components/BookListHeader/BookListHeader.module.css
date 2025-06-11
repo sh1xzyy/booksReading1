@@ -1,0 +1,44 @@
+.defaultHeaderList,
+.planningHeaderList,
+.finishingHeaderList {
+	display: none;
+}
+
+@media screen and (min-width: 768px) {
+	.defaultHeaderList,
+	.finishingHeaderList,
+	.planningHeaderList {
+		display: grid;
+		margin-bottom: 8px;
+		span {
+			font-weight: 500;
+			font-size: 14px;
+			color: #898f9f;
+		}
+	}
+	.defaultHeaderList {
+		grid-template-columns: 368px 214px 63px auto;
+	}
+	.finishingHeaderList {
+		grid-template-columns: 216px 129px 59px 71px auto;
+	}
+	.planningHeaderList {
+		padding: 12px 0;
+		margin: 0;
+		grid-template-columns: 286px 212px 92px auto;
+		border-top: 1px solid #e0e5eb;
+		border-bottom: 1px solid #e0e5eb;
+	}
+}
+
+@media screen and (min-width: 1280px) {
+	.defaultHeaderList {
+		grid-template-columns: 640px 389px 104px auto;
+	}
+	.finishingHeaderList {
+		grid-template-columns: 361px 271px 96px 149px auto;
+	}
+	.planningHeaderList {
+		grid-template-columns: 392px 230px 96px auto;
+	}
+}

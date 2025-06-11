@@ -1,6 +1,5 @@
 .container,
-.loginContainer,
-.registerContainer,
+.authContainer,
 .headerContainer,
 .innerContainer {
 	max-width: 320px;
@@ -9,8 +8,7 @@
 }
 
 .customContainer,
-.loginContainer,						
-.registerContainer {
+.authContainer {
 	padding: 0;
 }
 
@@ -20,11 +18,9 @@
 	align-items: center;
 }
 
-
 @media screen and (min-width: 768px) {
 	.container,
-	.loginContainer,
-	.registerContainer,
+	.authContainer,
 	.headerContainer,
 	.innerContainer {
 		max-width: 768px;
@@ -32,19 +28,21 @@
 	}
 }
 
-@media screen and (min-width: 1280px){
+@media screen and (min-width: 1280px) {
 	.container,
 	.headerContainer,
 	.statisticsPageContainer {
 		max-width: 1280px;
 		padding: 0 16px;
 	}
-	.innerContainer{
+	.statisticsPageContainer {
+		margin: 0 auto;
+	}
+	.innerContainer {
 		max-width: 100%;
 		padding: 0;
 	}
-	.loginContainer,
-	.registerContainer {
+	.authContainer {
 		max-width: 1300px;
 		padding: 0 16px;
 	}

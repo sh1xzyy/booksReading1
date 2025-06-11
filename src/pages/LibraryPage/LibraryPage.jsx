@@ -56,7 +56,7 @@ const LibraryPage = () => {
 				) : null
 			) : (
 				<Section className='formSection'>
-					<Container className="container">
+					<Container className='container'>
 						<AddBookForm />
 					</Container>
 				</Section>
@@ -65,7 +65,7 @@ const LibraryPage = () => {
 			<Section className='bookListSection'>
 				{finishedReading.length > 0 && (
 					<Section>
-						<Container className="container">
+						<Container className='container'>
 							<BookList
 								sectionTitle='Прочитано'
 								handleResumeClick={book => {
@@ -81,7 +81,7 @@ const LibraryPage = () => {
 
 				{currentlyReading.length > 0 && (
 					<Section>
-						<Container className="container">
+						<Container className='container'>
 							<BookList
 								sectionTitle='Читаю'
 								items={currentlyReading}
@@ -92,8 +92,8 @@ const LibraryPage = () => {
 				)}
 
 				{goingToRead.length > 0 && (
-					<Section>
-						<Container className="container">
+					<Section className=''>
+						<Container className='container'>
 							<BookList
 								sectionTitle='Маю намір прочитати'
 								items={goingToRead}

@@ -40,6 +40,7 @@ address {
 
 button {
 	cursor: pointer;
+	border: none;
 	padding: 0;
 	line-height: 0;
 }
@@ -50,11 +51,24 @@ img {
 	object-fit: contain;
 }
 
-body[data-scroll="scroll"]{
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	border: 0;
+	padding: 0;
+	white-space: nowrap;
+	clip-path: inset(100%);
+	clip: rect(0 0 0 0);
+	overflow: hidden;
+}
+
+body[data-scroll='scroll'] {
 	overflow-y: auto;
 	overflow-x: hidden;
 }
- 
-body[data-scroll="no-scroll"]{
+
+body[data-scroll='no-scroll'] {
 	overflow: hidden;
 }

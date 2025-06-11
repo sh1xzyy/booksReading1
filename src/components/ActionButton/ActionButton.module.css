@@ -1,4 +1,4 @@
-/* goBack Button */
+/* #region Go Back Button */
 .goBackButton {
 	position: absolute;
 	top: 24px;
@@ -29,8 +29,32 @@
 		display: none;
 	}
 }
+/* #endregion Go Back Button */
 
-/* Add Book Button*/
+/* #region Delete Button */
+.deleteButton {
+	position: relative;
+	&::after {
+		position: absolute;
+		content: '';
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 34px;
+		height: 34px;
+		border-radius: 50%;
+		opacity: 0;
+		background-color: #e0e5eb;
+		transition: opacity 250ms linear;
+		z-index: -1;
+	}
+	&:hover::after {
+		opacity: 1;
+	}
+}
+/* #endregion Delete Button */
+
+/* #region Add Book Button*/
 .addBookButton {
 	display: block;
 	margin: 0 auto;
@@ -53,8 +77,9 @@
 		margin: 0;
 	}
 }
+/* #endregion Add Book Button*/
 
-/* Summary Button */
+/* #region Summary Button */
 .summaryButton {
 	min-width: 127px;
 	height: 40px;
@@ -83,8 +108,9 @@
 		min-width: 130px;
 	}
 }
+/* #endregion Summary Button */
 
-/* Review Modal */
+/* #region Review Modal */
 .reviewGoBackButton,
 .reviewSaveButton {
 	height: 40px;
@@ -120,8 +146,9 @@
 		min-width: 130px;
 	}
 }
+/* #endregion Review Modal */
 
-/* Google Button */
+/* #region Google Button */
 .googleButton {
 	position: relative;
 	font-family: 'Roboto', sans-serif;
@@ -150,8 +177,9 @@
 		background-color: #f6f7fb;
 	}
 }
+/* #endregion Google Button */
 
-/* Auth Buttons */
+/* #region Auth Buttons */
 .loginSubmitButton,
 .registerSubmitButton {
 	height: 60px;
@@ -175,8 +203,9 @@
 		margin: 35px 0 20px 0;
 	}
 }
+/* #endregion Auth Buttons */
 
-/* Modal Form Button */
+/* #region Modal Form Button */
 .openFormButton {
 	position: fixed;
 	left: 50%;
@@ -188,12 +217,14 @@
 	border-radius: 50%;
 	background-color: #ff6b08;
 	transition: background-color 250ms linear;
+	z-index: 1000;
 	&:hover {
 		background-color: #e95f03;
 	}
 }
+/* #endregion Modal Form Button */
 
-/* Logout Button */
+/* #region Logout Button */
 .logout {
 	font-weight: 300;
 	font-size: 14px;
@@ -220,8 +251,9 @@
 		line-height: 2.71;
 	}
 }
+/* #endregion Logout Button */
 
-/* Confirm Button */
+/* #region Confirm Button */
 .acceptKnowledge {
 	display: block;
 	margin: 0 auto;
@@ -245,9 +277,11 @@
 		display: none;
 	}
 }
+/* #endregion Confirm Button */
 
-/* My Training Button */
-.myTrainingButton {
+/* #region My Training Button */
+.myTrainingButton,
+.startTrainingButton {
 	display: block;
 	margin: 0 auto;
 	margin-top: 8px;
@@ -264,11 +298,20 @@
 	}
 }
 
+.startTrainingButton {
+	font-weight: 500;
+	font-size: 14px;
+	margin-top: 32px;
+}
+
 @media screen and (min-width: 768px) {
 	.myTrainingButton {
 		min-width: 200px;
 		height: 40px;
 		margin-top: 0;
+	}
+	.startTrainingButton {
+		margin-top: 40px;
 	}
 }
 
@@ -279,8 +322,9 @@
 		margin-top: 8px;
 	}
 }
+/* #endregion My Training Button */
 
-/* Confirm Modal */
+/* #region Confirm Modal */
 .cancelButton,
 .confirmButton {
 	min-width: 98px;
@@ -315,3 +359,5 @@
 		min-width: 130px;
 	}
 }
+
+/* #endregion Confirm Modal */

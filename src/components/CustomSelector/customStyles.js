@@ -5,12 +5,12 @@ export const customStyles = {
 		minHeight: '42px',
 		padding: '0 16px 0 4px',
 		borderRadius: 'none',
-		borderColor: state.menuIsOpen ? "#797b81" : "transparent",
-		boxShadow: "inset 0 1px 2px 0 rgba(29, 29, 27, 0.15)",
-        backgroundColor: "#fff",
-		transition: "border-color 250ms linear",
-		"&:hover":{
-			borderColor: "#797b81"
+		borderColor: state.menuIsOpen ? '#797b81' : 'transparent',
+		boxShadow: 'inset 0 1px 2px 0 rgba(29, 29, 27, 0.15)',
+		backgroundColor: '#fff',
+		transition: 'border-color 250ms linear',
+		'&:hover': {
+			borderColor: '#797b81',
 		},
 	}),
 	singleValue: provided => ({
@@ -38,7 +38,7 @@ export const customStyles = {
 	}),
 	menuList: provided => ({
 		...provided,
-        maxHeight: "200px",
+		maxHeight: '200px',
 		padding: '14px 0',
 		border: '1px solid #f7f7f7',
 		boxShadow: '0 4px 36px 0 rgba(0, 0, 0, 0.02)',
@@ -47,8 +47,8 @@ export const customStyles = {
 	placeholder: provided => ({
 		...provided,
 		fontWeight: 500,
-        fontSize: "14px",
-        color: "#a6abb9",
+		fontSize: '14px',
+		color: '#a6abb9',
 	}),
 	indicatorSeparator: () => ({
 		display: 'none',
@@ -58,7 +58,7 @@ export const customStyles = {
 		pointerEvents: 'none',
 		position: 'absolute',
 		top: '50%',
-		right: '0',
+		right: '10px',
 		transform: `translateY(-50%) ${
 			state.selectProps.menuIsOpen ? 'rotate(180deg)' : 'rotate(0deg)'
 		}`,

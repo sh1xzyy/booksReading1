@@ -18,4 +18,15 @@ export const croppedTitleByWidth = (title, windowWidth, status) => {
 			return title.length > 125 ? title.slice(0, 125).padEnd(128, '...') : title
 		}
 	}
+	if (status === 'planning') {
+		if (windowWidth < 767) {
+			return title.length > 40 ? title.slice(0, 40).padEnd(43, '...') : title
+		}
+		if (windowWidth >= 768 && windowWidth <= 1267) {
+			return title.length > 30 ? title.slice(0, 30).padEnd(33, '...') : title
+		}
+		if (windowWidth >= 1268) {
+			return title.length > 40 ? title.slice(0, 40).padEnd(43, '...') : title
+		}
+	}
 }

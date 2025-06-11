@@ -5,42 +5,41 @@
 	margin-bottom: 20px;
 }
 
-.bookList {
+.defaultBookList {
 	display: flex;
 	flex-direction: column;
 	row-gap: 16px;
 }
 
-.listHeader,
-.listHeaderFinished {
-	display: none;
+.planningBookList::-webkit-scrollbar {
+	height: 8px;
+	width: 8px;
+}
+
+.planningBookList::-webkit-scrollbar-thumb {
+	border-radius: 12px;
+	background-color: #dadde1;
+}
+
+.planningBookList:-webkit-scrollbar-track {
+	border-radius: 12px;
+	background-color: transparent;
 }
 
 @media screen and (min-width: 768px) {
-	.bookList {
+	.defaultBookList {
 		row-gap: 8px;
 	}
-	.listHeader,
-	.listHeaderFinished {
-		display: grid;
-		grid-template-columns: 368px 214px 63px auto;
-		margin-bottom: 8px;
-		span {
-			font-weight: 500;
-			font-size: 14px;
-			color: #898f9f;
-		}
-	}
-	.listHeaderFinished {
-		grid-template-columns: 216px 129px 59px 71px auto;
+
+	.planningBookList {
+		overflow-y: auto;
+		max-height: 247px;
 	}
 }
 
 @media screen and (min-width: 1280px) {
-	.listHeader {
-		grid-template-columns: 640px 389px 104px auto;
-	}
-	.listHeaderFinished {
-		grid-template-columns: 361px 271px 96px 149px auto;
+	.planningBookList {
+		max-height: 171px;
+		border-bottom: 1px solid #e0e5eb;
 	}
 }

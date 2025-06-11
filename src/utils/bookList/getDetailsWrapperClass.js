@@ -1,4 +1,10 @@
 import clsx from 'clsx'
 
 export const getDetailsWrapperClass = (s, status) =>
-	clsx(s.detailsWrapper, status === 'finished' && s.detailsFinished)
+	clsx(
+		status === 'finished'
+			? s.finishedDetailsWrapper
+			: status === 'planning'
+			? s.planningDetailsWrapper
+			: s.defaultDetailsWrapper
+	)

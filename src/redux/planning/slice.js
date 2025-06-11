@@ -1,26 +1,53 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit'
-import { addBookTrainingPlanThunk } from './operations'
+import { planningThunk } from './operations'
 
 const initialState = {
+	startDate: '',
+	endDate: '',
+	duration: '',
+	pagesPerDay: '',
 	books: [],
-	isLoading: false
+	stats: [],
+	isLoading: false,
 }
 
 const planningSlice = createSlice({
 	name: 'planning',
 	initialState,
 	extraReducers: builder => {
-		builder.addCase(addBookTrainingPlanThunk.fulfilled, (state, action) => {
-			state.books.push(action.payload)
-			state.isLoading = false
-		})
-		.addMatcher(isAnyOf(addBookTrainingPlanThunk.pending), state => {
-			state.isLoading = true
-		})
-		.addMatcher(isAnyOf(addBookTrainingPlanThunk.rejected), state => {
-			state.isLoading = false
-		})
-	}
+		builder
+			.addCase(planningThunk.fulfilled, (state, action) => {
+				const { payload } = action
+
+				switch (action.meta.arg.method) {
+					case 'GET':
+						state.books = payload.planning.books
+						state.duration = payload.planning.duration
+						state.startDate = payload.planning.startDate
+						state.endDate = payload.planning.endDate
+						state.pagesPerDay = payload.planning.pagesPerDay
+						break
+					case 'POST':
+						state.books = payload.books
+						state.duration = payload.duration
+						state.startDate = payload.startDate
+						state.endDate = payload.endDate
+						state.pagesPerDay = payload.pagesPerDay
+						break
+					default:
+						throw new Error('Sorry you used the wrong HTTP method!')
+				}
+
+				state.isLoading = false
+			})
+
+			.addMatcher(isAnyOf(planningThunk.pending), state => {
+				state.isLoading = true
+			})
+			.addMatcher(isAnyOf(planningThunk.rejected), state => {
+				state.isLoading = false
+			})
+	},
 })
 
 export default planningSlice.reducer
