@@ -34,12 +34,16 @@
 	.planningBookList {
 		overflow-y: auto;
 		max-height: 247px;
+		border-bottom: 1px solid #e0e5eb;
 	}
 }
 
 @media screen and (min-width: 1280px) {
 	.planningBookList {
+		display: flex;
+		flex-direction: column;
+		row-gap: 20px;
+		padding: 20px 0;
 		max-height: 171px;
-		border-bottom: 1px solid #e0e5eb;
 	}
 }

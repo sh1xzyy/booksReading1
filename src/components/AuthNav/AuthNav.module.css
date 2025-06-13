@@ -3,31 +3,6 @@
 	text-align: center;
 }
 
-.navList {
-	display: flex;
-	column-gap: 10px;
-}
-
-.navLink {
-	position: relative;
-	font-weight: 500;
-	color: #242a37;
-	&::after {
-		position: absolute;
-		content: '';
-		width: 100%;
-		height: 2px;
-		bottom: -5px;
-		left: 0;
-		opacity: 0;
-		background-color: #ff6b08;
-		transition: opacity 250ms linear;
-	}
-	&.active::after {
-		opacity: 1;
-	}
-}
-
 @media screen and (min-width: 768px) {
 	.logoWrapper {
 		text-align: left;

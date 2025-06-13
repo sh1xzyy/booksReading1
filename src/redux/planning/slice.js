@@ -1,5 +1,5 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit'
-import { planningThunk } from './operations'
+import { deleteBookFromTrainingPlanThunk, planningThunk } from './operations'
 
 const initialState = {
 	startDate: '',
@@ -40,13 +40,28 @@ const planningSlice = createSlice({
 
 				state.isLoading = false
 			})
+			.addCase(deleteBookFromTrainingPlanThunk.fulfilled, (state, action) => {
+				console.log(action.payload)
 
-			.addMatcher(isAnyOf(planningThunk.pending), state => {
-				state.isLoading = true
-			})
-			.addMatcher(isAnyOf(planningThunk.rejected), state => {
 				state.isLoading = false
+				state.books = state.books.filter(book => book.id !== action.payload)
 			})
+
+			.addMatcher(
+				isAnyOf(planningThunk.pending, deleteBookFromTrainingPlanThunk.pending),
+				state => {
+					state.isLoading = true
+				}
+			)
+			.addMatcher(
+				isAnyOf(
+					planningThunk.rejected,
+					deleteBookFromTrainingPlanThunk.rejected
+				),
+				state => {
+					state.isLoading = false
+				}
+			)
 	},
 })
 

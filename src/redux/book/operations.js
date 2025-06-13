@@ -42,25 +42,3 @@ export const addBookReviewThunk = createAsyncThunk(
 		}
 	}
 )
-
-export const deleteBookFromTrainingPlanThunk = createAsyncThunk(
-	'/book/deleteBookFromTrainingPlan/',
-	async (_id, thunkAPI) => {
-		try {
-			const { accessToken } = thunkAPI.getState().auth
-			if (!accessToken) {
-				return thunkAPI.rejectWithValue('No accessToken')
-			}
-
-			const response = await authInstance.delete(`/book/${_id}`, {
-				headers: {
-					Authorization: `Bearer ${accessToken}`,
-				},
-			})
-
-			return response.data
-		} catch (error) {
-			return thunkAPI.rejectWithValue(error.message)
-		}
-	}
-)

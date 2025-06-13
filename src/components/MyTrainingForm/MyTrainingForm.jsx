@@ -1,7 +1,7 @@
 import { HiArrowLongLeft } from 'react-icons/hi2'
 import { Form, Formik } from 'formik'
 import { useState } from 'react'
-import { useAddBookTrainingPlanForm } from '../../features/trainingForm/useAddBookTrainingPlanForm'
+import { useAddBookTrainingPlanForm } from '../../features/planning/planningAddForm/useAddBookTrainingPlanForm'
 import { useMyTrainingFormContext } from '../../contexts/MyTrainingFormContext'
 import CustomDatePicker from '../CustomDatePicker/CustomDatePicker'
 import CustomSelector from '../CustomSelector/CustomSelector'

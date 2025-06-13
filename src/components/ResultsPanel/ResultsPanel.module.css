@@ -1,0 +1,85 @@
+.resultsTitle {
+	font-weight: 600;
+	font-size: 12px;
+	text-transform: uppercase;
+	text-align: center;
+	color: #242a37;
+	margin-bottom: 12px;
+}
+
+.label {
+	font-weight: 500;
+	font-size: 11px;
+	color: #898f9f;
+	margin-bottom: 4px;
+}
+
+.fields {
+	display: flex;
+	column-gap: 20px;
+	margin-bottom: 28px;
+}
+
+.fieldWrapper {
+	position: relative;
+}
+
+.statisticsTitle {
+	position: relative;
+	text-align: center;
+	font-weight: 700;
+	font-size: 12px;
+	text-transform: uppercase;
+	text-align: center;
+	color: #242a37;
+	&::before,
+	&::after {
+		position: absolute;
+		content: '';
+		top: 50%;
+		width: 71px;
+		height: 1px;
+		transform: translateY(-50%);
+		background-color: #e0e5eb;
+	}
+	&::before {
+		left: 0;
+	}
+	&::after {
+		right: 0;
+	}
+}
+
+.statisticsWrapper {
+	margin-top: 24px;
+}
+
+.statisticsList {
+	padding-top: 4px;
+	display: flex;
+	flex-direction: column;
+	row-gap: 4px;
+}
+
+.statisticItemDetails {
+	display: flex;
+	column-gap: 30px;
+}
+
+.statDate,
+.statTime,
+.statPagesCount,
+.statPagesLabel {
+	font-weight: 400;
+	font-size: 14px;
+}
+
+.statDate,
+.statPagesCount {
+	color: #242a37;
+}
+
+.statTime,
+.statPagesLabel {
+	color: #898f9f;
+}

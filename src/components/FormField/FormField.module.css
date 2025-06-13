@@ -110,3 +110,21 @@
 		grid-column: 4;
 	}
 }
+
+/* resultsPanelLabel */
+
+.resultsPanelLabel {
+	font-weight: 500;
+	font-size: 11px;
+	color: #898f9f;
+	margin-bottom: 4px;
+}
+
+.resultsField {
+	width: 100%;
+	max-width: 110px;
+	height: 42px;
+	padding-left: 13px;
+	border: 1px solid #a6abb9;
+	background-color: #f6f7fb;
+}

@@ -1,9 +1,12 @@
 .formWrapper {
-	padding: 32px 20px 44px 20px;
+	padding: 32px 0 44px 0;
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-image: linear-gradient(rgba(9, 30, 63, 0.8), rgba(9, 30, 63, 0.8)),
-	image-set(url('/auth/auth-background-mobile@1x.jpg') 1x, url('/auth/auth-background-mobile@2x.jpg') 2x,)
+		image-set(
+			url('/auth/auth-background-mobile@1x.jpg') 1x,
+			url('/auth/auth-background-mobile@2x.jpg') 2x
+		);
 }
 
 .form {
@@ -28,9 +31,15 @@
 
 @media screen and (min-width: 768px) {
 	.formWrapper {
-		padding: 64px 20px;
-		background-image: linear-gradient(rgba(9, 30, 63, 0.8), rgba(9, 30, 63, 0.8)),
-	image-set(url('/auth/auth-background-tablet@1x.jpg') 1x, url('/auth/auth-background-tablet@2x.jpg') 2x,)
+		padding: 64px 0;
+		background-image: linear-gradient(
+				rgba(9, 30, 63, 0.8),
+				rgba(9, 30, 63, 0.8)
+			),
+			image-set(
+				url('/auth/auth-background-tablet@1x.jpg') 1x,
+				url('/auth/auth-background-tablet@2x.jpg') 2x
+			);
 	}
 
 	.form {
@@ -45,10 +54,16 @@
 		display: grid;
 		grid-template-columns: 549px 1fr;
 	}
-	
+
 	.formWrapper {
 		padding: 90px 0;
-		background-image: linear-gradient(rgba(9, 30, 63, 0.8), rgba(9, 30, 63, 0.8)),
-	image-set(url('/auth/auth-background-desktop@1x.jpg') 1x, url('/auth/auth-background-desktop@2x.jpg') 2x,)
+		background-image: linear-gradient(
+				rgba(9, 30, 63, 0.8),
+				rgba(9, 30, 63, 0.8)
+			),
+			image-set(
+				url('/auth/auth-background-desktop@1x.jpg') 1x,
+				url('/auth/auth-background-desktop@2x.jpg') 2x
+			);
 	}
 }

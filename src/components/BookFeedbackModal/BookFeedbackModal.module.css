@@ -23,7 +23,7 @@
 	margin-bottom: 20px;
 }
 
-label {
+.label {
 	display: block;
 	font-weight: 500;
 	font-size: 16px;
@@ -64,7 +64,7 @@ label {
 	.textareaWrapper {
 		margin-bottom: 28px;
 	}
-	label {
+	.label {
 		margin-bottom: 12px;
 	}
 	.buttonsWrapper {

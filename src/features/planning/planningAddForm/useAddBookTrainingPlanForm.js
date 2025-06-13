@@ -2,8 +2,9 @@ import { useDispatch } from 'react-redux'
 import toast from 'react-hot-toast'
 import { validationSchema } from './validationSchema'
 import { initialValues } from './initialValues'
-import { planningThunk } from '../../redux/planning/operations'
-import { useMyTrainingFormContext } from '../../contexts/MyTrainingFormContext'
+import { planningThunk } from '../../../redux/planning/operations'
+import { useMyTrainingFormContext } from '../../../contexts/MyTrainingFormContext'
+import { userDataThunk } from '../../../redux/auth/operations'
 
 export const useAddBookTrainingPlanForm = () => {
 	const { setIsMyTrainingFormOpen } = useMyTrainingFormContext()
@@ -12,8 +13,9 @@ export const useAddBookTrainingPlanForm = () => {
 	const handleSubmit = async (value, { resetForm }) => {
 		try {
 			await dispatch(planningThunk({ method: 'POST', body: value })).unwrap()
-			setIsMyTrainingFormOpen(false)
 			toast.success('You have add a new plan!')
+			setIsMyTrainingFormOpen(false)
+			await dispatch(userDataThunk()).unwrap()
 		} catch (error) {
 			toast.error(error.message)
 		} finally {

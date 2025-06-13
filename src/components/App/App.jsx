@@ -5,10 +5,13 @@ import PrivateRoutes from '../PrivateRoutes'
 import Loader from '../Loader/Loader'
 import { useDispatch, useSelector } from 'react-redux'
 import { refreshThunk, userDataThunk } from '../../redux/auth/operations'
-import { selectIsRefreshing } from '../../redux/auth/selectors'
+import {
+	selectIsLoggedIn,
+	selectIsRefreshing,
+} from '../../redux/auth/selectors'
 import Layout from '../Layout/Layout'
 import NothingFoundPage from '../../pages/NotFoundPage/NothingFoundPage'
-const HomePage = lazy(() => import('../../pages/HomePage/HomePage'))
+const HomePage = lazy(() => import('../../pages/HomePage/HomePage.jsx'))
 const LibraryPage = lazy(() => import('../../pages/LibraryPage/LibraryPage'))
 const StatisticsPage = lazy(() =>
 	import('../../pages/StatisticsPage/StatisticsPage')
@@ -19,18 +22,19 @@ const RegisterPage = lazy(() => import('../../pages/RegisterPage/RegisterPage'))
 function App() {
 	const dispatch = useDispatch()
 	const isRefreshing = useSelector(selectIsRefreshing)
+	const isLoggedIn = useSelector(selectIsLoggedIn)
 
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
 				await dispatch(refreshThunk()).unwrap()
-				await dispatch(userDataThunk()).unwrap()
+				if (isLoggedIn) await dispatch(userDataThunk()).unwrap()
 			} catch (error) {
 				console.error(error)
 			}
 		}
 		fetchData()
-	}, [dispatch])
+	}, [dispatch, isLoggedIn])
 
 	return (
 		<>
@@ -72,7 +76,7 @@ function App() {
 									</RestrictedRoutes>
 								}
 							/>
-							<Route path='*' element={<NothingFoundPage/>}/>
+							<Route path='*' element={<NothingFoundPage />} />
 						</Routes>
 					</Suspense>
 				</>

@@ -92,7 +92,7 @@ const LibraryPage = () => {
 				)}
 
 				{goingToRead.length > 0 && (
-					<Section className=''>
+					<Section>
 						<Container className='container'>
 							<BookList
 								sectionTitle='Маю намір прочитати'
@@ -112,7 +112,7 @@ const LibraryPage = () => {
 				)}
 			</Section>
 
-			{windowWidth < 768 && !isBookFormOpen && (
+			{windowWidth < 768 && !isBookFormOpen && !isListEmpty && (
 				<ActionButton
 					className='openFormButton'
 					type='button'

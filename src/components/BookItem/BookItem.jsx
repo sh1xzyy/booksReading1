@@ -35,6 +35,15 @@ const BookItem = ({ book, status, windowWidth, handleResumeClick }) => {
 					<span className={getTitleClass(s, status)} title={title}>
 						{croppedTitleByWidth(title, windowWidth, status)}
 					</span>
+					<ActionButton
+						className='mobileDeleteButton'
+						type='button'
+						onClick={() => deleteBookFromPlan(_id)}
+					>
+						<svg width={14} height={18}>
+							<use href='/icons/icons.svg#icon-delete'></use>
+						</svg>
+					</ActionButton>
 					<ul className={getInfoListClass(s, status)}>
 						<li className={s.infoItem}>
 							<div className={s.infoRow}>

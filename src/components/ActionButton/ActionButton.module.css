@@ -32,7 +32,8 @@
 /* #endregion Go Back Button */
 
 /* #region Delete Button */
-.deleteButton {
+.deleteButton,
+.mobileDeleteButton {
 	position: relative;
 	&::after {
 		position: absolute;
@@ -50,6 +51,25 @@
 	}
 	&:hover::after {
 		opacity: 1;
+	}
+}
+
+.deleteButton {
+	display: none;
+}
+
+.mobileDeleteButton {
+	position: absolute;
+	top: 20px;
+	right: 0;
+}
+
+@media screen and (min-width: 768px) {
+	.deleteButton {
+		display: block;
+	}
+	.mobileDeleteButton {
+		display: none;
 	}
 }
 /* #endregion Delete Button */
@@ -361,3 +381,15 @@
 }
 
 /* #endregion Confirm Modal */
+
+/* region Add Results */
+.addResultButton {
+	min-width: 240px;
+	height: 40px;
+	font-weight: 600;
+	font-size: 16px;
+	text-align: center;
+	color: #fff;
+	background-color: #ff6b08;
+}
+/* endregion Add Results */

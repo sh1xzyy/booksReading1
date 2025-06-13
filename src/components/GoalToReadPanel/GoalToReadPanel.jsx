@@ -1,11 +1,11 @@
 import { useSelector } from 'react-redux'
-import s from './GoalToRead.module.css'
 import { selectPlanningData } from '../../redux/planning/selectors'
+import s from './GoalToReadPanel.module.css'
 
-const GoalToRead = () => {
+const GoalToReadPanel = () => {
 	const { books, duration } = useSelector(selectPlanningData)
 	return (
-		<div className={s.goalWrapper}>
+		<>
 			<div className={s.goalHeader}>
 				<h3 className={s.title}>Моя мета прочитати</h3>
 			</div>
@@ -25,8 +25,8 @@ const GoalToRead = () => {
 					</li>
 				</ul>
 			</div>
-		</div>
+		</>
 	)
 }
 
-export default GoalToRead
+export default GoalToReadPanel

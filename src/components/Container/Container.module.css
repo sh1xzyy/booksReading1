@@ -1,37 +1,54 @@
 .container,
 .authContainer,
+.innerContainer,
 .headerContainer,
-.innerContainer {
+.authHeaderContainer {
 	max-width: 320px;
 	padding: 0 20px;
 	margin: 0 auto;
 }
 
-.customContainer,
 .authContainer {
 	padding: 0;
 }
 
+.authHeaderContainer,
 .headerContainer {
+	width: 100%;
 	display: flex;
-	justify-content: space-between;
 	align-items: center;
+}
+
+.headerContainer {
+	justify-content: space-between;
+}
+
+.authHeaderContainer {
+	justify-content: center;
 }
 
 @media screen and (min-width: 768px) {
 	.container,
+	.innerContainer,
 	.authContainer,
-	.headerContainer,
-	.innerContainer {
+	.authHeaderContainer,
+	.headerContainer {
 		max-width: 768px;
 		padding: 0 32px;
+	}
+	.authContainer {
+		max-width: 832px;
+	}
+	.authHeaderContainer {
+		justify-content: flex-start;
 	}
 }
 
 @media screen and (min-width: 1280px) {
 	.container,
-	.headerContainer,
-	.statisticsPageContainer {
+	.statisticsPageContainer,
+	.authHeaderContainer,
+	.headerContainer {
 		max-width: 1280px;
 		padding: 0 16px;
 	}

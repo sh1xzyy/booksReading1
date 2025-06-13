@@ -12,12 +12,10 @@
 }
 
 .planningItem {
-	padding: 20px 0;
+	position: relative;
+	padding: 10px 0;
 	background-color: transparent;
 	border-bottom: 1px solid #e0e5eb;
-	&:first-child {
-		border-top: 1px solid #e0e5eb;
-	}
 }
 
 .defaultDetailsWrapper {
@@ -96,8 +94,17 @@
 		align-items: center;
 	}
 
-	.planningItem:first-child {
-		border-top: none;
+	.planningItem {
+		height: 62px;
+		padding: 0;
+		column-gap: 12px;
+		align-items: center;
+		&:first-child {
+			border-top: none;
+		}
+		&:last-child {
+			border-bottom: none;
+		}
 	}
 
 	.defaultTitle {
@@ -170,13 +177,8 @@
 
 @media screen and (min-width: 1280px) {
 	.planningItem {
-		padding: 10px 0;
-		&:first-child {
-			padding: 20px 0 10px 0;
-		}
-		&::after {
-			display: none;
-		}
+		height: 18px;
+		border: none;
 	}
 
 	.defaultTitle {

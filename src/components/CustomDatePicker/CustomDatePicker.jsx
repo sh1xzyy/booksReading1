@@ -7,11 +7,17 @@ import { useField, useFormikContext } from 'formik'
 import { useState } from 'react'
 import clsx from 'clsx'
 
-const CustomDatePicker = ({hasUserDataChange, setHasUserDataChange, name, placeholder }) => {
+const CustomDatePicker = ({
+	hasUserDataChange,
+	setHasUserDataChange,
+	name,
+	placeholder,
+	isDefault = false,
+}) => {
 	const [isCalendarOpen, setIsCalendarOpen] = useState(false)
 
 	const { setFieldValue } = useFormikContext()
-    const [field] = useField(name)
+	const [field] = useField(name)
 
 	const customLocale = {
 		...enUS,
@@ -22,8 +28,10 @@ const CustomDatePicker = ({hasUserDataChange, setHasUserDataChange, name, placeh
 	}
 	registerLocale('custom-en', customLocale)
 
-	const handleDataChange = (date) => {
-		const normalizeData = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`
+	const handleDataChange = date => {
+		const normalizeData = `${date.getFullYear()}-${String(
+			date.getMonth() + 1
+		).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`
 
 		setFieldValue(name, normalizeData)
 		setHasUserDataChange(true)
@@ -32,11 +40,10 @@ const CustomDatePicker = ({hasUserDataChange, setHasUserDataChange, name, placeh
 	const onCalendarClose = () => setIsCalendarOpen(false)
 	const onCalendarOpen = () => setIsCalendarOpen(true)
 
-
 	return (
 		<>
 			<DatePicker
-				className={s.datePicker}
+				className={clsx(s.datePicker, isDefault && s.resultsDatePicker)}
 				dateFormat='dd/MM/yyyy'
 				locale='custom-en'
 				selected={hasUserDataChange && field.value}
@@ -45,10 +52,16 @@ const CustomDatePicker = ({hasUserDataChange, setHasUserDataChange, name, placeh
 				onCalendarClose={onCalendarClose}
 				onCalendarOpen={onCalendarOpen}
 			/>
-			<svg className={s.calendar} width={17} height={17}>
-				<use href='/icons/icons.svg#icon-calendar'></use>
-			</svg>
-			<svg className={clsx(s.arrowDown, isCalendarOpen && s.rotate)} width={13} height={13}>
+			{!isDefault && (
+				<svg className={s.calendar} width={17} height={17}>
+					<use href='/icons/icons.svg#icon-calendar'></use>
+				</svg>
+			)}
+			<svg
+				className={clsx(s.arrowDown, isCalendarOpen && s.rotate)}
+				width={13}
+				height={13}
+			>
 				<use href='/icons/icons.svg#icon-arrow-down'></use>
 			</svg>
 		</>

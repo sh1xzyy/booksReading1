@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux'
-import { deleteBookFromTrainingPlanThunk } from '../../redux/book/operations'
 import toast from 'react-hot-toast'
+import { deleteBookFromTrainingPlanThunk } from '../../redux/planning/operations'
 
 export const useDeleteTrainingPlan = () => {
 	const dispatch = useDispatch()

@@ -1,6 +1,6 @@
 import s from './Container.module.css'
 
-const Container = ({ children, className}) => {
+const Container = ({ children, className }) => {
 	return <div className={s[className]}>{children}</div>
 }
 

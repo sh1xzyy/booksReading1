@@ -1,25 +1,30 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { GoPlus } from 'react-icons/go'
-import toast from 'react-hot-toast'
 import { useEffect } from 'react'
 import { useMyTrainingFormContext } from '../../contexts/MyTrainingFormContext'
 import ActionFormModal from '../../components/ActionFormModal/ActionFormModal'
 import MyTrainingForm from '../../components/MyTrainingForm/MyTrainingForm'
+import SidePanelCard from '../../components/SidePanelCard/SidePanelCard'
 import ActionButton from '../../components/ActionButton/ActionButton'
+import {
+	selectIsLoading,
+	selectPlanningData,
+} from '../../redux/planning/selectors'
 import { useWindowWidth } from '../../contexts/WindowWidthContext'
-import GoalToRead from '../../components/GoalToRead/GoalToRead'
-import { selectPlanningData } from '../../redux/planning/selectors'
 import { planningThunk } from '../../redux/planning/operations'
 import Container from '../../components/Container/Container'
 import BookList from '../../components/BookList/BookList'
 import Section from '../../components/Section/Section'
+import Loader from '../../components/Loader/Loader'
 import s from './StatisticsPage.module.css'
 
 const StatisticsPage = () => {
 	const { isMyTrainingFormOpen, setIsMyTrainingFormOpen } =
 		useMyTrainingFormContext()
 	const { books } = useSelector(selectPlanningData)
+	const isLoading = useSelector(selectIsLoading)
 	const { windowWidth } = useWindowWidth()
+
 	const dispatch = useDispatch()
 
 	useEffect(() => {
@@ -27,7 +32,7 @@ const StatisticsPage = () => {
 			try {
 				await dispatch(planningThunk({ method: 'GET' })).unwrap()
 			} catch (error) {
-				toast.error(error.message)
+				console.error(error)
 			}
 		}
 		fetchData()
@@ -35,6 +40,7 @@ const StatisticsPage = () => {
 
 	return (
 		<>
+			{isLoading && <Loader />}
 			{isMyTrainingFormOpen && <ActionFormModal type='trainingForm' />}
 			{windowWidth < 768 && !isMyTrainingFormOpen && (
 				<ActionButton
@@ -51,7 +57,12 @@ const StatisticsPage = () => {
 					<div className={s.rightColumn}>
 						<Section className='readingGoalSection'>
 							<Container className='innerContainer'>
-								<GoalToRead />
+								<SidePanelCard type='goalToRead' />
+							</Container>
+						</Section>
+						<Section className='readingGoalSection'>
+							<Container className='innerContainer'>
+								<SidePanelCard type='results' />
 							</Container>
 						</Section>
 					</div>
