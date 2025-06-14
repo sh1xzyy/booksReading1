@@ -1,7 +1,7 @@
-import NavigationButton from "../NavigationButton/NavigationButton"
-import s from "./NotFound.module.css"
+import NavigationButton from '../Common/NavigationButton/NavigationButton'
+import s from './NotFound.module.css'
 
-const NotFound= () => {
+const NotFound = () => {
 	return (
 		<div className={s.notFoundWrapper}>
 			<span className={s.title}>404</span>

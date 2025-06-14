@@ -1,21 +1,22 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { GoPlus } from 'react-icons/go'
 import { useEffect } from 'react'
-import { useMyTrainingFormContext } from '../../contexts/MyTrainingFormContext'
-import ActionFormModal from '../../components/ActionFormModal/ActionFormModal'
-import MyTrainingForm from '../../components/MyTrainingForm/MyTrainingForm'
-import SidePanelCard from '../../components/SidePanelCard/SidePanelCard'
-import ActionButton from '../../components/ActionButton/ActionButton'
 import {
 	selectIsLoading,
 	selectPlanningData,
 } from '../../redux/planning/selectors'
+import CustomRechart from '../../components/Custom/Reacharts/CustomRechart/CustomRechart'
+import ActionFormModal from '../../components/Modal/ActionFormModal/ActionFormModal'
+import SidePanelCard from '../../components/SidePanel/SidePanelCard/SidePanelCard'
+import MyTrainingForm from '../../components/Form/MyTrainingForm/MyTrainingForm'
+import { useMyTrainingFormContext } from '../../contexts/MyTrainingFormContext'
+import ActionButton from '../../components/Common/ActionButton/ActionButton'
+import Container from '../../components/Common/Container/Container'
 import { useWindowWidth } from '../../contexts/WindowWidthContext'
 import { planningThunk } from '../../redux/planning/operations'
-import Container from '../../components/Container/Container'
-import BookList from '../../components/BookList/BookList'
-import Section from '../../components/Section/Section'
-import Loader from '../../components/Loader/Loader'
+import BookList from '../../components/Book/BookList/BookList'
+import Section from '../../components/Common/Section/Section'
+import Loader from '../../components/Common/Loader/Loader'
 import s from './StatisticsPage.module.css'
 
 const StatisticsPage = () => {
@@ -60,7 +61,7 @@ const StatisticsPage = () => {
 								<SidePanelCard type='goalToRead' />
 							</Container>
 						</Section>
-						<Section className='readingGoalSection'>
+						<Section>
 							<Container className='innerContainer'>
 								<SidePanelCard type='results' />
 							</Container>
@@ -77,7 +78,7 @@ const StatisticsPage = () => {
 						)}
 
 						<Section className='planningListSection'>
-							<Container className='container'>
+							<Container className='innerContainer'>
 								<BookList
 									items={books}
 									sectionTitle='Planning'
@@ -91,6 +92,11 @@ const StatisticsPage = () => {
 										onClick={() => console.log('Start training Clicked')}
 									/>
 								)}
+							</Container>
+						</Section>
+						<Section className='chartSection'>
+							<Container className='innerContainer'>
+								<CustomRechart />
 							</Container>
 						</Section>
 					</div>

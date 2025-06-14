@@ -1,0 +1,48 @@
+.chartWrapper {
+	/* height: 280px; */
+	padding: 24px;
+	border-radius: 12px;
+	box-shadow: 0 2px 3px 0 rgba(9, 30, 63, 0.25);
+	background-color: #fff;
+}
+
+.chartDescription {
+	display: flex;
+	align-items: center;
+	column-gap: 8px;
+	margin-bottom: 24px;
+}
+
+.chartTitle {
+	font-weight: 500;
+	font-size: 12px;
+	text-transform: uppercase;
+	color: #242a37;
+}
+
+.pagesCount {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 25px;
+	height: 25px;
+	font-weight: 600;
+	font-style: 12px;
+	line-height: 3.17;
+	color: #242a37;
+	background-color: #f5f7fa;
+}
+
+.hour {
+	text-align: right;
+	font-weight: 600;
+	font-style: 12px;
+	text-transform: uppercase;
+	color: #091e3f;
+}
+
+/* @media screen and (min-width: 768px) {
+	.chartWrapper {
+		height: 340px;
+	}
+} */

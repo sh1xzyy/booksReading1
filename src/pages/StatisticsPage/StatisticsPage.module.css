@@ -1,16 +1,28 @@
+.statisticsWrapper {
+	padding: 80px 0 58px 0;
+}
 
-@media screen and (min-width: 1280px){
-    .statisticsWrapper{
-        padding: 100px 0;
-        display: grid;
-        grid-template-areas: "main goal";
-        grid-template-columns: 928px auto;
-        column-gap: 32px;
-    }
-    .rightColumn{
-        grid-area: goal;
-    }
-    .leftColumn{
-        grid-area: main;
-    }
+@media screen and (min-width: 768px) {
+	.statisticsWrapper {
+		padding: 92px 0 49px 0;
+	}
+}
+
+@media screen and (min-width: 1280px) {
+	.statisticsWrapper {
+		padding: 100px 0 40px 0;
+		display: grid;
+		grid-template-areas: 'main goal';
+		grid-template-columns: 928px auto;
+		column-gap: 32px;
+	}
+	.rightColumn {
+		display: flex;
+		flex-direction: column;
+		row-gap: 40px;
+		grid-area: goal;
+	}
+	.leftColumn {
+		grid-area: main;
+	}
 }

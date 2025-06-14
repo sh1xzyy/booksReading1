@@ -12,7 +12,7 @@ export const useAddBookForm = () => {
 	const handleSubmit = async (values, { resetForm }) => {
 		try {
 			await dispatch(addBookThunk(values)).unwrap()
-			toast.success('You have successfully added a book')
+			toast.success('Ви успішно додали книгу!')
 			setIsBookFormOpen(false)
 		} catch (error) {
 			toast.error(error)

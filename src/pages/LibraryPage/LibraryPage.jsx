@@ -3,22 +3,22 @@ import { selectUserData } from '../../redux/auth/selectors'
 import { useSelector } from 'react-redux'
 import { GoPlus } from 'react-icons/go'
 import { useBookFormVisibility } from '../../contexts/BookFormVisibilityContext'
-import ActionButton from '../../components/ActionButton/ActionButton'
-import WelcomeGuide from '../../components/WelcomeGuide/WelcomeGuide'
-import { useWindowWidth } from '../../contexts/WindowWidthContext'
-import AddBookForm from '../../components/AddBookForm/AddBookForm'
-import Container from '../../components/Container/Container'
-import BookList from '../../components/BookList/BookList'
-import Section from '../../components/Section/Section'
-import Loader from '../../components/Loader/Loader'
-import { useState } from 'react'
 import {
 	selectCurrentlyReadingBooksSorted,
 	selectFinishedReadingBooksSorted,
 	selectGoingToReadBooksSorted,
 } from '../../redux/book/selectors'
-import ActionFormModal from '../../components/ActionFormModal/ActionFormModal'
-import BookFeedbackModal from '../../components/BookFeedbackModal/BookFeedbackModal'
+import { useState } from 'react'
+import BookFeedbackModal from '../../components/Modal/BookFeedbackModal/BookFeedbackModal'
+import ActionFormModal from '../../components/Modal/ActionFormModal/ActionFormModal'
+import ActionButton from '../../components/Common/ActionButton/ActionButton'
+import WelcomeGuide from '../../components/Guide/WelcomeGuide/WelcomeGuide'
+import AddBookForm from '../../components/Form/AddBookForm/AddBookForm'
+import Container from '../../components/Common/Container/Container'
+import { useWindowWidth } from '../../contexts/WindowWidthContext'
+import BookList from '../../components/Book/BookList/BookList'
+import Section from '../../components/Common/Section/Section'
+import Loader from '../../components/Common/Loader/Loader'
 
 const LibraryPage = () => {
 	const { isBookFormOpen, setIsBookFormOpen } = useBookFormVisibility()

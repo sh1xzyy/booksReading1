@@ -1,7 +1,7 @@
-import Container from '../../components/Container/Container'
-import RegisterForm from '../../components/RegisterForm/RegisterForm'
-import RegisterQuote from '../../components/RegisterQuote/RegisterQuote'
-import Section from '../../components/Section/Section'
+import Container from '../../components/Common/Container/Container'
+import Section from '../../components/Common/Section/Section'
+import RegisterForm from '../../components/Form/RegisterForm/RegisterForm'
+import RegisterGuide from '../../components/Guide/RegisterGuide/RegisterGuide'
 import s from './RegisterPage.module.css'
 
 const RegisterPage = () => {
@@ -10,7 +10,7 @@ const RegisterPage = () => {
 			<Container className='authContainer'>
 				<div className={s.registerWrapper}>
 					<RegisterForm />
-					<RegisterQuote />
+					<RegisterGuide />
 				</div>
 			</Container>
 		</Section>

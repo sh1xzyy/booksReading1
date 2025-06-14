@@ -1,0 +1,55 @@
+.datePicker {
+	width: 100%;
+	height: 42px;
+	border: 1px solid #a6abb9;
+	background-color: transparent;
+	transition: border 250ms linear;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 1.5;
+	color: #242a37;
+	&::placeholder {
+		font-weight: 500;
+		font-size: 14px;
+		letter-spacing: -0.02em;
+		color: #a6abb9;
+	}
+	&:hover {
+		border: 1px solid #797b81;
+	}
+	&:focus {
+		outline: transparent;
+		border: 1px solid #797b81;
+	}
+}
+
+.calendar {
+	position: absolute;
+	top: 50%;
+	left: 12px;
+	transform: translateY(-50%);
+}
+
+.arrowDown {
+	position: absolute;
+	top: 50%;
+	right: 12px;
+	transform: translateY(-50%);
+	transition: transform 250ms linear;
+}
+
+.rotate {
+	transform: translateY(-50%) rotate(180deg);
+}
+
+/* Training Date Picker */
+.trainingDatePicker {
+	padding-left: 41px;
+}
+
+/* Results Date Picker */
+.resultsDatePicker {
+	padding-left: 13px;
+	max-width: 110px;
+	font-size: 14px;
+}

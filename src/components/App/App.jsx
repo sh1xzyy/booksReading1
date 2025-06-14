@@ -1,23 +1,29 @@
 import { Route, Routes } from 'react-router-dom'
 import { lazy, Suspense, useEffect } from 'react'
-import RestrictedRoutes from '../RestrictedRoutes'
-import PrivateRoutes from '../PrivateRoutes'
-import Loader from '../Loader/Loader'
 import { useDispatch, useSelector } from 'react-redux'
 import { refreshThunk, userDataThunk } from '../../redux/auth/operations'
 import {
 	selectIsLoggedIn,
 	selectIsRefreshing,
-} from '../../redux/auth/selectors'
-import Layout from '../Layout/Layout'
-import NothingFoundPage from '../../pages/NotFoundPage/NothingFoundPage'
+} from '../../redux/auth/selectors.js'
+import AppBar from '../Header/AppBar/AppBar.jsx'
+import PrivateRoutes from '../PrivateRoutes.jsx'
+import RestrictedRoutes from '../RestrictedRoutes.jsx'
+import Loader from '../Common/Loader/Loader.jsx'
 const HomePage = lazy(() => import('../../pages/HomePage/HomePage.jsx'))
-const LibraryPage = lazy(() => import('../../pages/LibraryPage/LibraryPage'))
-const StatisticsPage = lazy(() =>
-	import('../../pages/StatisticsPage/StatisticsPage')
+const LibraryPage = lazy(() =>
+	import('../../pages/LibraryPage/LibraryPage.jsx')
 )
-const LoginPage = lazy(() => import('../../pages/LoginPage/LoginPage'))
-const RegisterPage = lazy(() => import('../../pages/RegisterPage/RegisterPage'))
+const StatisticsPage = lazy(() =>
+	import('../../pages/StatisticsPage/StatisticsPage.jsx')
+)
+const LoginPage = lazy(() => import('../../pages/LoginPage/LoginPage.jsx'))
+const RegisterPage = lazy(() =>
+	import('../../pages/RegisterPage/RegisterPage.jsx')
+)
+const NotFoundPage = lazy(() =>
+	import('../../pages/NotFoundPage/NothingFoundPage.jsx')
+)
 
 function App() {
 	const dispatch = useDispatch()
@@ -40,7 +46,7 @@ function App() {
 		<>
 			{isRefreshing ? null : (
 				<>
-					<Layout />
+					<AppBar />
 					<Suspense fallback={<Loader />}>
 						<Routes>
 							<Route path='/' element={<HomePage />} />
@@ -76,7 +82,7 @@ function App() {
 									</RestrictedRoutes>
 								}
 							/>
-							<Route path='*' element={<NothingFoundPage />} />
+							<Route path='*' element={<NotFoundPage />} />
 						</Routes>
 					</Suspense>
 				</>

@@ -1,7 +1,7 @@
-import Container from '../../components/Container/Container'
-import LoginForm from '../../components/LoginForm/LoginForm'
-import LoginQuote from '../../components/LoginQuote/LoginQuote'
-import Section from '../../components/Section/Section'
+import Container from '../../components/Common/Container/Container'
+import Section from '../../components/Common/Section/Section'
+import LoginForm from '../../components/Form/LoginForm/LoginForm'
+import LoginGuide from '../../components/Guide/LoginGuide/LoginGuide'
 import s from './LoginPage.module.css'
 
 const LoginPage = () => {
@@ -10,7 +10,7 @@ const LoginPage = () => {
 			<Container className='authContainer'>
 				<div className={s.loginWrapper}>
 					<LoginForm />
-					<LoginQuote />
+					<LoginGuide />
 				</div>
 			</Container>
 		</Section>
