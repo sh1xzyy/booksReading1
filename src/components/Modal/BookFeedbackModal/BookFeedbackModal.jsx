@@ -1,5 +1,5 @@
+import AddBookFeedBackForm from '../../Form/AddBookFeedbackForm/AddBookFeedbackForm'
 import s from './BookFeedbackModal.module.css'
-import AddBookFeedBackForm from '../../Form/AddBookFeedBackForm/AddBookFeedBackForm'
 
 const BookFeedbackModal = ({ isModalOpen, modalData }) => {
 	return (
