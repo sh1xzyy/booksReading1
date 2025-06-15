@@ -7,7 +7,7 @@
 }
 .title {
 	font-family: 'Abril Fatface', sans-serif;
-	font-weight: 400;		
+	font-weight: 400;
 	font-size: 34px;
 	line-height: 1.12;
 	color: #242a37;
@@ -38,26 +38,26 @@
 .benefitList {
 	display: flex;
 	flex-direction: column;
-	row-gap: 12px;	
+	row-gap: 12px;
 }
 
 .benefitText {
-		max-width: 254px;
-		font-weight: 500;
-		font-size: 14px;
-		color: #898f9f;
+	max-width: 254px;
+	font-weight: 500;
+	font-size: 14px;
+	color: #898f9f;
 }
 
 .benefitItem {
-		position: relative;
-		padding-left: 16px;
-		&::before {
-			position: absolute;
-			content: url('/arrowRight.svg');
-			left: 0;
-			color: #ff6b08;
-		}
+	position: relative;
+	padding-left: 16px;
+	&::before {
+		position: absolute;
+		content: url('/icons/arrowRight.svg');
+		left: 0;
+		color: #ff6b08;
 	}
+}
 
 @media screen and (min-width: 768px) {
 	.readingInfo {
