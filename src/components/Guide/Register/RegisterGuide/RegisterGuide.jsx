@@ -1,6 +1,6 @@
 import NavigationButton from '../../../Common/NavigationButton/NavigationButton'
 import RegisterGuideSection from '../ReadingSection/ReadingSection'
-import { sections } from '../ReadingSectionContent/ReadingSectionContent'
+import { sections } from '../readingSectionContent/readingSectionContent'
 import s from './RegisterGuide.module.css'
 
 const RegisterGuide = () => {
