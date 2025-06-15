@@ -1,0 +1,41 @@
+.readingSectionTitle {
+	font-weight: 500;
+	font-size: 20px;
+	line-height: 1.9;
+	color: #242a37;
+	margin-bottom: 14px;
+	text-align: left;
+}
+
+.readingBenefitsList {
+	display: flex;
+	flex-direction: column;
+	row-gap: 12px;
+}
+
+.readingBenefitItem {
+	position: relative;
+	padding-left: 16px;
+	&::before {
+		position: absolute;
+		content: url('/icons/arrowRight.svg');
+		left: 0;
+		color: #ff6b08;
+	}
+}
+
+.readingBenefitText {
+	max-width: 254px;
+	font-weight: 500;
+	font-size: 14px;
+	color: #898f9f;
+}
+
+@media screen and (min-width: 768px) {
+	.readingSectionList {
+		row-gap: 32px;
+	}
+	.readingBenefitText {
+		max-width: 500px;
+	}
+}

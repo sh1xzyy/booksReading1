@@ -1,4 +1,4 @@
-.loginGuide {
+.loginGuideWrapper {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -54,6 +54,9 @@
 			width: 150px;
 			font-size: 20px;
 		}
+	}
+	.quoteAuthor {
+		font-size: 20px;
 	}
 }
 

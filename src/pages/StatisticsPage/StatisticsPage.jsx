@@ -1,6 +1,6 @@
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { GoPlus } from 'react-icons/go'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import {
 	selectIsLoading,
 	selectPlannedData,
@@ -13,19 +13,23 @@ import { useMyTrainingFormContext } from '../../contexts/MyTrainingFormContext'
 import ActionButton from '../../components/Common/ActionButton/ActionButton'
 import Container from '../../components/Common/Container/Container'
 import { useWindowWidth } from '../../contexts/WindowWidthContext'
-import { planningThunk } from '../../redux/planning/operations'
+import useTimer from '../../components/hooks/useTimer/useTimer'
 import BookList from '../../components/Book/BookList/BookList'
 import Section from '../../components/Common/Section/Section'
 import Loader from '../../components/Common/Loader/Loader'
-import s from './StatisticsPage.module.css'
 import Timer from '../../components/Timer/Timer'
+import s from './StatisticsPage.module.css'
+import { planningThunk } from '../../redux/planning/operations'
 
 const StatisticsPage = () => {
+	const [isStartTrainingButtonClicked, setIsStartTrainingButtonClicked] =
+		useState(false)
 	const { isMyTrainingFormOpen, setIsMyTrainingFormOpen } =
 		useMyTrainingFormContext()
 	const { plannedBooks } = useSelector(selectPlannedData)
 	const isLoading = useSelector(selectIsLoading)
 	const { windowWidth } = useWindowWidth()
+	const { newYearTime } = useTimer()
 	const dispatch = useDispatch()
 
 	useEffect(() => {
@@ -69,14 +73,22 @@ const StatisticsPage = () => {
 					</div>
 
 					<div className={s.leftColumn}>
-						<Section className='timerSection'>
-							<Container className='innerContainer'>
-								<div className={s.timersGroup}>
-									<Timer title='До закінчення року залишилось' />
-									<Timer title='До досягнення мети залишилось' />
-								</div>
-							</Container>
-						</Section>
+						{isStartTrainingButtonClicked && (
+							<Section className='timerSection'>
+								<Container className='innerContainer'>
+									<div className={s.timersGroup}>
+										<Timer
+											timer={newYearTime}
+											title='До закінчення року залишилось'
+										/>
+										<Timer
+											timer={{ days: 0, hours: 0, minutes: 0, seconds: 0 }}
+											title='До досягнення мети залишилось'
+										/>
+									</div>
+								</Container>
+							</Section>
+						)}
 
 						{windowWidth > 768 && (
 							<Section className='trainingFormSection'>
@@ -93,12 +105,12 @@ const StatisticsPage = () => {
 									sectionTitle='Planning'
 									status='planning'
 								/>
-								{plannedBooks?.length > 0 && (
+								{plannedBooks?.length > 0 && !isStartTrainingButtonClicked && (
 									<ActionButton
 										className='startTrainingButton'
 										type='button'
 										title='Почати тренування'
-										onClick={() => console.log('Start training Clicked')}
+										onClick={() => setIsStartTrainingButtonClicked(true)}
 									/>
 								)}
 							</Container>

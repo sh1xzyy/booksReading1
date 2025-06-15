@@ -1,0 +1,44 @@
+.stepTitle {
+	font-weight: 600;
+	font-size: 18px;
+	color: #242a37;
+	margin-bottom: 8px;
+}
+
+.stepContent {
+	display: flex;
+	column-gap: 12px;
+}
+
+.stepHeadline {
+	max-width: 145px;
+	font-weight: 600;
+	font-size: 14px;
+	color: #242a37;
+	margin-bottom: 8px;
+}
+
+.stepHint {
+	display: flex;
+	column-gap: 8px;
+}
+
+.stepHintText {
+	max-width: 190px;
+	font-weight: 400;
+	font-size: 14px;
+	color: #898f9f;
+}
+
+@media screen and (min-width: 768px) {
+	.stepTitle {
+		font-size: 19px;
+	}
+	.stepHeadline {
+		max-width: 100%;
+		font-size: 16px;
+	}
+	.stepHintText {
+		max-width: 100%;
+	}
+}

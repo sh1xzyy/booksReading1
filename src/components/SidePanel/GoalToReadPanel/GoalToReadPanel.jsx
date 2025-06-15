@@ -23,6 +23,7 @@ const GoalToReadPanel = () => {
 						</div>
 						<span className={s.counterDescription}>Кількість днів</span>
 					</li>
+					{}
 				</ul>
 			</div>
 		</>

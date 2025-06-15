@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import { lazy, Suspense, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { refreshThunk, userDataThunk } from '../../redux/auth/operations'
@@ -10,7 +10,10 @@ import AppBar from '../Header/AppBar/AppBar.jsx'
 import PrivateRoutes from '../PrivateRoutes.jsx'
 import RestrictedRoutes from '../RestrictedRoutes.jsx'
 import Loader from '../Common/Loader/Loader.jsx'
-const HomePage = lazy(() => import('../../pages/HomePage/HomePage.jsx'))
+import { useWindowWidth } from '../../contexts/WindowWidthContext.jsx'
+const WelcomePage = lazy(() =>
+	import('../../pages/WelcomePage/WelcomePage.jsx')
+)
 const LibraryPage = lazy(() =>
 	import('../../pages/LibraryPage/LibraryPage.jsx')
 )
@@ -29,6 +32,7 @@ function App() {
 	const dispatch = useDispatch()
 	const isRefreshing = useSelector(selectIsRefreshing)
 	const isLoggedIn = useSelector(selectIsLoggedIn)
+	const { windowWidth } = useWindowWidth()
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -49,7 +53,16 @@ function App() {
 					<AppBar />
 					<Suspense fallback={<Loader />}>
 						<Routes>
-							<Route path='/' element={<HomePage />} />
+							<Route
+								path='/'
+								element={
+									!isLoggedIn && windowWidth < 768 ? (
+										<WelcomePage />
+									) : (
+										<Navigate to='/register' />
+									)
+								}
+							/>
 							<Route
 								path='/library'
 								element={

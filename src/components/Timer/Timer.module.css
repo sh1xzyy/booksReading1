@@ -20,7 +20,8 @@
 }
 
 .timeList {
-	display: flex;
+	display: grid;
+	grid-template-columns: 43px 30px 30px 30px;
 	column-gap: 28px;
 	font-weight: 700;
 	font-size: 25px;
@@ -45,6 +46,10 @@
 .timeBox {
 	display: flex;
 	flex-direction: column;
+}
+
+.timeValue {
+	text-align: center;
 }
 
 .timeLabel {

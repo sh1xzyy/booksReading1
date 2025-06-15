@@ -12,7 +12,6 @@ import BookFeedbackModal from '../../components/Modal/BookFeedbackModal/BookFeed
 import ActionFormModal from '../../components/Modal/ActionFormModal/ActionFormModal'
 import { useBookFormVisibility } from '../../contexts/BookFormVisibilityContext'
 import ActionButton from '../../components/Common/ActionButton/ActionButton'
-import WelcomeGuide from '../../components/Guide/WelcomeGuide/WelcomeGuide'
 import AddBookForm from '../../components/Form/AddBookForm/AddBookForm'
 import Container from '../../components/Common/Container/Container'
 import { useWindowWidth } from '../../contexts/WindowWidthContext'
@@ -20,6 +19,7 @@ import BookList from '../../components/Book/BookList/BookList'
 import Section from '../../components/Common/Section/Section'
 import Loader from '../../components/Common/Loader/Loader'
 import s from './LibraryPage.module.css'
+import WelcomeGuide from '../../components/Guide/Welcome/WelcomeGuide/WelcomeGuide'
 
 const LibraryPage = () => {
 	const { isBookFormOpen, setIsBookFormOpen } = useBookFormVisibility()
