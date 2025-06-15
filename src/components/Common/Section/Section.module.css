@@ -18,20 +18,13 @@
 	padding-top: 16px;
 }
 
-.bookListSection {
-	display: flex;
-	flex-direction: column;
-	row-gap: 20px;
-	padding: 80px 0 128px 0;
+.timerSection {
+	padding-bottom: 20px;
 }
 
 @media screen and (min-width: 768px) {
 	.formSection {
-		padding: 92px 0 20px 0;
-	}
-	.bookListSection {
-		row-gap: 40px;
-		padding-top: 20px;
+		padding: 0 0 20px 0;
 	}
 	.readingGoalSection {
 		padding: 0 0 20px 0;
@@ -42,14 +35,14 @@
 	.planningListSection {
 		padding: 20px 0;
 	}
+	.timerSection {
+		padding-bottom: 18px;
+	}
 }
 
 @media screen and (min-width: 1280px) {
 	.formSection {
-		padding: 100px 0 64px 0;
-	}
-	.bookListSection {
-		row-gap: 32px;
+		padding-bottom: 64px;
 	}
 	.readingGoalSection {
 		padding: 0;
@@ -59,5 +52,8 @@
 	}
 	.planningListSection {
 		padding: 12px 0 20px 0;
+	}
+	.timerSection {
+		padding-bottom: 22px;
 	}
 }

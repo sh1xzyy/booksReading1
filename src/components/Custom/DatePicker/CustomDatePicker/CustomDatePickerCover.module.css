@@ -8,6 +8,7 @@
 	font-size: 16px;
 	line-height: 1.5;
 	color: #242a37;
+	background-color: #f6f7fb;
 	&::placeholder {
 		font-weight: 500;
 		font-size: 14px;

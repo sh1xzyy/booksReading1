@@ -304,18 +304,21 @@
 .startTrainingButton {
 	display: block;
 	margin: 0 auto;
-	margin-top: 8px;
 	min-width: 171px;
 	height: 42px;
 	border: none;
-	font-weight: 600;
-	font-size: 16px;
 	color: #ffffff;
 	background-color: #ff6b08;
 	transition: background-color 250ms linear;
 	&:hover {
 		background-color: #e95f03;
 	}
+}
+
+.myTrainingButton {
+	font-weight: 600;
+	font-size: 16px;
+	margin-top: 28px;
 }
 
 .startTrainingButton {
@@ -328,20 +331,13 @@
 	.myTrainingButton {
 		min-width: 200px;
 		height: 40px;
-		margin-top: 0;
+		margin-top: 40px;
 	}
 	.startTrainingButton {
 		margin-top: 40px;
 	}
 }
 
-@media screen and (min-width: 768px) {
-	.myTrainingButton {
-		min-width: 200px;
-		height: 40px;
-		margin-top: 8px;
-	}
-}
 /* #endregion My Training Button */
 
 /* #region Confirm Modal */

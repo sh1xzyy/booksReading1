@@ -1,0 +1,65 @@
+.timer {
+	width: 100%;
+}
+
+.timerTitle {
+	font-weight: 500;
+	font-size: 14px;
+	color: #898f9f;
+	text-align: center;
+	margin-bottom: 9px;
+}
+
+.timerWrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 60px;
+	box-shadow: 4px 4px 8px 0 rgba(36, 42, 55, 0.15);
+	background-color: #fff;
+}
+
+.timeList {
+	display: flex;
+	column-gap: 28px;
+	font-weight: 700;
+	font-size: 25px;
+	line-height: 1.52;
+	color: #091e3f;
+}
+
+.timeItem {
+	position: relative;
+	&:not(:last-child)::after {
+		position: absolute;
+		content: ':';
+		top: 0;
+		right: -18px;
+		font-weight: 700;
+		font-size: 25px;
+		line-height: 1.52;
+		color: #091e3f;
+	}
+}
+
+.timeBox {
+	display: flex;
+	flex-direction: column;
+}
+
+.timeLabel {
+	font-weight: 500;
+	font-size: 10px;
+	text-transform: uppercase;
+	text-align: center;
+	color: #898f9f;
+}
+
+@media screen and (min-width: 768px) {
+	.timer {
+		max-width: 290px;
+	}
+	.timerTitle {
+		margin-bottom: 8px;
+	}
+}

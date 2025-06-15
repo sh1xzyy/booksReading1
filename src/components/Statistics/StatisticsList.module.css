@@ -1,0 +1,98 @@
+.statisticsTitle {
+	position: relative;
+	text-align: center;
+	font-weight: 700;
+	font-size: 12px;
+	text-transform: uppercase;
+	text-align: center;
+	color: #242a37;
+	&::before,
+	&::after {
+		position: absolute;
+		content: '';
+		top: 50%;
+		width: 71px;
+		height: 1px;
+		transform: translateY(-50%);
+		background-color: #e0e5eb;
+	}
+	&::before {
+		left: 0;
+	}
+	&::after {
+		right: 0;
+	}
+}
+
+.statisticsWrapper {
+	margin-top: 24px;
+}
+
+.statisticsList {
+	display: flex;
+	flex-direction: column;
+	padding-top: 4px;
+	row-gap: 4px;
+	height: 100%;
+	max-height: 105px;
+	overflow: auto;
+}
+
+.statisticsList::-webkit-scrollbar {
+	height: 8px;
+	width: 8px;
+}
+
+.statisticsList::-webkit-scrollbar-thumb {
+	border-radius: 12px;
+	background-color: #dadde1;
+}
+
+.statisticsList:-webkit-scrollbar-track {
+	border-radius: 12px;
+	background-color: transparent;
+}
+
+.statisticItemDetails {
+	display: inline-grid;
+	grid-template-columns: 96px auto 90px;
+}
+
+.statDate,
+.statTime,
+.statPagesCount,
+.statPagesLabel {
+	font-weight: 400;
+	font-size: 14px;
+}
+
+.statDate,
+.statPagesCount {
+	color: #242a37;
+}
+
+.statTime,
+.statPagesLabel {
+	color: #898f9f;
+}
+
+.item:last-child {
+	text-align: right;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+	.statisticsTitle {
+		font-size: 14px;
+		text-align: left;
+		&::before {
+			display: none;
+		}
+		&::after {
+			left: 110px;
+			width: 128px;
+		}
+	}
+	.statisticsList {
+		padding-top: 6px;
+	}
+}

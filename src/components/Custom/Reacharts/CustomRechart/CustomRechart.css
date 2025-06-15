@@ -1,0 +1,13 @@
+.recharts-responsive-container {
+	width: 100%;
+	max-height: 190px;
+}
+
+.recharts-wrapper {
+}
+
+@media screen and (min-width: 768px) {
+	.recharts-responsive-container {
+		max-height: 215px;
+	}
+}

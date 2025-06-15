@@ -1,6 +1,6 @@
 .chartWrapper {
-	/* height: 280px; */
-	padding: 24px;
+	height: 290px;
+	padding: 25px 22px 39px 22px;
 	border-radius: 12px;
 	box-shadow: 0 2px 3px 0 rgba(9, 30, 63, 0.25);
 	background-color: #fff;
@@ -10,7 +10,7 @@
 	display: flex;
 	align-items: center;
 	column-gap: 8px;
-	margin-bottom: 24px;
+	margin-bottom: 16px;
 }
 
 .chartTitle {
@@ -27,7 +27,7 @@
 	width: 25px;
 	height: 25px;
 	font-weight: 600;
-	font-style: 12px;
+	font-size: 12px;
 	line-height: 3.17;
 	color: #242a37;
 	background-color: #f5f7fa;
@@ -36,13 +36,27 @@
 .hour {
 	text-align: right;
 	font-weight: 600;
-	font-style: 12px;
+	font-size: 12px;
 	text-transform: uppercase;
 	color: #091e3f;
 }
 
-/* @media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) {
 	.chartWrapper {
+		padding: 35px 48px 50px 49px;
 		height: 340px;
 	}
-} */
+	.chartDescription {
+		margin-bottom: 20px;
+	}
+}
+
+@media screen and (min-width: 1280px) {
+	.chartWrapper {
+		padding: 35px 77px 51px 40px;
+		height: 340px;
+	}
+	.chartDescription {
+		margin-bottom: 19px;
+	}
+}

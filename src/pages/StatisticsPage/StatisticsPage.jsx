@@ -3,7 +3,7 @@ import { GoPlus } from 'react-icons/go'
 import { useEffect } from 'react'
 import {
 	selectIsLoading,
-	selectPlanningData,
+	selectPlannedData,
 } from '../../redux/planning/selectors'
 import CustomRechart from '../../components/Custom/Reacharts/CustomRechart/CustomRechart'
 import ActionFormModal from '../../components/Modal/ActionFormModal/ActionFormModal'
@@ -18,14 +18,14 @@ import BookList from '../../components/Book/BookList/BookList'
 import Section from '../../components/Common/Section/Section'
 import Loader from '../../components/Common/Loader/Loader'
 import s from './StatisticsPage.module.css'
+import Timer from '../../components/Timer/Timer'
 
 const StatisticsPage = () => {
 	const { isMyTrainingFormOpen, setIsMyTrainingFormOpen } =
 		useMyTrainingFormContext()
-	const { books } = useSelector(selectPlanningData)
+	const { plannedBooks } = useSelector(selectPlannedData)
 	const isLoading = useSelector(selectIsLoading)
 	const { windowWidth } = useWindowWidth()
-
 	const dispatch = useDispatch()
 
 	useEffect(() => {
@@ -54,9 +54,9 @@ const StatisticsPage = () => {
 			)}
 
 			<Container className='statisticsPageContainer'>
-				<div className={s.statisticsWrapper}>
+				<div className={s.pageLayout}>
 					<div className={s.rightColumn}>
-						<Section className='readingGoalSection'>
+						<Section className='goalSection'>
 							<Container className='innerContainer'>
 								<SidePanelCard type='goalToRead' />
 							</Container>
@@ -69,6 +69,15 @@ const StatisticsPage = () => {
 					</div>
 
 					<div className={s.leftColumn}>
+						<Section className='timerSection'>
+							<Container className='innerContainer'>
+								<div className={s.timersGroup}>
+									<Timer title='До закінчення року залишилось' />
+									<Timer title='До досягнення мети залишилось' />
+								</div>
+							</Container>
+						</Section>
+
 						{windowWidth > 768 && (
 							<Section className='trainingFormSection'>
 								<Container className='innerContainer'>
@@ -80,11 +89,11 @@ const StatisticsPage = () => {
 						<Section className='planningListSection'>
 							<Container className='innerContainer'>
 								<BookList
-									items={books}
+									items={plannedBooks}
 									sectionTitle='Planning'
 									status='planning'
 								/>
-								{books?.length > 0 && (
+								{plannedBooks?.length > 0 && (
 									<ActionButton
 										className='startTrainingButton'
 										type='button'
@@ -94,6 +103,7 @@ const StatisticsPage = () => {
 								)}
 							</Container>
 						</Section>
+
 						<Section className='chartSection'>
 							<Container className='innerContainer'>
 								<CustomRechart />

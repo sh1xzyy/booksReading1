@@ -1,9 +1,9 @@
 import { useSelector } from 'react-redux'
-import { selectPlanningData } from '../../../redux/planning/selectors'
+import { selectPlannedData } from '../../../redux/planning/selectors'
 import s from './GoalToReadPanel.module.css'
 
 const GoalToReadPanel = () => {
-	const { books, duration } = useSelector(selectPlanningData)
+	const { plannedBooks, duration } = useSelector(selectPlannedData)
 	return (
 		<>
 			<div className={s.goalHeader}>
@@ -13,7 +13,7 @@ const GoalToReadPanel = () => {
 				<ul className={s.countList}>
 					<li>
 						<div className={s.countItem}>
-							<span className={s.counter}>{books.length || '0'}</span>
+							<span className={s.counter}>{plannedBooks.length || '0'}</span>
 						</div>
 						<span className={s.counterDescription}>Кількість книжок</span>
 					</li>

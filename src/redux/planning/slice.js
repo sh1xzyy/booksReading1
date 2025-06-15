@@ -6,7 +6,7 @@ const initialState = {
 	endDate: '',
 	duration: '',
 	pagesPerDay: '',
-	books: [],
+	plannedBooks: [],
 	stats: [],
 	isLoading: false,
 }
@@ -21,14 +21,14 @@ const planningSlice = createSlice({
 
 				switch (action.meta.arg.method) {
 					case 'GET':
-						state.books = payload.planning.books
+						state.plannedBooks = payload.planning.books
 						state.duration = payload.planning.duration
 						state.startDate = payload.planning.startDate
 						state.endDate = payload.planning.endDate
 						state.pagesPerDay = payload.planning.pagesPerDay
 						break
 					case 'POST':
-						state.books = payload.books
+						state.plannedBooks = payload.books
 						state.duration = payload.duration
 						state.startDate = payload.startDate
 						state.endDate = payload.endDate

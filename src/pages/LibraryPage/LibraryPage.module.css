@@ -1,0 +1,27 @@
+.libraryPageWrapper {
+	padding: 80px 0 128px 0;
+}
+
+.bookListWrapper {
+	display: flex;
+	flex-direction: column;
+	row-gap: 20px;
+}
+
+@media screen and (min-width: 768px) {
+	.libraryPageWrapper {
+		padding: 92px 0 61px 0;
+	}
+	.bookListWrapper {
+		row-gap: 40px;
+	}
+}
+
+@media screen and (min-width: 1280px) {
+	.libraryPageWrapper {
+		padding-top: 100px;
+	}
+	.bookListWrapper {
+		row-gap: 32px;
+	}
+}
