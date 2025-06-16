@@ -1,4 +1,4 @@
-import RegisterGuide from '../../components/Guide/Register/RegisterGuide/RegisterGuide'
+import RegisterGuide from '../../components/Guide/RegisterGuide/RegisterGuide/RegisterGuide'
 import s from './WelcomePage.module.css'
 const WelcomePage = () => {
 	return (

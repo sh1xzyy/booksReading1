@@ -1,4 +1,4 @@
-import RegisterGuide from '../../components/Guide/Register/RegisterGuide/RegisterGuide'
+import RegisterGuide from '../../components/Guide/RegisterGuide/RegisterGuide/RegisterGuide'
 import RegisterForm from '../../components/Form/RegisterForm/RegisterForm'
 import Container from '../../components/Common/Container/Container'
 import { useWindowWidth } from '../../contexts/WindowWidthContext'

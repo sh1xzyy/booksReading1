@@ -1,6 +1,6 @@
+import LoginGuide from '../../components/Guide/LoginGuide/LoginGuide'
 import Container from '../../components/Common/Container/Container'
 import LoginForm from '../../components/Form/LoginForm/LoginForm'
-import LoginGuide from '../../components/Guide/Login/LoginGuide'
 import Section from '../../components/Common/Section/Section'
 import s from './LoginPage.module.css'
 

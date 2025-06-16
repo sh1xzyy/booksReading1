@@ -6,6 +6,7 @@
 	text-transform: uppercase;
 	text-align: center;
 	color: #242a37;
+	margin-bottom: 4px;
 	&::before,
 	&::after {
 		position: absolute;
@@ -31,7 +32,6 @@
 .statisticsList {
 	display: flex;
 	flex-direction: column;
-	padding-top: 4px;
 	row-gap: 4px;
 	height: 100%;
 	max-height: 105px;
@@ -60,14 +60,14 @@
 
 .statDate,
 .statTime,
-.statPagesCount,
+.statPages,
 .statPagesLabel {
 	font-weight: 400;
 	font-size: 14px;
 }
 
 .statDate,
-.statPagesCount {
+.statPages {
 	color: #242a37;
 }
 
@@ -84,6 +84,7 @@
 	.statisticsTitle {
 		font-size: 14px;
 		text-align: left;
+		margin-bottom: 6px;
 		&::before {
 			display: none;
 		}
@@ -91,8 +92,5 @@
 			left: 110px;
 			width: 128px;
 		}
-	}
-	.statisticsList {
-		padding-top: 6px;
 	}
 }
