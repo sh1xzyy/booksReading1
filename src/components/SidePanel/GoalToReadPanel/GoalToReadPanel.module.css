@@ -8,7 +8,6 @@
 	font-weight: 600;
 	font-size: 20px;
 	color: #fff;
-	text-align: center;
 }
 
 .countWrapper {
@@ -16,8 +15,9 @@
 }
 
 .countList {
-	display: flex;
+	display: grid;
 	justify-content: center;
+	grid-template-columns: 100px 100px;
 	column-gap: 20px;
 }
 

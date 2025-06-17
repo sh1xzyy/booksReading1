@@ -60,7 +60,7 @@ const MyTrainingForm = () => {
 						<div className={s.fieldWrapper}>
 							<CustomSelector
 								name='books'
-								placeholder={'Обрати книги з бібліотеки'}
+								placeholder='Обрати книги з бібліотеки'
 							/>
 							<ErrorMsg name='books' />
 						</div>

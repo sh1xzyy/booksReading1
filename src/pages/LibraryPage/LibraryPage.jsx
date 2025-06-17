@@ -20,13 +20,15 @@ import Section from '../../components/Common/Section/Section'
 import Loader from '../../components/Common/Loader/Loader'
 import s from './LibraryPage.module.css'
 import WelcomeGuide from '../../components/Guide/Welcome/WelcomeGuide/WelcomeGuide'
+import { useBookFeedbackModalContext } from '../../contexts/BookFeedbackModalContext'
 
 const LibraryPage = () => {
 	const { isBookFormOpen, setIsBookFormOpen } = useBookFormVisibility()
 	const currentlyReading = useSelector(selectCurrentlyReadingBooksSorted)
 	const finishedReading = useSelector(selectFinishedReadingBooksSorted)
 	const goingToRead = useSelector(selectGoingToReadBooksSorted)
-	const [isModalOpen, setIsModalOpen] = useState(false)
+	const { isBookFeedbackModalOpen, setIsBookFeedbackModalOpen } =
+		useBookFeedbackModalContext()
 	const [closeGuide, setCloseGuide] = useState(true)
 	const isLoading = useSelector(selectIsLoading)
 	const [modalData, setModalData] = useState({})
@@ -43,9 +45,7 @@ const LibraryPage = () => {
 
 	return (
 		<>
-			{isModalOpen && (
-				<BookFeedbackModal isModalOpen={setIsModalOpen} modalData={modalData} />
-			)}
+			{isBookFeedbackModalOpen && <BookFeedbackModal modalData={modalData} />}
 
 			{isListEmpty && closeGuide && (
 				<WelcomeGuide setCloseGuide={setCloseGuide} />
@@ -70,7 +70,7 @@ const LibraryPage = () => {
 								<BookList
 									sectionTitle='Прочитано'
 									handleResumeClick={book => {
-										setIsModalOpen(true)
+										setIsBookFeedbackModalOpen(true)
 										setModalData(book)
 									}}
 									items={finishedReading}

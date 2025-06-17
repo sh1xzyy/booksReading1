@@ -1,7 +1,12 @@
+import clsx from 'clsx'
 import s from './Section.module.css'
 
-const Section = ({ children, className = 'section' }) => {
-	return <section className={s[className]}>{children}</section>
+const Section = ({ children, className, moduleClass }) => {
+	return (
+		<section className={clsx(s[className], moduleClass && moduleClass)}>
+			{children}
+		</section>
+	)
 }
 
 export default Section

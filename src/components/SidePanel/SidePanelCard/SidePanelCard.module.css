@@ -1,4 +1,5 @@
 .panelWrapper {
+	width: 100%;
 	box-shadow: 0 2px 3px 0 rgba(9, 30, 63, 0.1);
 	background: #fff;
 }

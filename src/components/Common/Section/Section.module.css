@@ -6,7 +6,8 @@
 	padding-top: 60px;
 }
 
-.readingGoalSection {
+.readingGoalSection,
+.goalSection {
 	padding-bottom: 10px;
 }
 
@@ -19,7 +20,11 @@
 }
 
 .timerSection {
-	padding-bottom: 20px;
+	padding-bottom: 40px;
+}
+
+.resultsSection {
+	padding-top: 32px;
 }
 
 @media screen and (min-width: 768px) {
@@ -36,7 +41,13 @@
 		padding: 20px 0;
 	}
 	.timerSection {
-		padding-bottom: 18px;
+		padding-bottom: 36px;
+	}
+	.goalSection {
+		padding-bottom: 20px;
+	}
+	.resultsSection {
+		padding-top: 40px;
 	}
 }
 

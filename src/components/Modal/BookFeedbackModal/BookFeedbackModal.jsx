@@ -1,11 +1,21 @@
+import { useBookFeedbackModalContext } from '../../../contexts/BookFeedbackModalContext'
 import AddBookFeedBackForm from '../../Form/AddBookFeedbackForm/AddBookFeedbackForm'
+import BaseModal from '../BaseModal/BaseModal'
 import s from './BookFeedbackModal.module.css'
 
-const BookFeedbackModal = ({ isModalOpen, modalData }) => {
+const BookFeedbackModal = ({ modalData }) => {
+	const { setIsBookFeedbackModalOpen } = useBookFeedbackModalContext()
+
 	return (
-		<BaseModal className='bookFeedback'>
+		<BaseModal
+			className='bookFeedbackModal'
+			isModalOpen={setIsBookFeedbackModalOpen}
+		>
 			<h3 className={s.chooseRating}>Обрати рейтинг книги</h3>
-			<AddBookFeedBackForm isModalOpen={isModalOpen} modalData={modalData} />
+			<AddBookFeedBackForm
+				isModalOpen={setIsBookFeedbackModalOpen}
+				modalData={modalData}
+			/>
 		</BaseModal>
 	)
 }

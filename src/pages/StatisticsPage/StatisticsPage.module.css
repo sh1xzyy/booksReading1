@@ -1,39 +1,78 @@
 .pageLayout {
+	display: grid;
 	padding: 80px 0 58px 0;
 }
 
-.timersGroup {
-	display: flex;
-	flex-direction: column;
-	row-gap: 24px;
+.pageLayoutDefault {
+	grid-template-areas:
+		'goal'
+		'form'
+		'list'
+		'chart';
+}
+
+.pageLayoutTraining {
+	grid-template-areas:
+		'timer'
+		'goal'
+		'form'
+		'list'
+		'chart'
+		'results';
+}
+
+.goalArea {
+	grid-area: goal;
+}
+
+.timerArea {
+	grid-area: timer;
+}
+
+.resultsArea {
+	grid-area: results;
+}
+
+.listArea {
+	grid-area: list;
+}
+
+.chartArea {
+	grid-area: chart;
+}
+
+.trainingFormSection {
+	grid-area: form;
+}
+
+.emptySection {
+	grid-area: empty;
 }
 
 @media screen and (min-width: 768px) {
 	.pageLayout {
 		padding: 92px 0 49px 0;
 	}
-	.timersGroup {
-		flex-direction: row;
-		justify-content: center;
-		column-gap: 32px;
-	}
 }
 
 @media screen and (min-width: 1280px) {
 	.pageLayout {
 		padding: 100px 0 40px 0;
-		display: grid;
-		grid-template-areas: 'main goal';
-		grid-template-columns: 928px auto;
 		column-gap: 32px;
+		grid-template-columns: 928px 1fr;
 	}
-	.rightColumn {
-		display: flex;
-		flex-direction: column;
-		row-gap: 40px;
-		grid-area: goal;
+	.pageLayoutDefault {
+		grid-template-rows: auto auto auto auto;
+		grid-template-areas:
+			'form goal'
+			'list empty'
+			'chart empty';
 	}
-	.leftColumn {
-		grid-area: main;
+	.pageLayoutTraining {
+		grid-template-rows: auto auto auto auto;
+		grid-template-areas:
+			'timer goal'
+			'list results'
+			'chart empty';
 	}
 }

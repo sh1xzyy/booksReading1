@@ -5,31 +5,30 @@ import {
 	selectIsLoading,
 	selectPlannedData,
 } from '../../redux/planning/selectors'
-import CustomRechart from '../../components/Custom/Reacharts/CustomRechart/CustomRechart'
+import CustomRechart from '../../components/Custom/Recharts/CustomRechart/CustomRechart'
 import ActionFormModal from '../../components/Modal/ActionFormModal/ActionFormModal'
 import SidePanelCard from '../../components/SidePanel/SidePanelCard/SidePanelCard'
-import MyTrainingForm from '../../components/Form/MyTrainingForm/MyTrainingForm'
 import { useMyTrainingFormContext } from '../../contexts/MyTrainingFormContext'
 import ActionButton from '../../components/Common/ActionButton/ActionButton'
 import Container from '../../components/Common/Container/Container'
 import { useWindowWidth } from '../../contexts/WindowWidthContext'
-import useTimer from '../../components/hooks/useTimer/useTimer'
 import BookList from '../../components/Book/BookList/BookList'
 import Section from '../../components/Common/Section/Section'
 import Loader from '../../components/Common/Loader/Loader'
-import Timer from '../../components/Timer/Timer'
 import s from './StatisticsPage.module.css'
 import { planningThunk } from '../../redux/planning/operations'
+import TimerBlock from '../../components/Blocks/TimerBlock/TimerBlock'
+import clsx from 'clsx'
+import MyTrainingForm from '../../components/Form/MyTrainingForm/MyTrainingForm'
+import { useTrainingContext } from '../../contexts/TrainingContext'
 
 const StatisticsPage = () => {
-	const [isStartTrainingButtonClicked, setIsStartTrainingButtonClicked] =
-		useState(false)
 	const { isMyTrainingFormOpen, setIsMyTrainingFormOpen } =
 		useMyTrainingFormContext()
+	const { isTraining, onStartTrainingButtonClick } = useTrainingContext()
 	const { plannedBooks } = useSelector(selectPlannedData)
 	const isLoading = useSelector(selectIsLoading)
 	const { windowWidth } = useWindowWidth()
-	const { newYearTime } = useTimer()
 	const dispatch = useDispatch()
 
 	useEffect(() => {
@@ -43,9 +42,10 @@ const StatisticsPage = () => {
 		fetchData()
 	}, [dispatch])
 
+	if (isLoading) return <Loader />
+
 	return (
 		<>
-			{isLoading && <Loader />}
 			{isMyTrainingFormOpen && <ActionFormModal type='trainingForm' />}
 			{windowWidth < 768 && !isMyTrainingFormOpen && (
 				<ActionButton
@@ -58,70 +58,67 @@ const StatisticsPage = () => {
 			)}
 
 			<Container className='statisticsPageContainer'>
-				<div className={s.pageLayout}>
-					<div className={s.rightColumn}>
-						<Section className='goalSection'>
+				<div
+					className={clsx(
+						s.pageLayout,
+						isTraining ? s.pageLayoutTraining : s.pageLayoutDefault
+					)}
+				>
+					{isTraining && (
+						<Section className='timerSection' moduleClass={s.timerArea}>
 							<Container className='innerContainer'>
-								<SidePanelCard type='goalToRead' />
+								<TimerBlock />
 							</Container>
 						</Section>
-						<Section>
+					)}
+
+					<Section className='goalSection' moduleClass={s.goalArea}>
+						<Container className='innerContainer'>
+							<SidePanelCard type='goalToRead' />
+						</Container>
+					</Section>
+
+					{windowWidth > 768 && !isTraining && (
+						<Section className='trainingFormSection' moduleClass={s.formArea}>
+							<Container className='innerContainer'>
+								<MyTrainingForm />
+							</Container>
+						</Section>
+					)}
+
+					<Section className='planningListSection' moduleClass={s.listArea}>
+						<Container className='innerContainer'>
+							<BookList
+								items={plannedBooks}
+								sectionTitle='Planning'
+								status='planning'
+							/>
+							{plannedBooks?.length > 0 && !isTraining && (
+								<ActionButton
+									className='startTrainingButton'
+									type='button'
+									title='Почати тренування'
+									onClick={onStartTrainingButtonClick}
+								/>
+							)}
+						</Container>
+					</Section>
+
+					<Section className='chartSection' moduleClass={s.chartArea}>
+						<Container className='innerContainer'>
+							<CustomRechart />
+						</Container>
+					</Section>
+
+					{isTraining && (
+						<Section className='resultsSection' moduleClass={s.resultsArea}>
 							<Container className='innerContainer'>
 								<SidePanelCard type='results' />
 							</Container>
 						</Section>
-					</div>
+					)}
 
-					<div className={s.leftColumn}>
-						{isStartTrainingButtonClicked && (
-							<Section className='timerSection'>
-								<Container className='innerContainer'>
-									<div className={s.timersGroup}>
-										<Timer
-											timer={newYearTime}
-											title='До закінчення року залишилось'
-										/>
-										<Timer
-											timer={{ days: 0, hours: 0, minutes: 0, seconds: 0 }}
-											title='До досягнення мети залишилось'
-										/>
-									</div>
-								</Container>
-							</Section>
-						)}
-
-						{windowWidth > 768 && (
-							<Section className='trainingFormSection'>
-								<Container className='innerContainer'>
-									<MyTrainingForm />
-								</Container>
-							</Section>
-						)}
-
-						<Section className='planningListSection'>
-							<Container className='innerContainer'>
-								<BookList
-									items={plannedBooks}
-									sectionTitle='Planning'
-									status='planning'
-								/>
-								{plannedBooks?.length > 0 && !isStartTrainingButtonClicked && (
-									<ActionButton
-										className='startTrainingButton'
-										type='button'
-										title='Почати тренування'
-										onClick={() => setIsStartTrainingButtonClicked(true)}
-									/>
-								)}
-							</Container>
-						</Section>
-
-						<Section className='chartSection'>
-							<Container className='innerContainer'>
-								<CustomRechart />
-							</Container>
-						</Section>
-					</div>
+					<Section className='emptySection' moduleClass={s.emptyArea} />
 				</div>
 			</Container>
 		</>

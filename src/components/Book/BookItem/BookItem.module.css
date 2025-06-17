@@ -59,6 +59,7 @@
 .finishedInfoList,
 .planningInfoList {
 	display: grid;
+	align-items: center;
 	row-gap: 14px;
 }
 

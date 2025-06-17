@@ -10,7 +10,6 @@ import {
 import { CustomDot } from '../CustomDot/CustomDot'
 import s from './CustomRechart.module.css'
 import './CustomRechart.css'
-// import { useWindowWidth } from '../../../../contexts/WindowWidthContext'
 
 const data = [
 	{ plan: 25, fact: 20 },
@@ -23,7 +22,6 @@ const data = [
 ]
 
 const CustomRechart = () => {
-	// const windowWidth = useWindowWidth()
 	return (
 		<div className={s.chartWrapper}>
 			<div className={s.chartDescription}>
