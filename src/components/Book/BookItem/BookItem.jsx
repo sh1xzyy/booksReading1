@@ -11,6 +11,10 @@ import ActionButton from '../../Common/ActionButton/ActionButton'
 import { getInfoListClass } from '../../../utils/bookList/getInfoListClass'
 import { getAuthorClass } from '../../../utils/bookList/getAuthorClass'
 import { croppedAuthorByWidth } from '../../../utils/bookList/croppedAuthorByWidth'
+import { useTrainingContext } from '../../../contexts/TrainingContext'
+import { Formik } from 'formik'
+import { nanoid } from '@reduxjs/toolkit'
+import clsx from 'clsx'
 
 const BookItem = ({ book, status, windowWidth, handleResumeClick }) => {
 	const {
@@ -22,12 +26,31 @@ const BookItem = ({ book, status, windowWidth, handleResumeClick }) => {
 		rating = 0,
 		feedback = '',
 	} = book || {}
-
 	const { deleteBookFromPlan } = useDeleteTrainingPlan()
+	const { isTraining } = useTrainingContext()
+
+	const id = nanoid()
 
 	return (
 		<li className={getItemClassByStatus(s, status)}>
-			<MdMenuBook className={getBookIconClass(s, status)} />
+			{status === 'planning' && isTraining ? (
+				<div className={s.fieldWrapper}>
+					<label className={s.checkboxLabel} htmlFor={id}>
+						<input
+							className={clsx('visually-hidden', s.checkbox)}
+							type='checkbox'
+							name='checkbox'
+							id={id}
+						/>
+						<span className={s.customCheckbox}></span>
+						<svg className={s.checkMark} width={12} height={12}>
+							<use href='/icons/icons.svg#icon-check-mark'></use>
+						</svg>
+					</label>
+				</div>
+			) : (
+				<MdMenuBook className={getBookIconClass(s, status)} />
+			)}
 			{status === 'empty' ? (
 				<span className={s.emptySpan}>...</span>
 			) : (

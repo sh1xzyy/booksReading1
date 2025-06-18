@@ -87,6 +87,40 @@
 	color: #242a37;
 }
 
+.checkboxLabel {
+	display: inline-block;
+	cursor: pointer;
+	position: relative;
+}
+
+.customCheckbox {
+	display: block;
+	width: 15px;
+	height: 15px;
+	border: 1px solid #a6abb9;
+	background-color: #fff;
+	transition: border-color 250ms linear;
+	&:hover {
+		border-color: #ff6b08;
+	}
+}
+
+.checkMark {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	opacity: 0;
+}
+
+.checkbox:checked + .customCheckbox {
+	border-color: #ff6b08;
+}
+
+.checkbox:checked ~ .checkMark {
+	opacity: 1;
+}
+
 @media screen and (min-width: 768px) {
 	.item {
 		height: 62px;

@@ -50,7 +50,7 @@ const StatisticsPage = () => {
 		<>
 			{isLoading && <Loader />}
 			{isMyTrainingFormOpen && <ActionFormModal type='trainingForm' />}
-			{!isTrainingCompletedSuccessfully && <CongratulationModal />}
+			{isTrainingCompletedSuccessfully && <CongratulationModal />}
 			{windowWidth < 768 && !isMyTrainingFormOpen && (
 				<ActionButton
 					className='openFormButton'

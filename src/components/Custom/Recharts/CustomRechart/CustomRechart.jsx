@@ -5,7 +5,6 @@ import {
 	ResponsiveContainer,
 	CartesianGrid,
 	ReferenceLine,
-	YAxis,
 } from 'recharts'
 import { CustomDot } from '../CustomDot/CustomDot'
 import s from './CustomRechart.module.css'

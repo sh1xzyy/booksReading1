@@ -61,15 +61,15 @@
 		column-gap: 32px;
 		grid-template-columns: 928px 1fr;
 	}
+
 	.pageLayoutDefault {
-		grid-template-rows: auto auto auto auto;
 		grid-template-areas:
 			'form goal'
 			'list empty'
 			'chart empty';
 	}
+
 	.pageLayoutTraining {
-		grid-template-rows: auto auto auto auto;
 		grid-template-areas:
 			'timer goal'
 			'list results'
