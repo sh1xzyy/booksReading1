@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { GoPlus } from 'react-icons/go'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import {
 	selectIsLoading,
 	selectPlannedData,
@@ -21,11 +21,15 @@ import TimerBlock from '../../components/Blocks/TimerBlock/TimerBlock'
 import clsx from 'clsx'
 import MyTrainingForm from '../../components/Form/MyTrainingForm/MyTrainingForm'
 import { useTrainingContext } from '../../contexts/TrainingContext'
+import CongratulationModal from '../../components/Modal/CongratulationModal/CongratulationModal'
+import { useTrainingCompletedSuccessfullyContext } from '../../contexts/TrainingCompletedSuccessfullyContext'
 
 const StatisticsPage = () => {
 	const { isMyTrainingFormOpen, setIsMyTrainingFormOpen } =
 		useMyTrainingFormContext()
 	const { isTraining, onStartTrainingButtonClick } = useTrainingContext()
+	const { isTrainingCompletedSuccessfully } =
+		useTrainingCompletedSuccessfullyContext()
 	const { plannedBooks } = useSelector(selectPlannedData)
 	const isLoading = useSelector(selectIsLoading)
 	const { windowWidth } = useWindowWidth()
@@ -42,11 +46,11 @@ const StatisticsPage = () => {
 		fetchData()
 	}, [dispatch])
 
-	if (isLoading) return <Loader />
-
 	return (
 		<>
+			{isLoading && <Loader />}
 			{isMyTrainingFormOpen && <ActionFormModal type='trainingForm' />}
+			{!isTrainingCompletedSuccessfully && <CongratulationModal />}
 			{windowWidth < 768 && !isMyTrainingFormOpen && (
 				<ActionButton
 					className='openFormButton'
@@ -56,7 +60,6 @@ const StatisticsPage = () => {
 					<GoPlus color='#fff' size={24} />
 				</ActionButton>
 			)}
-
 			<Container className='statisticsPageContainer'>
 				<div
 					className={clsx(

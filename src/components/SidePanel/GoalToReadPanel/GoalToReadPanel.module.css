@@ -14,44 +14,81 @@
 	padding: 44px 30px;
 }
 
-.countList {
-	display: grid;
+.defaultCountList,
+.trainingCountList {
+	display: flex;
 	justify-content: center;
-	grid-template-columns: 100px 100px;
+}
+
+.defaultCountList {
 	column-gap: 20px;
 }
 
-.countItem {
+.trainingCountList li:nth-child(3) .trainingCounter {
+	color: #ff6b08;
+}
+
+.defaultCountItem,
+.trainingCountItem {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 100px;
-	height: 100px;
-	margin-bottom: 14px;
 	box-shadow: 4px 4px 8px 0 rgba(36, 42, 55, 0.15);
 	background: #f5f7fa;
 }
 
-.counter {
+.defaultCountItem {
+	width: 100px;
+	height: 100px;
+	margin-bottom: 14px;
+}
+
+.trainingCountItem {
+	width: 63px;
+	height: 63px;
+	margin-bottom: 8px;
+}
+
+.defaultCounter,
+.trainingCounter {
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 700;
-	font-size: 45px;
-	line-height: 0.84;
 	color: #091e3f;
 }
 
-.counterDescription {
+.defaultCounter {
+	font-size: 45px;
+	line-height: 0.84;
+}
+
+.trainingCounter {
+	font-size: 35px;
+	line-height: 1.09;
+}
+
+.trainingCountList {
+	column-gap: 12px;
+}
+
+.defaultCounterDescription,
+.trainingCounterDescription {
 	display: block;
-	max-width: 100px;
 	font-weight: 500;
-	font-size: 14px;
 	color: #898f9f;
+}
+
+.defaultCounterDescription {
+	font-size: 14px;
 	text-align: left;
+}
+
+.trainingCounterDescription {
+	font-size: 11px;
+	text-align: center;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
 	.goalHeader {
-		margin-top: 3px;
 		padding: 18px 28px;
 		box-shadow: 0 2px 3px 0 rgba(9, 30, 63, 0.1);
 		background-color: #b1b5c2;
@@ -59,24 +96,34 @@
 	.countWrapper {
 		padding: 0;
 	}
-	.countList {
+	.defaultCountList {
 		column-gap: 40px;
 	}
-	.countItem {
+	.defaultCountItem,
+	.trainingCountItem {
 		height: 60px;
 		margin-bottom: 4px;
 	}
-	.counter {
+	.trainingCountItem {
+		width: 100px;
+	}
+	.defaultCounter {
 		font-size: 40px;
 		line-height: 0.95;
 	}
-	.counterDescription {
+	.defaultCounterDescription {
 		font-size: 11px;
+	}
+	.trainingCounterDescription {
+		max-width: 100px;
 	}
 }
 
 @media screen and (min-width: 1280px) {
-	.counterDescription {
+	.defaultCounterDescription {
 		text-align: center;
+	}
+	.trainingCountList {
+		column-gap: 20px;
 	}
 }

@@ -55,3 +55,22 @@
 		max-height: 204px;
 	}
 }
+
+/* Congratulation Modal */
+
+.congratulationModal {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	max-width: 280px;
+	max-height: 358px;
+	padding: 44px 20px;
+}
+
+@media screen and (min-width: 768px) {
+	.congratulationModal {
+		max-width: 394px;
+		max-height: 286px;
+	}
+}

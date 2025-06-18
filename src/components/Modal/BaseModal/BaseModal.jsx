@@ -1,7 +1,7 @@
-import clsx from 'clsx'
+import { useEffect } from 'react'
 import { handleOverlayClick } from '../../../utils/modal/handleOverlayClick'
 import s from './BaseModal.module.css'
-import { useEffect } from 'react'
+import clsx from 'clsx'
 
 const BaseModal = ({ children, className, isModalOpen }) => {
 	useEffect(() => {

@@ -9,11 +9,17 @@
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
-	.goalToReadWrapper {
+	.goalToReadWrapper,
+	.goalToReadTrainingWrapper {
 		display: flex;
 		justify-content: space-between;
 		align-items: flex-start;
+	}
+	.goalToReadWrapper {
 		padding: 20px 52px 8px 28px;
+	}
+	.goalToReadTrainingWrapper {
+		padding: 20px 42px 15px 42px;
 	}
 	.resultsWrapper {
 		padding: 28px 96px 32px 96px;
