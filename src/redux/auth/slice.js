@@ -42,6 +42,7 @@ const authSlice = createSlice({
 				state.isLoggedIn = true
 			})
 			.addCase(logoutThunk.fulfilled, () => {
+				localStorage.removeItem('isTraining')
 				return initialState
 			})
 			.addCase(refreshThunk.fulfilled, (state, action) => {
