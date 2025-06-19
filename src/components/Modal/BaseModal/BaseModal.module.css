@@ -58,7 +58,7 @@
 
 /* Congratulation Modal */
 
-.congratulationModal {
+.trainingResultModal {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -69,7 +69,7 @@
 }
 
 @media screen and (min-width: 768px) {
-	.congratulationModal {
+	.trainingResultModal {
 		max-width: 394px;
 		max-height: 286px;
 	}

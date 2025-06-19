@@ -21,8 +21,8 @@ import TimerBlock from '../../components/Blocks/TimerBlock/TimerBlock'
 import clsx from 'clsx'
 import MyTrainingForm from '../../components/Form/MyTrainingForm/MyTrainingForm'
 import { useTrainingContext } from '../../contexts/TrainingContext'
-import CongratulationModal from '../../components/Modal/CongratulationModal/CongratulationModal'
 import { useTrainingCompletedSuccessfullyContext } from '../../contexts/TrainingCompletedSuccessfullyContext'
+import TrainingResultModal from '../../components/Modal/trainingModal/TrainingResultModal/TrainingResultModal'
 
 const StatisticsPage = () => {
 	const { isMyTrainingFormOpen, setIsMyTrainingFormOpen } =
@@ -50,7 +50,7 @@ const StatisticsPage = () => {
 		<>
 			{isLoading && <Loader />}
 			{isMyTrainingFormOpen && <ActionFormModal type='trainingForm' />}
-			{isTrainingCompletedSuccessfully && <CongratulationModal />}
+			{isTrainingCompletedSuccessfully && <TrainingResultModal />}
 			{windowWidth < 768 && !isMyTrainingFormOpen && (
 				<ActionButton
 					className='openFormButton'

@@ -41,10 +41,8 @@ const planningSlice = createSlice({
 				state.isLoading = false
 			})
 			.addCase(deleteBookFromTrainingPlanThunk.fulfilled, (state, action) => {
-				console.log(action.payload)
-
 				state.isLoading = false
-				state.books = state.books.filter(book => book.id !== action.payload)
+				state.books = state.books.filter(book => book.id !== action.payload.id)
 			})
 
 			.addMatcher(

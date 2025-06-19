@@ -35,6 +35,10 @@ const LoginForm = () => {
 							className='googleButton'
 							type='button'
 							title='Google'
+							onClick={() => {
+								window.location.href =
+									'https://bookread-backend.goit.global/auth/google'
+							}}
 						/>
 						<div className={s.fields}>
 							<FormField

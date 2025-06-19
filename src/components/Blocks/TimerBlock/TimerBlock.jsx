@@ -6,7 +6,6 @@ import s from './TimerBlock.module.css'
 const TimerBlock = () => {
 	const { newYearTime } = useTimer()
 	const { timeLeft } = useDeadlineTimer()
-	console.log(timeLeft)
 
 	return (
 		<div className={s.timersGroup}>

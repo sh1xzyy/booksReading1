@@ -11,6 +11,7 @@ import PrivateRoutes from '../PrivateRoutes.jsx'
 import RestrictedRoutes from '../RestrictedRoutes.jsx'
 import Loader from '../Common/Loader/Loader.jsx'
 import { useWindowWidth } from '../../contexts/WindowWidthContext.jsx'
+import GoogleAuthRedirect from '../../features/auth/GoogleAuthRedirect/GoogleAuthRedirect.jsx'
 const WelcomePage = lazy(() =>
 	import('../../pages/WelcomePage/WelcomePage.jsx')
 )
@@ -53,6 +54,7 @@ function App() {
 					<AppBar />
 					<Suspense fallback={<Loader />}>
 						<Routes>
+							<Route path='/google-auth' element={<GoogleAuthRedirect />} />
 							<Route
 								path='/'
 								element={

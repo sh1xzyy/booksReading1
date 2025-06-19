@@ -1,15 +1,8 @@
-import { useTrainingCompletedSuccessfullyContext } from '../../../contexts/TrainingCompletedSuccessfullyContext'
-import ActionButton from '../../Common/ActionButton/ActionButton'
-import BaseModal from '../BaseModal/BaseModal'
-import s from './CongratulationModal.module.css'
-const CongratulationModal = () => {
-	const { setIsTrainingCompletedSuccessfully } =
-		useTrainingCompletedSuccessfullyContext()
+import ActionButton from '../../../Common/ActionButton/ActionButton'
+import s from './TrainingSuccessModal.module.css'
+const TrainingSuccessModal = () => {
 	return (
-		<BaseModal
-			className='congratulationModal'
-			isModalOpen={setIsTrainingCompletedSuccessfully}
-		>
+		<>
 			<svg width={54} height={54}>
 				<use href='/icons/icons.svg#icon-like-palm'></use>
 			</svg>
@@ -32,8 +25,8 @@ const CongratulationModal = () => {
 					onClick={() => console.log('Cancel')}
 				/>
 			</div>
-		</BaseModal>
+		</>
 	)
 }
 
-export default CongratulationModal
+export default TrainingSuccessModal
